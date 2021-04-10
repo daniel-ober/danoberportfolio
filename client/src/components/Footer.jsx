@@ -1,11 +1,12 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function Footer() {
   return (
     <footer>
-      <div className="footer-logo">
-        <p>Footer - Dan Ober (Home)</p>
-      </div>
+      <NavLink className="footer-logo" to="/">
+        FOOTER - DAN OBER
+      </NavLink>
       <div className="footer-social">
         <a href="https://github.com/daniel-ober">Footer - My GitHub</a>
       </div>

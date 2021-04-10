@@ -1,15 +1,11 @@
 import Nav from "./Nav";
 import Footer from "./Footer";
-import Home from './Home'
-import About from './About'
-import Projects from './Projects'
-import Contact from './Contact'
-import { Switch, Route } from 'react-router-dom'
 
-function Layout() {
+function Layout(props) {
   return (
     <div className="layout">
       <Nav />
+      <div className="layout-children">{props.children}</div>
       <Footer />
     </div>
   );
