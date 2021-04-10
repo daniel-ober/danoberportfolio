@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
-body {
+body, textarea {
   margin: 0;
   font-family: 'Questrial', sans-serif;
   -webkit-font-smoothing: antialiased;

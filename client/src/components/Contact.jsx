@@ -8,7 +8,11 @@ export default function Contact() {
         Fill out the form below, or by emailing me at{" "}
         <a href="mailto:danielober84@gmail.com">danielober84@gmail.com</a>.
       </p>
-      <form className="form-container">
+      <form
+        className="form-container"
+        action="https://getform.io/f/0f287cad-2400-48da-8e33-20366c4a5093" 
+        method="POST"
+      >
         <label>Name:</label>
         <input required name="name" type="text" placeholder="Enter your name" />
         <label>Email:</label>
@@ -21,15 +25,15 @@ export default function Contact() {
         <label>Phone (optional):</label>
         <input name="phone" type="tel" placeholder="Enter your phone number" />
         <label>Message:</label>
-        <input
+        <textarea
           required
           name="message"
           type="text"
           placeholder="Enter your message"
-          min="50"
-          max="500"
+        //   minLength="25"
+          maxLength="4500"
         />
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

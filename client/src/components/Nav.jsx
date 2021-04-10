@@ -5,7 +5,7 @@ export default function Nav() {
   return (
     <div className="nav">
       <div className="nav-left">
-        <NavLink to="/">MYLOGO</NavLink>
+        <NavLink to="/">DAN<strong>OBER</strong></NavLink>
       </div>
       <div className="nav-right">
         <NavLink to="/about">ABOUT</NavLink>

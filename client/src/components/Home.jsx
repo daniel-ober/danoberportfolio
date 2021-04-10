@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function Home() {
   return (
     <div className="main-container">
-      <h3>DANOBER</h3>
+      <p>DAN<strong>OBER</strong></p>
       <br/>
       <h1>Problem Solver.</h1>
       <h1>Creative Designer.</h1>
