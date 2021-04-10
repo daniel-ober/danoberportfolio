@@ -5,12 +5,12 @@ export default function Nav() {
   return (
     <div className="nav">
       <div className="nav-left">
-        <NavLink to="/">DAN OBER</NavLink>
+        <NavLink to="/">MYLOGO</NavLink>
       </div>
       <div className="nav-right">
-        <NavLink to="/about">ABOUT </NavLink>
-        <NavLink to="/projects"> PROJECTS</NavLink>
-        <NavLink to="/contact"> CONTACT</NavLink>
+        <NavLink to="/about">ABOUT</NavLink>
+        <NavLink to="/projects">PROJECTS</NavLink>
+        <NavLink to="/contact">CONTACT</NavLink>
       </div>
     </div>
   );

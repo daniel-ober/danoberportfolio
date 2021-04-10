@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import "./App.css";
 import { Route } from "react-router-dom";
 import Home from "./components/Home";
@@ -9,7 +8,7 @@ import Layout from "./components/Layout";
 
 function App() {
   return (
-    <div className="main-container">
+    <>
       <Layout>
         <Route exact path="/">
           <Home />
@@ -24,7 +23,7 @@ function App() {
           <Contact />
         </Route>
       </Layout>
-    </div>
+    </>
   );
 }
 
