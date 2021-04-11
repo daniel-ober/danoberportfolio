@@ -104,3 +104,7 @@ button {
   text-decoration: none;
   color:rgb(32, 75, 150);
 }
+
+.project-image {
+  height: 50vh;
+}
