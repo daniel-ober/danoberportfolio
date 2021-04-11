@@ -8,7 +8,8 @@ function Footer() {
         FOOTER - DAN OBER
       </NavLink>
       <div className="footer-social">
-        <a href="https://github.com/daniel-ober">Footer - My GitHub</a>
+        <a href="https://github.com/daniel-ober">GitHub</a>
+        <a href="https://github.com/daniel-ober">Linkedin</a>
       </div>
     </div>
   );
