@@ -5,11 +5,11 @@ function Footer() {
   return (
     <div className='footer'>
       <NavLink className="footer-logo" to="/">
-        FOOTER - DAN OBER
+        DANOBER
       </NavLink>
       <div className="footer-social">
         <a href="https://github.com/daniel-ober">GitHub</a>
-        <a href="https://github.com/daniel-ober">Linkedin</a>
+        <a href="https://www.linkedin.com/in/daniel-ober/">Linkedin</a>
       </div>
     </div>
   );

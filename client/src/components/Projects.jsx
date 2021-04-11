@@ -2,12 +2,30 @@ import React from "react";
 
 export default function Projects() {
   return (
-    <div className="projects-container">
+    <div className="projects-main-container">
       <h2>PROJECTS</h2>
-      <div className="sunday-driver-main-container">
+      <div className="project-container">
+        <div className="doberpop-container-left">
+          <a href="https://doberpop.netlify.app/">
+            <img
+              className="project-image"
+              src="https://i.imgur.com/FVo119M.png"
+              alt="doberpop-screens"
+            ></img>
+          </a>
+        </div>
+        <div className="doberpop-container-right">
+          <img
+            className="project-logo-doberpop"
+            src="https://i.imgur.com/1nzGA9M.png"
+            alt="doberpop-logo"
+          ></img>
+        </div>
+      </div>
+      <div className="project-container">
         <div className="sunday-driver-container-left">
           <img
-            className="project-logo-1"
+            className="project-logo-sunday-driver"
             src="https://i.imgur.com/2KjLTZx.png"
             alt="sunday-driver-logo"
           ></img>
@@ -22,33 +40,8 @@ export default function Projects() {
           </a>
         </div>
       </div>
-      <div className="doberpop-main-container">
-        <div className="doberpop-container-left">
-          <img
-            className="project-logo-2"
-            src="https://i.imgur.com/1nzGA9M.png"
-            alt="doberpop-logo"
-          ></img>
-        </div>
-        <div className="doberpop-container-right">
-          <a href="https://doberpop.netlify.app/">
-            <img
-              className="project-image"
-              src="https://i.imgur.com/FVo119M.png"
-              alt="doberpop-screens"
-            ></img>
-          </a>
-        </div>
-      </div>
-      <div className="artist-abc-main-container">
+      <div className="project-container">
         <div className="abc-artist-container-left">
-          <img
-            className="project-logo-3"
-            src="https://i.imgur.com/rj8TLht.png"
-            alt="artist-abc-logo"
-          ></img>
-        </div>
-        <div className="abc-artist-container-right">
           <a href="https://artist-abc.netlify.app/">
             <img
               className="project-image"
@@ -56,6 +49,13 @@ export default function Projects() {
               alt="artist-abc-screens"
             ></img>
           </a>
+        </div>
+        <div className="artist-abc-container-right">
+          <img
+            className="project-logo-artist-abc"
+            src="https://i.imgur.com/rj8TLht.png"
+            alt="artist-abc-logo"
+          ></img>
         </div>
       </div>
 
