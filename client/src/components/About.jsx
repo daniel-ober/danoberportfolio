@@ -11,9 +11,9 @@ export default function About() {
       Interested in learning more? <Link to='/contact'>Let's connect.</Link>
       </p>
       </div>
-      <div className='about-right'>
+      {/* <div className='about-right'>
         <img className='dan-ober'src='https://i.imgur.com/HTUD8gZ.png' alt='dan-ober'></img>
-      </div>
+      </div> */}
     </div>
   );
 }

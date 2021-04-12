@@ -1,6 +1,5 @@
 import Nav from "./Nav";
 import Footer from "./Footer";
-import Home from './Home'
 
 function Layout(props) {
   return (
