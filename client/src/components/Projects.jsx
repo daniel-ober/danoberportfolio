@@ -4,7 +4,7 @@ export default function Projects() {
   return (
     <div className="projects-main-container">
       <h2>PROJECTS</h2>
-      <p>test test test</p>
+      <p>Stacks and Tools used in creating projects</p>
       <ul className="stack-list">
         <li>HTML5</li>
         <li>CSS3</li>
@@ -20,6 +20,8 @@ export default function Projects() {
         <li>Postman</li>
         <li>Postico</li>
       </ul>
+      <br/>
+      <h3>Scroll down to view projects!</h3>
       <div className="project-container-a">
         <div className="doberpop-container-left">
           <a
