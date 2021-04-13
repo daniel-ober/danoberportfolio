@@ -6,7 +6,7 @@ export default function Contact() {
       <h2>Let's Connect.</h2>
       <p>
         Fill out the form below, or by emailing me at{" "}
-        <a href="mailto:danielober84@gmail.com">danielober84@gmail.com</a>.
+        <a href="mailto:danielober84@gmail.com">danielober84@gmail.com</a>
       </p>
       <form
         className="form-container"
@@ -33,7 +33,7 @@ export default function Contact() {
         //   minLength="25"
           maxLength="4500"
         />
-        <button type="submit">Submit</button>
+        <button className='submit-button' type="submit">SUBMIT</button>
       </form>
     </div>
   );

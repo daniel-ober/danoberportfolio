@@ -5,7 +5,14 @@ function Layout(props) {
   return (
     <div className="layout">
       <Nav />
-      <div className="layout-children">{props.children}</div>
+      <div className="layout-left">{props.children}</div>
+      <div className="layout-right">
+        <img
+          className="dan-ober"
+          src="https://i.imgur.com/HTUD8gZ.png"
+          alt="dan-ober"
+        ></img>
+      </div>
       <Footer />
     </div>
   );
