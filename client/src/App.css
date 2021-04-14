@@ -5,29 +5,29 @@
 .nav {
   background-color: whitesmoke;
   width: 100%;
-  height: 75px;
+  height: 65px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0px 20px;
+  padding: 0px 50px;
   text-decoration: none;
   border-bottom: 1px solid #003049;
-  z-index: 2;
+  z-index: 3;
   list-style:none;
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   position: fixed;
 }
 
 .nav-left {
-  padding-left: 11vh;
+  /* padding-left: 11vh; */
   display: flex;
   flex-direction: row;
   text-align: center;
 }
 
 .nav-danober {
-  font-size: 26px;
+  font-size: 23px;
   color: rgb(0, 0, 0);
   padding-top: 0px;
   padding-right: 30px;
@@ -42,7 +42,7 @@
 .nav a {
   display:inline-block;
   text-decoration: none;
-  padding:30px;
+  padding:26px;
   color:rgba(0, 0, 0, 0.6);
   font-weight: bold;
 }
@@ -63,7 +63,6 @@
   margin-top: 14vh;
   /* margin-left: 100vh; */
   position: fixed;
-  z-index: 0;
 }
 
 .home-container,
@@ -88,7 +87,6 @@
   background-size:auto;
   width: 100%;
   min-height: 100vh;
-  z-index: -3;
 }
 
 .layout-left {
@@ -96,7 +94,12 @@
   margin: 5vh 15vh 5vh 15vh;
   position:sticky;
   max-width: 100vh;
+  z-index: 1;
 }
+
+/* .layout-right {
+  z-index: 0;
+} */
 
 p {
   font-size: 22px;
@@ -140,13 +143,22 @@ h2 {
   justify-content: space-evenly;
   align-content: center;
   margin: 20vh;
-  /* margin: 5vh 15vh 5vh 15vh; */
 }
 
-.project-container-right {
-  display: flex;
-  -ms-flex-direction: column;
+.project-details-container {
+  width: 50vh;
+  /* margin: 20px; */
 }
+
+.project-description {
+  width: 50vh;
+  z-index: 5;
+}
+
+/* .project-container-right {
+  display: flex;
+  flex-direction: column;
+} */
 
 /* .project-container-b {
   background-color:rgba(0, 0, 0, 0.303);
@@ -169,8 +181,17 @@ h2 {
 }
 
 .project-image {
-  height: 65vh;
-  z-index: 1;
+  height: 60vh;
+  z-index: 5;
+}
+
+.project-buttons-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.project-button {
+  margin: 5px 20px 0px 0px;
 }
 
 /* .project-description {
@@ -225,6 +246,7 @@ button {
   color:rgb(32, 75, 150);
   width: 100%;
   padding:15px;
+  z-index: 3;
 }
 
 .footer a {

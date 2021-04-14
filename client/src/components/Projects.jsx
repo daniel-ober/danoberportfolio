@@ -50,14 +50,14 @@ export default function Projects() {
               rel="noopener noreferrer"
               target="_blank"
             >
-              <button>VIEW SITE</button>
+              <button className='project-button'>VIEW SITE</button>
             </a>
             <a
               href="https://github.com/daniel-ober/doberpop"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <button>VIEW CODE</button>
+              <button className='project-button'>VIEW CODE</button>
             </a>
           </div>
         </div>
@@ -83,14 +83,14 @@ export default function Projects() {
               rel="noopener noreferrer"
               target="_blank"
             >
-              <button>VIEW SITE</button>
+              <button className='project-button'>VIEW SITE</button>
             </a>
             <a
               href="https://github.com/arbayer4/car-app"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <button>VIEW CODE</button>
+              <button className='project-button'>VIEW CODE</button>
             </a>
           </div>
         </div>
@@ -127,14 +127,14 @@ export default function Projects() {
               rel="noopener noreferrer"
               target="_blank"
             >
-              <button>VIEW SITE</button>
+              <button className='project-button'>VIEW SITE</button>
             </a>
             <a
               href="https://github.com/daniel-ober/artist-abc"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <button>VIEW CODE</button>
+              <button className='project-button'>VIEW CODE</button>
             </a>
           </div>
         </div>
@@ -157,14 +157,14 @@ export default function Projects() {
               rel="noopener noreferrer"
               target="_blank"
             >
-              <button>VIEW SITE</button>
+              <button className='project-button'>VIEW SITE</button>
             </a>
             <a
               href="https://github.com/daniel-ober/hotchickenheroes"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <button>VIEW CODE</button>
+              <button className='project-button'>VIEW CODE</button>
             </a>
           </div>
         </div>
