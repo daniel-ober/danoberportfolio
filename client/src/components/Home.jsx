@@ -7,7 +7,7 @@ export default function Home() {
       <h2 className='home-header'>Mission Driven.</h2>
       <h2 className='home-header'>Creative Designer.</h2>
       <h2 className='home-header'>Problem Solver.</h2>
-      <p>
+      <p className='home-body'>
         Energetic and creative self-starter and entrepreneur seeking opportunity
         to expand personal and professional skills and contribute to a
         team-oriented environment. Excellent communication skills with proven
