@@ -4,13 +4,9 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <div className="home-container">
-      <p>
-        DAN<strong>OBER</strong>
-      </p>
-      <br />
-      <h1>Problem Solver.</h1>
-      <h1>Creative Designer.</h1>
-      <h1>Mission Driven.</h1>
+      <h2 className='home-header'>Mission Driven.</h2>
+      <h2 className='home-header'>Creative Designer.</h2>
+      <h2 className='home-header'>Problem Solver.</h2>
       <p>
         Energetic and creative self-starter and entrepreneur seeking opportunity
         to expand personal and professional skills and contribute to a

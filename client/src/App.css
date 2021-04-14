@@ -19,6 +19,22 @@
   position: fixed;
 }
 
+.nav-left {
+  padding-left: 11vh;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.nav-danober {
+  font-size: 26px;
+  color: rgb(0, 0, 0);
+  padding-top: 0px;
+  padding-right: 30px;
+  text-shadow: 2px 1px 15px rgba(71, 184, 255, 0.3);
+}
+
+
 .nav-right {
   padding-right: 50px;
 }
@@ -33,6 +49,7 @@
 
 .nav a:hover {
   font-weight: bold;
+  color:black;
 }
 
 .nav a:active {
@@ -46,7 +63,7 @@
   margin-top: 14vh;
   /* margin-left: 100vh; */
   position: fixed;
-  /* z-index: -1; */
+  z-index: 0;
 }
 
 .home-container,
@@ -55,7 +72,7 @@
 .contact-container {
   display: flex;
   flex-direction: column;
-  min-height: 85vh;
+  min-height: 80vh;
   margin-top: 75px;
 }
 
@@ -71,6 +88,7 @@
   background-size:auto;
   width: 100%;
   min-height: 100vh;
+  z-index: -3;
 }
 
 .layout-left {
@@ -96,9 +114,19 @@ li {
   box-shadow: teal;
 } */
 
+.home-header,
+h2 {
+  line-height: 0px;
+  font-size: 30px;
+  font-weight: 100;
+  letter-spacing: 4px;
+
+}
+
 .projects-main-container {
   /* width: 150vh; */
   z-index: 1;
+  padding-top: 10vh;
 }
 
 /* .stack-list {
@@ -111,8 +139,13 @@ li {
   flex-direction: row;
   justify-content: space-evenly;
   align-content: center;
-  margin: 15vh;
+  margin: 20vh;
   /* margin: 5vh 15vh 5vh 15vh; */
+}
+
+.project-container-right {
+  display: flex;
+  -ms-flex-direction: column;
 }
 
 /* .project-container-b {
@@ -132,13 +165,17 @@ li {
 }
 
 .project-logo-hot-chicken-heroes {
-  height: 250px;
+  height: 120px;
 }
 
 .project-image {
   height: 65vh;
   z-index: 1;
 }
+
+/* .project-description {
+  padding-left: 20px;
+} */
 
 .form-container {
   display: flex;
@@ -187,7 +224,7 @@ button {
   background-color: whitesmoke;
   color:rgb(32, 75, 150);
   width: 100%;
-  padding:25px;
+  padding:15px;
 }
 
 .footer a {
