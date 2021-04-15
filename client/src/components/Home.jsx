@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <div className="home-container">
+    <div className="home-main-container">
       <h2 className='home-header'>Mission Driven.</h2>
       <h2 className='home-header'>Creative Designer.</h2>
       <h2 className='home-header'>Problem Solver.</h2>

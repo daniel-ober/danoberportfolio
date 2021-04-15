@@ -66,6 +66,13 @@ export default function Projects() {
           </div>
         </div>
         <div className="project-container">
+        <div className="project-screenshots-container-mobile">
+            <img
+              className="project-image"
+              src="https://i.imgur.com/ICX5fh8.png"
+              alt="sunday-driver-screens"
+            ></img>
+          </div>
           <div className="project-details-container">
             <img
               className="project-logo-sunday-driver"
@@ -143,6 +150,13 @@ export default function Projects() {
           </div>
         </div>
         <div className="project-container">
+        <div className="project-screenshots-container-mobile">
+            <img
+              className="project-image"
+              src="https://i.imgur.com/ePl2IZ4.png"
+              alt="hot-chicken-heroes-screens"
+            ></img>
+          </div>
           <div className="project-details-container">
             <img
               className="project-logo-hot-chicken-heroes"

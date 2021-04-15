@@ -3,10 +3,15 @@ import { Link } from "react-router-dom";
 
 export default function About() {
   return (
-    <div className="about-container">
+    <div className="about-main-container">
       <div className="about-left">
-        <h2 className="about-header">WHO IS DAN?</h2>
+        <h2 className="about-header">ABOUT DAN</h2>
         <div className="about-body">
+        <img
+          className="dan-ober-about-mobile-image"
+          src="https://i.imgur.com/HTUD8gZ.png"
+          alt="dan-ober"
+        ></img>
           <p>
             I’m a full-stack web developer with a background in the auto,
             finance, HR, retail, entertainment, health and benefits industries.

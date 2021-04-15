@@ -9,9 +9,9 @@ export default function Nav() {
         <NavLink to="/">HOME</NavLink>
         <NavLink to="/about">ABOUT</NavLink>
         <NavLink to="/projects">PROJECTS</NavLink>
+        <NavLink to="/contact">CONTACT</NavLink>
       </div>
       <div className="nav-right">
-        <NavLink to="/contact">CONTACT</NavLink>
       </div>
     </div>
   );

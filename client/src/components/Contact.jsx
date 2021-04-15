@@ -2,9 +2,9 @@ import React from "react";
 
 export default function Contact() {
   return (
-    <div className="contact-container">
+    <div className="contact-main-container">
       <h2>Let's Connect.</h2>
-      <p>
+      <p className='contact-callout'>
         Fill out the form below, or by emailing me at{" "}
         <a href="mailto:danielober84@gmail.com">danielober84@gmail.com</a>
       </p>
