@@ -29,6 +29,7 @@ export default function Projects() {
           <div className="project-screenshots-container">
             <img
               className="project-image"
+              id="project-image-doberpop"
               src="https://i.imgur.com/FVo119M.png"
               alt="doberpop-screens"
             ></img>
@@ -47,6 +48,13 @@ export default function Projects() {
               ideas with the rest of the community. <br />
               <br />
             </h3>
+            <div className="project-screenshots-container-mobile">
+              <img
+                className="project-image"
+                src="https://i.imgur.com/FVo119M.png"
+                alt="doberpop-screens"
+              ></img>
+            </div>
             <div className="project-buttons-container">
               <a
                 href="https://doberpop.netlify.app/"
@@ -66,13 +74,6 @@ export default function Projects() {
           </div>
         </div>
         <div className="project-container">
-        <div className="project-screenshots-container-mobile">
-            <img
-              className="project-image"
-              src="https://i.imgur.com/ICX5fh8.png"
-              alt="sunday-driver-screens"
-            ></img>
-          </div>
           <div className="project-details-container">
             <img
               className="project-logo-sunday-driver"
@@ -87,6 +88,13 @@ export default function Projects() {
               etc. Car shoppers have the ability to view selling vehicles and
               contact the seller via email or phone.
             </h3>
+            <div className="project-screenshots-container-mobile">
+              <img
+                className="project-image"
+                src="https://i.imgur.com/ICX5fh8.png"
+                alt="sunday-driver-screens"
+              ></img>
+            </div>
             <div className="project-buttons-container">
               <a
                 href="https://sundaydriver.netlify.app/"
@@ -107,6 +115,7 @@ export default function Projects() {
           <div className="project-screenshots-container">
             <img
               className="project-image"
+              id="project-image-sunday-driver"
               src="https://i.imgur.com/ICX5fh8.png"
               alt="sunday-driver-screens"
             ></img>
@@ -116,6 +125,7 @@ export default function Projects() {
           <div className="project-screenshots-container">
             <img
               className="project-image"
+              id="project-image-artist-abc"
               src="https://i.imgur.com/1gHVjzS.png"
               alt="artist-abc-screens"
             ></img>
@@ -131,6 +141,13 @@ export default function Projects() {
               about their favorite artists and discover new music artists via a
               randomizer algorithm based off the music they like (coming soon!).
             </h3>
+            <div className="project-screenshots-container-mobile">
+              <img
+                className="project-image"
+                src="https://i.imgur.com/1gHVjzS.png"
+                alt="artist-abc-screens"
+              ></img>
+            </div>
             <div className="project-buttons-container">
               <a
                 href="https://artist-abc.netlify.app/"
@@ -150,13 +167,6 @@ export default function Projects() {
           </div>
         </div>
         <div className="project-container">
-        <div className="project-screenshots-container-mobile">
-            <img
-              className="project-image"
-              src="https://i.imgur.com/ePl2IZ4.png"
-              alt="hot-chicken-heroes-screens"
-            ></img>
-          </div>
           <div className="project-details-container">
             <img
               className="project-logo-hot-chicken-heroes"
@@ -168,6 +178,13 @@ export default function Projects() {
               share their food scores/notes via a judging slip - similar to a
               scoring slip you'd see in the big leagues of competitive judging.
             </h3>
+            <div className="project-screenshots-container-mobile">
+              <img
+                className="project-image"
+                src="https://i.imgur.com/ePl2IZ4.png"
+                alt="hot-chicken-heroes-screens"
+              ></img>
+            </div>
             <div className="project-buttons-container">
               <a
                 href="https://hotchickenheroes.netlify.app/"
@@ -188,6 +205,7 @@ export default function Projects() {
           <div className="project-screenshots-container">
             <img
               className="project-image"
+              id="project-image-hot-chicken-heroes"
               src="https://i.imgur.com/ePl2IZ4.png"
               alt="hot-chicken-heroes-screens"
             ></img>

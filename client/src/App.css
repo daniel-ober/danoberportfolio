@@ -311,7 +311,7 @@ button {
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
   .nav {
-    padding: 5vh 2vh 1vh 2vh;
+    padding: 2vh 2vh 1vh 2vh;
     height: 5vh;
   }
 
@@ -347,16 +347,37 @@ button {
     justify-content: center;
   }
 
-  .project-screenshots-container {
+  /* . {
     display: none;
-  }
+  } */
 
   .project-screenshots-container-mobile {
+    display:flex;
     justify-content: center;
   }
 
+#project-image-sunday-driver {
+  display: none;
+}
+
+  #project-image-hot-chicken-heroes {
+    display: none;
+  }
+
+  #project-image-doberpop {
+    display: none;
+  }
+
+  #project-image-artist-abc {
+    display: none;
+  }
+
+  /* #project-image {
+    display: none;
+  } */
+
   .home-main-container {
-    margin: 15vh 4vh 0px 4vh;
+    margin: 12vh 4vh 0px 4vh;
   }
 
   .home-header,
@@ -379,7 +400,7 @@ button {
   }
 
   .about-main-container {
-    margin: 15vh 4vh 8vh 4vh;
+    margin: 12vh 4vh 8vh 4vh;
   }
 
   .about-header,
@@ -407,7 +428,7 @@ button {
   }
 
   .contact-main-container {
-    margin: 15vh 4vh 8vh 4vh;
+    margin: 12vh 4vh 8vh 4vh;
   }
 
   .contact-callout {
@@ -430,10 +451,11 @@ button {
     flex-direction: column;
     justify-content: center;
     z-index: 1;
+    margin-bottom: 7vh;
   }
 
   .projects-top-container {
-    margin: 0vh 4vh 8vh 4vh;
+    margin: 0vh 4vh 15vh 4vh;
   }
 
   .projects-bottom-container {
@@ -446,8 +468,10 @@ button {
   .project-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content:baseline;
     max-width: 50vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
   }
 
   .project-details-container {
@@ -464,30 +488,31 @@ button {
   } */
   
   .project-logo-doberpop {
-    height: 60px;
+    height: 90px;
   }
   
   .project-logo-sunday-driver {
-    height: 32px;
+    height: 62px;
   }
   
   .project-logo-artist-abc {
-    height: 50px;
+    height: 80px;
   }
   
   .project-logo-hot-chicken-heroes {
-    height: 60px;
+    height: 90px;
   }
   
   .project-image {
     height: 30vh;
     z-index: 5;
-    padding: 5vh;
+    padding: 1vh;
     /* margin-right: 5vh; */
   }
 
-  .project-screenshots-container-mobile {
-    display: none;
+  .project-buttons-container {
+    margin-top: 1vh;
   }
+
 
 }
