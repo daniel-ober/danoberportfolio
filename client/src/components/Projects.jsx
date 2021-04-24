@@ -209,6 +209,7 @@ export default function Projects() {
               src="https://i.imgur.com/ePl2IZ4.png"
               alt="hot-chicken-heroes-screens"
             ></img>
+            <script scr=''></script>
           </div>
         </div>
       </div>
