@@ -289,8 +289,9 @@ button {
   position: fixed;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   background-color: whitesmoke;
+  align-items: center;
   color: rgb(32, 75, 150);
   width: 100%;
   padding: 15px;
@@ -302,10 +303,21 @@ button {
   color: rgb(32, 75, 150);
 }
 
-/* .footer-social {
+.footer-links {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: row;
+  /* justify-content: space-around; */
+}
+
+.footer img {
+  height:35px;
+  padding: 0px 25px 0px 25px;
+}
+
+/* .footer-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
 } */
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
@@ -513,5 +525,17 @@ button {
     margin-top: 1vh;
   }
 
+
+}
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+
+.nav {
+  padding: 20px;
+}
 
 }
