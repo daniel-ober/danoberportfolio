@@ -138,7 +138,7 @@ h2 {
   flex-direction: column;
   justify-content: space-evenly;
   align-content: center;
-  background-color: rgb(0, 0, 0, 0.75);
+  background-color: rgb(0, 0, 0, 0.85);
 }
 
 .project-description {
@@ -484,9 +484,16 @@ button {
 
   .home-main-container,
   .about-main-container,
-  .projects-main-container,
   .contact-main-container {
     margin: 22vh 10vh 20vh 15vh;
+  }
+
+  .projects-bottom-container {
+    margin: 22vh 10vh 20vh 0vh;
+  }
+
+  .projects-top-container {
+    margin: 10vh 10vh 20vh 15vh;;
   }
 
   .home-main-container,
@@ -520,11 +527,94 @@ button {
   }
 
   .form-container,
-  .home-body .about-left {
+  .home-body,
+  .about-left {
     width: 100vh;
   }
 
   .footer {
     padding: 10px;
   }
+
+  #project-image-sunday-driver {
+    display: flex;
+  }
+
+  #project-image-hot-chicken-heroes {
+    display: flex;
+  }
+
+  #project-image-doberpop {
+    display: flex;
+  }
+
+  #project-image-artist-abc {
+    display: flex;
+  }
+
+  .projects-top-container {
+    margin-bottom: 10vh;
+  }
+  
+  .projects-bottom-container {
+    display: flex;
+    flex-direction: column;
+    /* padding-left:0px; */
+    /* justify-content: space-evenly; */
+    /* align-content: center; */
+    background-color: rgb(0, 0, 0, 0.75);
+    min-width: 195vh;
+  }
+  
+  .project-description {
+    z-index: 5;
+    text-shadow: 2px 1px 10px rgba(0, 0, 0);
+  }
+  
+  .project-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  
+  .project-screenshots-container-mobile {
+    display: none;
+  }
+  
+  .project-logo-doberpop {
+    height: 80px;
+  }
+  
+  .project-logo-sunday-driver {
+    height: 45px;
+  }
+  
+  .project-logo-artist-abc {
+    height: 60px;
+  }
+  
+  .project-logo-hot-chicken-heroes {
+    height: 80px;
+  }
+  
+  .project-image {
+    height: 60vh;
+    z-index: 5;
+    padding-left: 100vh;
+  }
+  
+  .project-buttons-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .project-button {
+    margin: 5px 20px 0px 0px;
+  }
+  
+  .project-details-container {
+    margin: 5vh;
+    margin-top: 0vh;
+  }
+
 }
