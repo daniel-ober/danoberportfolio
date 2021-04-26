@@ -499,7 +499,7 @@ button {
   .home-header,
   .about-header,
   .projects-header,
-  .contact-header, 
+  .contact-header,
   .about-learn-more,
   .about-resume {
     font-weight: 200;
@@ -508,8 +508,7 @@ button {
     text-align: left;
   }
 
-  .about-resume 
-  p {
+  .about-resume p {
     text-align: center;
     font-weight: 600;
     padding-top: 10px;
@@ -521,8 +520,7 @@ button {
   }
 
   .form-container,
-  .home-body
-  .about-left {
+  .home-body .about-left {
     width: 100vh;
   }
 
