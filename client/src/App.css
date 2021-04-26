@@ -467,20 +467,20 @@ button {
     text-shadow: 2px 1px 15px rgba(71, 184, 255, 0.3);
   }
 
-  .layout-right {
+  .layout-right,
+  .dan-ober {
     display: flex;
     flex-direction: row;
-    height: 68vh;
-    margin-top: 20vh;
-    margin-left: 150vh;
+    height: 70vh;
+    margin-top: 10vh;
+    margin-left: 60vh;
     position: fixed;
     z-index: 0;
   }
 
-  .dan-ober {
+  /* .dan-ober {
     display: flex;
-    align-content: flex-end;
-  }
+  } */
 
   .home-main-container,
   .about-main-container,
@@ -523,7 +523,7 @@ button {
   .form-container,
   .home-body
   .about-left {
-    width: 125vh;
+    width: 100vh;
   }
 
   .footer {
