@@ -7,11 +7,11 @@ export default function About() {
       <div className="about-left">
         <h2 className="about-header">ABOUT DAN</h2>
         <div className="about-body">
-        <img
-          className="dan-ober-about-mobile-image"
-          src="https://i.imgur.com/HTUD8gZ.png"
-          alt="dan-ober"
-        ></img>
+          <img
+            className="dan-ober-about-mobile-image"
+            src="https://i.imgur.com/HTUD8gZ.png"
+            alt="dan-ober"
+          ></img>
           <p>
             I’m a full-stack web developer with a background in the auto,
             finance, HR, retail, entertainment, health and benefits industries.
@@ -27,7 +27,7 @@ export default function About() {
             working towards a single mission.
           </p>
           <p>
-            When I'm not coding, I usually listening to, playing, writing, or
+            When I'm not coding, I'm usually listening to, playing, writing, or
             recording music. I'm a drummer at heart, but also play guitar, bass,
             piano, turntables, harmonica, and vocals. I'm a competitive Rubik's
             cube solver and try to get in a couple cube solves a day to keep
@@ -43,10 +43,21 @@ export default function About() {
             follows best practices like sandbox testing and pair programming, to
             help me learn and grow as a developer.
           </p>
-          <p className='learn-more-container'>
+          <p className="about-learn-more">
             Interested in learning more?{" "}
-            <Link to="/contact">Let's connect.</Link>
+            <Link to="/contact">Let's Connect.</Link>
           </p>
+          <p className="about-resume">
+        Download my resume{" "}
+        <a
+          href="https://resume.creddle.io/resume/isqpjbcg0bj"
+          rel="noopener noreferrer"
+          target="_blank"
+          download
+        >
+          here
+        </a>
+      </p>
         </div>
       </div>
     </div>

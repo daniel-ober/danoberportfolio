@@ -28,7 +28,6 @@
 }
 
 .nav-left {
-  /* padding-left: 11vh; */
   display: flex;
   flex-direction: row;
   text-align: center;
@@ -58,11 +57,6 @@
 .dan-ober-about-mobile-image {
   display: none;
 }
-/* .dan-ober {
-  height: 80vh;
-  margin-top: 14vh;
-  position: fixed;
-} */
 
 .home-main-container,
 .about-main-container,
@@ -71,14 +65,8 @@
   display: flex;
   flex-direction: column;
   min-height: 80vh;
-  /* margin-left: 10vh; */
   margin-top: 15vh;
 }
-
-/* .about-container {
-  display: flex;
-  flex-direction: row;
-} */
 
 .layout {
   display: flex;
@@ -91,9 +79,6 @@
 
 .layout-left {
   color: whitesmoke;
-  /* margin: 5vh 15vh 5vh 15vh; */
-  /* position: sticky; */
-  /* max-width: 100vh; */
   z-index: 1;
 }
 
@@ -113,15 +98,12 @@ p {
 
 a {
   color: tomato;
+  text-decoration: none;
 }
 
 li {
   font-size: 25px;
 }
-/* .bg-img {
-  width: 100%;
-  box-shadow: teal;
-} */
 
 .home-header,
 h2 {
@@ -138,21 +120,6 @@ h2 {
   font-weight: 100;
   letter-spacing: 4px;
 }
-
-/* .layout-left {
-  margin-left: 10vh;
-} */
-
-/* .projects-main-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 1;
-  padding-top: 10vh;
-} */
-
-/* .projects-top-container {
-} */
 
 .projects-top-container,
 .about-left,
@@ -172,14 +139,9 @@ h2 {
   justify-content: space-evenly;
   align-content: center;
   background-color: rgb(0, 0, 0, 0.75);
-  /* background-size: fill; */
-  /* width: 160vh; */
-  /* min-height: 100vh; */
-  /* min-width:150vh; */
 }
 
 .project-description {
-  /* width: 50vh; */
   z-index: 5;
   text-shadow: 2px 1px 10px rgba(0, 0, 0);
 }
@@ -188,21 +150,11 @@ h2 {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  /* width: 100vh; */
 }
 
 .project-screenshots-container-mobile {
   display: none;
 }
-
-/* .project-container-right {
-  display: flex;
-  flex-direction: column;
-} */
-
-/* .project-container-b {
-  background-color:rgba(0, 0, 0, 0.303);
-} */
 
 .project-logo-doberpop {
   height: 120px;
@@ -224,7 +176,6 @@ h2 {
   height: 60vh;
   z-index: 5;
   padding: 10vh;
-  /* margin-right: 5vh; */
 }
 
 .project-buttons-container {
@@ -237,13 +188,9 @@ h2 {
 }
 
 .project-details-container {
-margin: 5vh;
-margin-top: 15vh;
+  margin: 5vh;
+  margin-top: 15vh;
 }
-
-/* .project-description {
-  padding-left: 20px;
-} */
 
 .form-container {
   display: flex;
@@ -274,8 +221,8 @@ textarea {
 }
 
 button {
-  width: 125px;
-  height: 35px;
+  width: 145px;
+  height: 45px;
   background-color: yellowgreen;
   font-size: 16px;
   margin-bottom: 20px;
@@ -306,19 +253,12 @@ button {
 .footer-links {
   display: flex;
   flex-direction: row;
-  /* justify-content: space-around; */
 }
 
 .footer img {
-  height:35px;
-  padding: 0px 25px 0px 25px;
+  height: 25px;
+  padding: 0px 25px 0px 5px;
 }
-
-/* .footer-links {
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-} */
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
   .nav {
@@ -358,18 +298,14 @@ button {
     justify-content: center;
   }
 
-  /* . {
-    display: none;
-  } */
-
   .project-screenshots-container-mobile {
-    display:flex;
+    display: flex;
     justify-content: center;
   }
 
-#project-image-sunday-driver {
-  display: none;
-}
+  #project-image-sunday-driver {
+    display: none;
+  }
 
   #project-image-hot-chicken-heroes {
     display: none;
@@ -382,10 +318,6 @@ button {
   #project-image-artist-abc {
     display: none;
   }
-
-  /* #project-image {
-    display: none;
-  } */
 
   .home-main-container {
     margin: 12vh 4vh 0px 4vh;
@@ -401,7 +333,6 @@ button {
   }
 
   .home-body {
-    /* text-align: center; */
     font-size: 27px;
   }
 
@@ -425,13 +356,12 @@ button {
   }
 
   .about-body {
-    /* text-align: center; */
     font-size: 25px;
     padding-top: 1px;
   }
 
   .about-left {
-    margin:0;
+    margin: 0;
   }
 
   .form-container {
@@ -447,14 +377,15 @@ button {
   }
 
   .contact-submit-button {
-    justify-content:center;
+    justify-content: center;
   }
 
-  .learn-more-container {
+  .about-learn-more,
+  .about-resume {
     text-align: center;
     font-weight: 600;
     padding-top: 10px;
-    font-size: 24px;;
+    font-size: 24px;
   }
 
   .projects-main-container {
@@ -462,7 +393,7 @@ button {
     flex-direction: column;
     justify-content: center;
     z-index: 1;
-    margin-bottom: 7vh;
+    margin: 12vh 0vh 8vh 0vh;
   }
 
   .projects-top-container {
@@ -479,7 +410,7 @@ button {
   .project-container {
     display: flex;
     flex-direction: column;
-    justify-content:baseline;
+    justify-content: baseline;
     max-width: 50vh;
     margin-top: 5vh;
     margin-bottom: 5vh;
@@ -488,54 +419,114 @@ button {
   .project-details-container {
     margin-top: 0vh;
   }
-  
-  /* .project-container-right {
-    display: flex;
-    flex-direction: column;
-  } */
-  
-  /* .project-container-b {
-    background-color:rgba(0, 0, 0, 0.303);
-  } */
-  
+
   .project-logo-doberpop {
     height: 90px;
   }
-  
+
   .project-logo-sunday-driver {
     height: 62px;
   }
-  
+
   .project-logo-artist-abc {
     height: 80px;
   }
-  
+
   .project-logo-hot-chicken-heroes {
     height: 90px;
   }
-  
+
   .project-image {
     height: 30vh;
     z-index: 5;
     padding: 1vh;
-    /* margin-right: 5vh; */
   }
 
   .project-buttons-container {
     margin-top: 1vh;
   }
-
-
 }
 
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 812px) 
-  and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: landscape) { 
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  .nav {
+    padding: 5vh;
+    height: 6vh;
+  }
 
-.nav {
-  padding: 20px;
-}
+  .nav a {
+    margin: 0 20px 0 20px;
+  }
 
+  .nav-danober {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    font-size: 23px;
+    color: rgb(0, 0, 0);
+    padding: 5px 50px 0px 0px;
+    text-shadow: 2px 1px 15px rgba(71, 184, 255, 0.3);
+  }
+
+  .layout-right {
+    display: flex;
+    flex-direction: row;
+    height: 68vh;
+    margin-top: 20vh;
+    margin-left: 150vh;
+    position: fixed;
+    z-index: 0;
+  }
+
+  .dan-ober {
+    display: flex;
+    align-content: flex-end;
+  }
+
+  .home-main-container,
+  .about-main-container,
+  .projects-main-container,
+  .contact-main-container {
+    margin: 22vh 10vh 20vh 15vh;
+  }
+
+  .home-main-container,
+  .about-main-container,
+  .projects-main-container,
+  .contact-main-container {
+    text-align: left;
+  }
+
+  .home-header,
+  .about-header,
+  .projects-header,
+  .contact-header, 
+  .about-learn-more,
+  .about-resume {
+    font-weight: 200;
+    letter-spacing: 2px;
+    margin-bottom: 5vh;
+    text-align: left;
+  }
+
+  .about-resume 
+  p {
+    text-align: center;
+    font-weight: 600;
+    padding-top: 10px;
+    font-size: 20px;
+  }
+
+  .dan-ober-about-mobile-image {
+    display: none;
+  }
+
+  .form-container,
+  .home-body
+  .about-left {
+    width: 125vh;
+  }
+
+  .footer {
+    padding: 10px;
+  }
 }

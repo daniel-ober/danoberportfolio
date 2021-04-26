@@ -3,14 +3,14 @@ import React from "react";
 export default function Contact() {
   return (
     <div className="contact-main-container">
-      <h2>Let's Connect.</h2>
-      <p className='contact-callout'>
+      <h2 className='contact-header'>Let's Connect</h2>
+      <p className="contact-callout">
         Fill out the form below, or by emailing me at{" "}
         <a href="mailto:danielober84@gmail.com">danielober84@gmail.com</a>
       </p>
       <form
         className="form-container"
-        action="https://getform.io/f/0f287cad-2400-48da-8e33-20366c4a5093" 
+        action="https://getform.io/f/0f287cad-2400-48da-8e33-20366c4a5093"
         method="POST"
       >
         <label>Name:</label>
@@ -30,10 +30,12 @@ export default function Contact() {
           name="message"
           type="text"
           placeholder="Enter your message"
-        //   minLength="25"
+          //   minLength="25"
           maxLength="4500"
         />
-        <button className='submit-button' type="submit">SUBMIT</button>
+        <button className="submit-button" type="submit">
+          SUBMIT
+        </button>
       </form>
     </div>
   );
