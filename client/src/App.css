@@ -492,8 +492,8 @@ button {
     display: flex;
     flex-direction: row;
     height: 70vh;
-    margin-top: 10vh;
-    margin-left: 60vh;
+    margin-top: 5vh;
+    margin-left: 20vh;
     position: fixed;
     z-index: 0;
   }
@@ -670,6 +670,16 @@ button {
     font-size: 16px;
     font-weight: 900;
     padding-left: 42%;
+  }
+
+  .layout-right {
+    display: flex;
+    flex-direction: row;
+    height: 80vh;
+    margin-top: 14vh;
+    margin-left: 100vh;
+    position: fixed;
+    z-index: 0;
   }
 
   ul {
