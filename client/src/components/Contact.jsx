@@ -5,8 +5,8 @@ export default function Contact() {
     <div className="contact-main-container">
       <h2 className='contact-header'>Let's Connect</h2>
       <p className="contact-callout">
-        Fill out the form below, or by emailing me at{" "}
-        <a href="mailto:danielober84@gmail.com">danielober84@gmail.com</a>
+        Fill out the form below or emailing me{" "}
+        <a href="mailto:danielober84@gmail.com" className='my-email-address'>danielober84@gmail.com</a>
       </p>
       <form
         className="form-container"

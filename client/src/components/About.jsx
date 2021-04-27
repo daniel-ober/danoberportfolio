@@ -45,7 +45,8 @@ export default function About() {
           </p>
           <p className="about-learn-more">
             Interested in learning more?{" "}
-            <Link to="/contact">Let's Connect.</Link>
+            <br/>
+            <Link to="/contact">Let's Connect</Link>
           </p>
           <p className="about-resume">
         Download my resume{" "}
