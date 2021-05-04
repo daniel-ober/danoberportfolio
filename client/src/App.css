@@ -215,7 +215,7 @@ h2 {
 }
 
 .project-details-container {
-  margin: 5vh;
+  margin: 3vh;
   margin-top: 15vh;
 }
 
@@ -507,7 +507,7 @@ button {
     flex-direction: column;
     justify-content: center;
     max-width: auto;
-    margin-top: 5vh;
+    margin-top: 0vh;
     margin-bottom: 5vh;
     margin-left:auto;
     margin-right:auto;
@@ -599,7 +599,7 @@ button {
   }
 
   .projects-bottom-container {
-    margin: 22vh 10vh 20vh 0vh;
+    min-width: 204vh;
   }
 
   .projects-top-container {
@@ -693,7 +693,7 @@ button {
     /* justify-content: space-evenly; */
     /* align-content: center; */
     background-color: rgb(0, 0, 0, 0.75);
-    min-width: 195vh;
+    max-width: 195vh;
   }
   
   .project-description {
@@ -702,6 +702,8 @@ button {
   }
   
   .project-container {
+    margin-top: 5vh;
+    margin-bottom: 10vh;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -730,12 +732,12 @@ button {
   .project-image {
     height: 60vh;
     z-index: 5;
-    margin-left: 0vh;
+    margin: 0px 30px 0px 30px;
   }
 
   .project-description {
     font-size: 16px;
-    margin:0;
+    margin:5vh;
   }
   
   .project-buttons-container {
@@ -744,12 +746,14 @@ button {
   }
   
   .project-button {
-    margin: 0px 0px 0px 0px;
+    justify-content: space-evenly;
+    height: 45px;
+    width: 50vh;
   }
   
   .project-details-container {
-    margin: 5vh;
-    margin-top: 0vh;
+    margin: 0vh;
+    justify-content: space-around;
   }
 
   .projects-stack-list li {

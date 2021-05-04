@@ -42,7 +42,7 @@ export default function Projects() {
               Doberpop is an upcoming Gourmet Popcorn E-commerce shop. What
               makes Doberpop features over 40 popcorn flavors, while giving popcorn lovers
               the freedom to share their very own recipes and wildest flavor
-              ideas with the rest of the Doberpop community. <br />
+              ideas with the rest of the community. <br />
               <br />
             </h3>
             <div className="project-screenshots-container-mobile">

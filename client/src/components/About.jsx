@@ -14,7 +14,7 @@ export default function About() {
           ></img>
           <p>
             I’m a full-stack web developer with a background in the auto,
-            finance, HR, retail, entertainment, health and benefits industries.
+            finance, HR, retail, and entertainment industries.
             As a recent software engineer immersive graduate, I’m excited to
             combine my knowledge with the skills and experience from my previous
             career as a Manager of Customer Success.
