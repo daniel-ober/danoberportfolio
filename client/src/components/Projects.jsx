@@ -16,8 +16,6 @@ export default function Projects() {
           <li>Express</li>
           <li>MongoDB</li>
           <li>Mongoose</li>
-          <li>Visual Studio Code</li>
-          <li>Git</li>
           <li>Postman</li>
           <li>Postico</li>
         </ul>
@@ -42,10 +40,9 @@ export default function Projects() {
             ></img>
             <h3 className="project-description">
               Doberpop is an upcoming Gourmet Popcorn E-commerce shop. What
-              makes Doberpop so unique is the variety of flavors they have to
-              offer, featuring over 40 flavors! Doberpop gives popcorn lovers
+              makes Doberpop features over 40 popcorn flavors, while giving popcorn lovers
               the freedom to share their very own recipes and wildest flavor
-              ideas with the rest of the community. <br />
+              ideas with the rest of the Doberpop community. <br />
               <br />
             </h3>
             <div className="project-screenshots-container-mobile">
@@ -83,9 +80,7 @@ export default function Projects() {
             <h3 className="project-description">
               Sunday Driver gives vintage car enthusiasts the ability to buy and
               sell vehicles from one another. Sellers can list their vehicle(s)
-              for sale through a simple signup process, then providing a
-              vehicle’s details such as the make, model, year, price, image,
-              etc. Car shoppers have the ability to view selling vehicles and
+              for sale through a simple signup process. Car shoppers have the ability to view selling vehicles and
               contact the seller via email or phone.
             </h3>
             <div className="project-screenshots-container-mobile">

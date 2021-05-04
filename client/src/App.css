@@ -51,6 +51,10 @@
   color: yellowgreen;
 }
 
+.about-resume {
+  margin-bottom: 10vh;
+}
+
 .nav a:hover {
   transform: scale(1.04);
   transition: all 0.5s ease-in-out;
@@ -135,6 +139,13 @@ h2 {
   letter-spacing: 4px;
 }
 
+/* .home-header,
+.about-header,
+.projects-header,
+.contact-header {
+  position: fixed;
+} */
+
 .projects-top-container,
 .about-left,
 .home-main-container,
@@ -144,7 +155,7 @@ h2 {
 }
 
 .projects-top-container {
-  margin-bottom: 10vh;
+  margin-bottom: 21vh;
 }
 
 .projects-bottom-container {
@@ -164,6 +175,8 @@ h2 {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  margin-top: 5vh;
+  margin-bottom: 10vh;
 }
 
 .project-screenshots-container-mobile {
@@ -272,6 +285,59 @@ button {
 .footer img {
   height: 25px;
   padding: 0px 25px 0px 5px;
+}
+
+/* Galaxy S10 */
+@media only screen and (min-width: 360px) and (max-width: 767px) {
+  .nav {
+    padding: 2vh 2vh 1vh 1vh;
+    height: 5vh;
+  }
+
+
+  .footer-links {
+    margin-right: 4vh;
+  }
+
+  .nav-danober {
+    display: none;
+  }
+
+  .nav a {
+    text-decoration: none;
+    padding: 8px;
+  }
+
+  .home-main-container,
+  .about-main-container {
+    margin: 12vh 5vh 5vh 5vh;
+  }
+
+  .about-left {
+    margin: 0;
+  }
+
+  .about-resume {
+    margin-bottom: 8vh;
+  }
+}
+
+@media only screen and (min-width: 767px) and (max-width: 360px) {
+  .nav {
+    padding: 2vh 2vh 1vh 1vh;
+    height: 5vh;
+  }
+
+  .nav-danober {
+    display: none;
+  }
+
+  .nav a {
+    text-decoration: none;
+    padding: 8px;
+  }
+
+
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
@@ -417,7 +483,16 @@ button {
   }
 
   .projects-top-container {
-    margin: 0vh 4vh 15vh 4vh;
+    margin: 0vh 4vh 19vh 4vh;
+    text-align: center;
+  }
+
+  .projects-top-container li {
+    list-style: none;
+  }
+
+  .projects-stack-list {
+    padding:0;
   }
 
   .projects-bottom-container {
@@ -430,40 +505,58 @@ button {
   .project-container {
     display: flex;
     flex-direction: column;
-    justify-content: baseline;
-    max-width: 50vh;
+    justify-content: center;
+    max-width: auto;
     margin-top: 5vh;
     margin-bottom: 5vh;
+    margin-left:auto;
+    margin-right:auto;
   }
 
   .project-details-container {
     margin-top: 0vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
   }
 
   .project-logo-doberpop {
-    height: 90px;
+    height: 100px;
   }
 
   .project-logo-sunday-driver {
-    height: 62px;
+    height: 60px;
   }
 
   .project-logo-artist-abc {
-    height: 80px;
+    height: 100px;
   }
 
   .project-logo-hot-chicken-heroes {
-    height: 90px;
+    height: 120px;
   }
 
   .project-image {
-    height: 30vh;
+    height: 28vh;
     z-index: 5;
     padding: 1vh;
   }
 
+  .project-description {
+    display: flex;
+    text-align: center;
+  }
+
   .project-buttons-container {
+    flex-direction: column;
     margin-top: 1vh;
+  }
+
+  .project-button {
+    margin: 7px;
+    width: 35vh;
+    height: 6vh;
   }
 }
 
@@ -637,7 +730,7 @@ button {
   .project-image {
     height: 60vh;
     z-index: 5;
-    margin-left: 140vh;
+    margin-left: 0vh;
   }
 
   .project-description {
@@ -651,7 +744,7 @@ button {
   }
   
   .project-button {
-    margin: 5px 20px 0px 0px;
+    margin: 0px 0px 0px 0px;
   }
   
   .project-details-container {
