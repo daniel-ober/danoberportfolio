@@ -51,7 +51,7 @@ export default function About() {
           <p className="about-resume">
         Download my resume{" "}
         <a
-          href="https://resume.creddle.io/resume/isqpjbcg0bj"
+          href="https://drive.google.com/file/d/1o0shw2MGMk5ULvzVHkpuRFOku3mHBVCC/view?usp=sharing"
           rel="noopener noreferrer"
           target="_blank"
           download
