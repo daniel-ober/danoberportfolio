@@ -159,12 +159,12 @@ h2 {
 }
 
 .projects-stack-list {
-  display: flex;
-  flex-direction: row;
+  display: inline-flexbox;
 }
 
 .skills-icon {
-  width: 80px;
+  height: 55px;
+  margin: 15px;
 }
 
 .projects-bottom-container {
@@ -556,6 +556,12 @@ button {
     display: flex;
     text-align: center;
   }
+
+  .skills-icon {
+    height: 48px;
+    margin: 15px;
+  }
+  
 
   .project-buttons-container {
     flex-direction: column;

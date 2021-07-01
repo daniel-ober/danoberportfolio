@@ -14,7 +14,7 @@ export default function Projects() {
           <img className='skills-icon' src='https://i.imgur.com/o26KUiA.png' alt='Node.js'></img>
           <img className='skills-icon' src='https://i.imgur.com/XSEVtV2.png' alt='Ruby'></img>
           <img className='skills-icon' src='https://i.imgur.com/pD6WatH.png' alt='Ruby on Rails'></img>
-          <img className='skills-icon' src='https://i.imgur.com/mV3pOhD.png' alt='Express'></img>
+          <img className='skills-icon' src='https://i.imgur.com/LB5hOJi.png' alt='Express'></img>
           <img className='skills-icon' src='https://i.imgur.com/IdwBY4V.png' alt='MongoDB'></img>
           <img className='skills-icon' src='https://i.imgur.com/AsV1gaU.png' alt='postgreSQL'></img>
           <img className='skills-icon' src='https://i.imgur.com/Qpt2kJO.png' alt='Postman'></img>
