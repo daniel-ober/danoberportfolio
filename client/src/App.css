@@ -89,7 +89,7 @@
 .layout {
   display: flex;
   flex-direction: row;
-  background-color: rgb(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.781);
   background-size: auto;
   width: 100%;
   min-height: 100vh;
@@ -156,6 +156,15 @@ h2 {
 
 .projects-top-container {
   margin-bottom: 21vh;
+}
+
+.projects-stack-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.skills-icon {
+  width: 80px;
 }
 
 .projects-bottom-container {

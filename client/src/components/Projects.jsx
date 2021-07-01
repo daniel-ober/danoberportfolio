@@ -5,10 +5,21 @@ export default function Projects() {
     <div className="projects-main-container">
       <div className="projects-top-container">
         <h2 className="projects-header">PROJECTS</h2>
-        <p>Stacks and Tools used in creating projects</p>
-        <ul className="projects-stack-list">
-          <li>HTML5</li>
-          <li>CSS3</li>
+        <p>Skills used in creating projects</p>
+        <div className="projects-stack-list">
+          <img className='skills-icon' src='https://i.imgur.com/T1VVr36.png' alt='HTML5'></img>
+          <img className='skills-icon' src='https://i.imgur.com/wOmpOKH.png' alt='CSS3'></img>
+          <img className='skills-icon' src='https://i.imgur.com/EoMt8Y9.png' alt='JavaScript'></img>
+          <img className='skills-icon' src='https://i.imgur.com/zLJ9IwI.png' alt='React.js'></img>
+          <img className='skills-icon' src='https://i.imgur.com/o26KUiA.png' alt='Node.js'></img>
+          <img className='skills-icon' src='https://i.imgur.com/XSEVtV2.png' alt='Ruby'></img>
+          <img className='skills-icon' src='https://i.imgur.com/pD6WatH.png' alt='Ruby on Rails'></img>
+          <img className='skills-icon' src='https://i.imgur.com/mV3pOhD.png' alt='Express'></img>
+          <img className='skills-icon' src='https://i.imgur.com/IdwBY4V.png' alt='MongoDB'></img>
+          <img className='skills-icon' src='https://i.imgur.com/AsV1gaU.png' alt='postgreSQL'></img>
+          <img className='skills-icon' src='https://i.imgur.com/Qpt2kJO.png' alt='Postman'></img>
+          <img className='skills-icon' src='https://i.imgur.com/5diFzsJ.png' alt='Postico'></img>
+          {/* <li>CSS3</li>
           <li>Javascript</li>
           <li>React.js</li>
           <li>Node.js</li>
@@ -17,8 +28,8 @@ export default function Projects() {
           <li>MongoDB</li>
           <li>Mongoose</li>
           <li>Postman</li>
-          <li>Postico</li>
-        </ul>
+          <li>Postico</li> */}
+        </div>
         <br />
         <h3>Scroll down to view projects!</h3>
       </div>
@@ -45,6 +56,9 @@ export default function Projects() {
               ideas with the rest of the community. <br />
               <br />
             </h3>
+              <h4>
+              Stack: React.js, Ruby on Rails, postgreSQL, CSS Flexbox
+            </h4>
             <div className="project-screenshots-container-mobile">
               <img
                 className="project-image"
@@ -83,6 +97,9 @@ export default function Projects() {
               for sale through a simple signup process. Car shoppers have the ability to view selling vehicles and
               contact the seller via email or phone.
             </h3>
+            <h4>
+              Stack: React.js, Express.js, MongoDB, Node, CSS Flexbox
+            </h4>
             <div className="project-screenshots-container-mobile">
               <img
                 className="project-image"
@@ -136,6 +153,9 @@ export default function Projects() {
               about their favorite artists and discover new music artists via a
               randomizer algorithm based off the music they like (coming soon!).
             </h3>
+            <h4>
+              Stack: Javascript, HTML, CSS Flexbox, Ajax, External API (AudioDB)
+            </h4>
             <div className="project-screenshots-container-mobile">
               <img
                 className="project-image"
@@ -173,6 +193,9 @@ export default function Projects() {
               share their food scores/notes via a judging slip - similar to a
               scoring slip you'd see in the big leagues of competitive judging.
             </h3>
+            <h4>
+              Stack: React.js, External API, CSS Flexbox, Postman API testing
+            </h4>
             <div className="project-screenshots-container-mobile">
               <img
                 className="project-image"
