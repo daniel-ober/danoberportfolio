@@ -3,7 +3,7 @@ import React from "react";
 export default function Contact() {
   return (
     <div className="contact-main-container">
-      <h2 className='contact-header'>Let's Connect</h2>
+      <h2 className='contact-header'>LET'S CONNECT</h2>
       <p className="contact-callout">
         Fill out the form below or emailing me{" "}
         <a href="mailto:danielober84@gmail.com" className='my-email-address'>danielober84@gmail.com</a>

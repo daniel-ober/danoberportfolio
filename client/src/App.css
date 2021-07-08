@@ -1,3 +1,8 @@
+@keyframes fade {
+  100%{ opacity: 1;}
+  0%{ opacity: 0;}
+}
+
 .App {
   text-align: center;
 }
@@ -80,6 +85,7 @@
 .about-main-container,
 .projects-main-container,
 .contact-main-container {
+  animation: fade 1s;
   display: flex;
   flex-direction: column;
   min-height: 80vh;
@@ -89,7 +95,7 @@
 .layout {
   display: flex;
   flex-direction: row;
-  background-color: rgba(0, 0, 0, 0.781);
+  background-color: rgba(0, 0, 0, 0.8);
   background-size: auto;
   width: 100%;
   min-height: 100vh;
@@ -121,6 +127,16 @@ a {
 
 li {
   font-size: 25px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h5 {
+  animation: fade infinite alternate-reverse 1.3s;
+  font-size: 22px;
+  text-shadow: 1.5px 1.5px rgb(98, 0, 255);
 }
 
 .home-header,
@@ -163,8 +179,8 @@ h2 {
 }
 
 .skills-icon {
-  height: 55px;
-  margin: 15px;
+  height: 68px;
+  margin: 25px;
 }
 
 .projects-bottom-container {
@@ -503,6 +519,12 @@ button {
   .projects-stack-list {
     padding:0;
   }
+
+  .skills-icon {
+    height: 55px;
+    margin: 15px;
+  }
+  
 
   .projects-bottom-container {
     display: flex;

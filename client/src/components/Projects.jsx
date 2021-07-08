@@ -11,27 +11,16 @@ export default function Projects() {
           <img className='skills-icon' src='https://i.imgur.com/wOmpOKH.png' alt='CSS3'></img>
           <img className='skills-icon' src='https://i.imgur.com/EoMt8Y9.png' alt='JavaScript'></img>
           <img className='skills-icon' src='https://i.imgur.com/zLJ9IwI.png' alt='React.js'></img>
-          <img className='skills-icon' src='https://i.imgur.com/o26KUiA.png' alt='Node.js'></img>
           <img className='skills-icon' src='https://i.imgur.com/XSEVtV2.png' alt='Ruby'></img>
           <img className='skills-icon' src='https://i.imgur.com/pD6WatH.png' alt='Ruby on Rails'></img>
-          <img className='skills-icon' src='https://i.imgur.com/LB5hOJi.png' alt='Express'></img>
+          <img className='skills-icon' src='https://i.imgur.com/o26KUiA.png' alt='Node.js'></img>
+          <img className='skills-icon' src='https://i.imgur.com/MuU6UQh.png' alt='Express'></img>
           <img className='skills-icon' src='https://i.imgur.com/IdwBY4V.png' alt='MongoDB'></img>
           <img className='skills-icon' src='https://i.imgur.com/AsV1gaU.png' alt='postgreSQL'></img>
           <img className='skills-icon' src='https://i.imgur.com/Qpt2kJO.png' alt='Postman'></img>
           <img className='skills-icon' src='https://i.imgur.com/5diFzsJ.png' alt='Postico'></img>
-          {/* <li>CSS3</li>
-          <li>Javascript</li>
-          <li>React.js</li>
-          <li>Node.js</li>
-          <li>Ruby on Rails</li>
-          <li>Express</li>
-          <li>MongoDB</li>
-          <li>Mongoose</li>
-          <li>Postman</li>
-          <li>Postico</li> */}
         </div>
-        <br />
-        <h3>Scroll down to view projects!</h3>
+        <h5>Scroll down to view projects!</h5>
       </div>
       <div className="projects-bottom-container">
         <div className="project-container">
@@ -53,7 +42,7 @@ export default function Projects() {
               Doberpop is an upcoming Gourmet Popcorn E-commerce shop. What
               makes Doberpop features over 40 popcorn flavors, while giving popcorn lovers
               the freedom to share their very own recipes and wildest flavor
-              ideas with the rest of the community. <br />
+              ideas with the rest of the community.
               <br />
             </h3>
               <h4>
