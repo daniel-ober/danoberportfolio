@@ -122,7 +122,6 @@ export default function Projects() {
             ></img>
           </div>
         </div>
-        {/*  */}
         <div className="project-container">
           <div className="project-screenshots-container">
             <img
@@ -169,7 +168,6 @@ export default function Projects() {
             </div>
           </div>
         </div>
-        {/*  */}
         <div className="project-container">
           <div className="project-details-container">
             <img
