@@ -408,15 +408,19 @@ button {
     justify-content: center;
   }
 
+  #project-image-doberpop {
+    display: none;
+  }
+
   #project-image-sunday-driver {
     display: none;
   }
 
-  #project-image-hot-chicken-heroes {
+  #project-image-weathernest {
     display: none;
   }
 
-  #project-image-doberpop {
+  #project-image-hot-chicken-heroes {
     display: none;
   }
 
@@ -570,12 +574,16 @@ button {
     height: 60px;
   }
 
-  .project-logo-artist-abc {
-    height: 100px;
+  .project-logo-weathernest {
+    height: 75px;
   }
 
   .project-logo-hot-chicken-heroes {
     height: 120px;
+  }
+
+  .project-logo-artist-abc {
+    height: 100px;
   }
 
   .project-image {
@@ -768,12 +776,16 @@ button {
     height: 45px;
   }
   
-  .project-logo-artist-abc {
+  .project-logo-weathernest {
     height: 60px;
   }
   
   .project-logo-hot-chicken-heroes {
     height: 80px;
+  }
+
+  .project-logo-artist-abc {
+    height: 60px;
   }
   
   .project-image {
