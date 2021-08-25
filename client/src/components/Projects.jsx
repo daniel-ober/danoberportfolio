@@ -122,46 +122,45 @@ export default function Projects() {
             ></img>
           </div>
         </div>
+        {/*  */}
         <div className="project-container">
           <div className="project-screenshots-container">
             <img
               className="project-image"
-              id="project-image-artist-abc"
-              src="https://i.imgur.com/1gHVjzS.png"
-              alt="artist-abc-screens"
+              id="project-image-weathernest"
+              src="https://i.imgur.com/SUtrZVQ.png"
+              alt="weathernest-screens"
             ></img>
           </div>
           <div className="project-details-container">
             <img
-              className="project-logo-artist-abc"
-              src="https://i.imgur.com/rj8TLht.png"
-              alt="artist-abc-logo"
+              className="project-logo-weathernest"
+              src="https://i.imgur.com/h742CMv.png"
+              alt="weathernest-logo"
             ></img>
             <h3 className="project-description">
-              ARTIST ABC is a simple to use tool for music lovers to learn more
-              about their favorite artists and discover new music artists via a
-              randomizer algorithm based off the music they like (coming soon!).
+              WeatherNest is a simple to use weather API app, allowing users to get real-time weather data based on location input.
             </h3>
             <h4>
-              Stack: Javascript, HTML, CSS Flexbox, Ajax, External API (AudioDB)
+              Stack: React.js, HTML, CSS Flexbox, Ajax, API (OpenWeather)
             </h4>
             <div className="project-screenshots-container-mobile">
               <img
                 className="project-image"
-                src="https://i.imgur.com/1gHVjzS.png"
-                alt="artist-abc-screens"
+                src="https://i.imgur.com/SUtrZVQ.png"
+                alt="weathernest-screens"
               ></img>
             </div>
             <div className="project-buttons-container">
               <a
-                href="https://artist-abc.netlify.app/"
+                href="https://weathernest.netlify.app/"
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 <button className="project-button">VIEW SITE</button>
               </a>
               <a
-                href="https://github.com/daniel-ober/artist-abc"
+                href="https://github.com/daniel-ober/weather-app"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -170,6 +169,7 @@ export default function Projects() {
             </div>
           </div>
         </div>
+        {/*  */}
         <div className="project-container">
           <div className="project-details-container">
             <img
@@ -217,6 +217,54 @@ export default function Projects() {
               alt="hot-chicken-heroes-screens"
             ></img>
             <script scr=""></script>
+          </div>
+        </div>
+        <div className="project-container">
+          <div className="project-screenshots-container">
+            <img
+              className="project-image"
+              id="project-image-artist-abc"
+              src="https://i.imgur.com/1gHVjzS.png"
+              alt="artist-abc-screens"
+            ></img>
+          </div>
+          <div className="project-details-container">
+            <img
+              className="project-logo-artist-abc"
+              src="https://i.imgur.com/rj8TLht.png"
+              alt="artist-abc-logo"
+            ></img>
+            <h3 className="project-description">
+              ARTIST ABC is a simple to use tool for music lovers to learn more
+              about their favorite artists and discover new music artists via a
+              randomizer algorithm based off the music they like (coming soon!).
+            </h3>
+            <h4>
+              Stack: Javascript, HTML, CSS Flexbox, Ajax, External API (AudioDB)
+            </h4>
+            <div className="project-screenshots-container-mobile">
+              <img
+                className="project-image"
+                src="https://i.imgur.com/1gHVjzS.png"
+                alt="artist-abc-screens"
+              ></img>
+            </div>
+            <div className="project-buttons-container">
+              <a
+                href="https://artist-abc.netlify.app/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <button className="project-button">VIEW SITE</button>
+              </a>
+              <a
+                href="https://github.com/daniel-ober/artist-abc"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <button className="project-button">VIEW CODE</button>
+              </a>
+            </div>
           </div>
         </div>
       </div>
