@@ -6,7 +6,7 @@ export default function Contact() {
       <h2 className='contact-header'>LET'S CONNECT</h2>
       <p className="contact-callout">
         Fill out the form below or emailing me{" "}
-        <a href="mailto:danober.dev@gmail.com" className='my-email-address'>danielober84@gmail.com</a>
+        <a href="mailto:danober.dev@gmail.com" className='my-email-address'>danober.dev@gmail.com</a>
       </p>
       <form
         className="form-container"
