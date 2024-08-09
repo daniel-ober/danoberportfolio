@@ -9,7 +9,7 @@ function Layout(props) {
       <div className="layout-right">
         <img
           className="dan-ober"
-          src="https://i.imgur.com/9GEemkf.png"
+          src="https://i.imgur.com/HTUD8gZ.pngg"
           alt="dan-ober"
         ></img>
       </div>
