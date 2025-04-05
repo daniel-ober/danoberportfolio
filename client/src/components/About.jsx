@@ -9,50 +9,53 @@ export default function About() {
         <div className="about-body">
           <img
             className="dan-ober-about-mobile-image"
-            src="https://i.imgur.com/HTUD8gZ.png"
+            src="/danober-portfolio.png"
             alt="dan-ober"
-          ></img>
+          />
           <p>
-            I’m a full-stack web developer with a background in the auto,
-            finance, HR, retail, and entertainment industries. I’m excited to
-            combine my technical knowledge with the skills and experience from my previous
-            career as a Leader of Customer Success.
+            I'm a full-stack web developer and creative problem solver with a
+            background in customer success, leadership, and technical solutions
+            across industries like automotive, finance, HR, and entertainment.
           </p>
           <p>
-            My leadership skills have given me the ability to build strong teams
-            with a shared vision. I lead with empathy and an open mind when faced
-            with challenges. The ability to lead projects in a cross-functional
-            environment has taught me the value of team collaboration and
-            working towards a single mission.
+            My prior experience leading cross-functional teams shaped how I
+            approach collaboration, communication, and user-focused development.
+            I thrive in environments that prioritize empathy, iteration, and
+            creative thinking.
           </p>
           <p>
-            When I'm not coding, I'm either working on projects around the house or enjoying the outdoors - grilling, kayaking, hiking, or camping. You're also likely to find me in my music studio writing, recording, editing, or practiing. I'm a drummer at heart, but also play guitar, bass,
-            piano, turntables, harmonica, and vocals. I'm also a competitive Rubik's
-            cube solver and try to keep one nearby the work desk for those times I need a quick mental break or mental challenege. Last fun fact... I'm a KCBS Certified BBQ Judge. I love food.
+            Beyond code, I’m a lifelong musician and builder. I recently
+            launched <strong>Ober Artisan Drums</strong>, a handcrafted drum
+            company that blends product design, storytelling, and technical
+            infrastructure — from custom-built checkout systems to brand
+            development, media, and logistics.
           </p>
           <p>
-            In the next phase of my software engineering career, I want to be
-            part of a smaller team whose vision it is to continuously improve
-            the user experience. Ideally, I would love to work on a team that
-            follows best practices like sandbox testing and pair programming, to
-            allow me to learn and grow as a developer.
+            When I’m not building, you’ll find me writing music, chasing new
+            ideas, or trying to beat my fastest Rubik’s Cube solve. I’m also big
+            on live music — whether it’s catching a local show, hitting a
+            festival, or digging for new artists to obsess over.
+          </p>
+          <p>
+            I'm seeking a full-time opportunity on a collaborative team where I
+            can grow, solve meaningful problems, and keep building toward better
+            experiences — for users and for people behind the product.
           </p>
           <p className="about-learn-more">
-            Interested in learning more?{" "}
-            <br/>
-            <Link to="/contact">Let's Connect</Link>
+            Interested in learning more? <br />
+            <Link to="/contact">Let’s connect</Link>
           </p>
           <p className="about-resume">
-        Download my resume{" "}
-        <a
-          href="https://drive.google.com/file/d/11WmQznnSB48L_rJ5-8y2bLHtZdRC6Pt4/view?usp=sharing"
-          rel="noopener noreferrer"
-          target="_blank"
-          download
-        >
-          here
-        </a>
-      </p>
+            Download my resume{" "}
+            <a
+              href="https://drive.google.com/file/d/10sePbHSwLsn3435jSuLmhhQ-4BsAM8NN/view?usp=sharing"
+              rel="noopener noreferrer"
+              target="_blank"
+              download
+            >
+              here
+            </a>
+          </p>
         </div>
       </div>
     </div>

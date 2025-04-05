@@ -9,9 +9,9 @@ function Layout(props) {
       <div className="layout-right">
         <img
           className="dan-ober"
-          src="https://i.imgur.com/HTUD8gZ.pngg"
+          src="/danober-portfolio.png"
           alt="dan-ober"
-        ></img>
+        />
       </div>
       <Footer />
     </div>
