@@ -8,13 +8,13 @@ export default function Projects() {
   const projects = [
     {
       name: "Ober Artisan Drums",
-      logo: "https://i.imgur.com/6SpKdtH.png",
+      logo: "https://i.imgur.com/D0BniTO.png",
       description:
         "A handcrafted drum company built from scratch — including the custom e-commerce system, inventory + order management, and media-rich product experience. Designed for both storytelling and seamless checkout.",
       tech: "React.js, Firebase (Auth, Firestore, Functions), Stripe, Node.js, Express, Tailwind CSS, Cloud Storage, Deployment via Netlify + Google Cloud",
       site: "https://oberartisandrums.com/",
       code: "null",
-      image: "https://i.imgur.com/7XRAKkm.png",
+      image: "https://i.imgur.com/lycxDAZ.png",
       imageId: "ober-artisan-drums",
     },
     {

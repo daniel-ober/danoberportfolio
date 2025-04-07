@@ -1,21 +1,18 @@
-import Nav from "./Nav";
+import React from "react";
+import NavBar from "./NavBar";
 import Footer from "./Footer";
+import "./Layout.css";
 
-function Layout(props) {
+export default function Layout({ children }) {
   return (
     <div className="layout">
-      <Nav />
-      <div className="layout-left">{props.children}</div>
-      <div className="layout-right">
-        <img
-          className="dan-ober"
-          src="/danober-portfolio.png"
-          alt="dan-ober"
-        />
-      </div>
+      <NavBar />
+      <main className="layout__main">
+        <div className="layout__container">
+          {children}
+        </div>
+      </main>
       <Footer />
     </div>
   );
 }
-
-export default Layout;

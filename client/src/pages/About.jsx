@@ -1,17 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./About.css";
 
 export default function About() {
   return (
-    <div className="about-main-container">
-      <div className="about-left">
+    <div className="about">
+      <div className="about__left">
         <h2 className="about-header">ABOUT DAN</h2>
         <div className="about-body">
-          <img
-            className="dan-ober-about-mobile-image"
-            src="/danober-portfolio.png"
-            alt="dan-ober"
-          />
           <p>
             I'm a full-stack web developer and creative problem solver with a
             background in customer success, leadership, and technical solutions
@@ -57,6 +53,14 @@ export default function About() {
             </a>
           </p>
         </div>
+      </div>
+
+      <div className="about__right">
+        <img
+          className="about__portrait"
+          src="/danober-portfolio.png"
+          alt="Dan Ober"
+        />
       </div>
     </div>
   );

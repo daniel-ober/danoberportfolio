@@ -1,29 +1,27 @@
-import "./App.css";
-import { Route } from "react-router-dom";
-import Home from "./components/Home";
-import About from "./components/About";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Layout from "./components/Layout";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Projects from "./pages/projects/Projects";
+import Contact from "./pages/Contact";
+
+import "./App.css";
 
 function App() {
   return (
-    <>
+    <Router>
       <Layout>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/projects">
-          <Projects />
-        </Route>
-        <Route path="/contact">
-          <Contact />
-        </Route>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
       </Layout>
-    </>
+    </Router>
   );
 }
 
