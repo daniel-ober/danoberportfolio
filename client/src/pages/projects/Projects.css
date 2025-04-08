@@ -1,13 +1,17 @@
+/* === Projects.css (Updated) === */
+
 .projects-main-container {
   background-color: transparent;
   color: white;
   font-family: 'Poppins', sans-serif;
   display: flex;
   flex-direction: column;
-  /* padding-top: 65px; */
   scroll-snap-type: y mandatory;
   overflow-y: auto;
   height: 100vh;
+  overscroll-behavior: none;
+  scroll-padding-top: 0px;
+  scroll-padding-bottom: 25vh; /* ← key to prevent bottom clipping */
 }
 
 .projects-top-container {
@@ -23,12 +27,10 @@
 .projects-header {
   font-size: 3rem;
   font-weight: 600;
-  /* margin-bottom: 12px; */
 }
 
 .projects-subtitle {
   font-size: 1.3rem;
-  margin-bottom: 40px;
   color: #bbbbbb;
 }
 
@@ -60,12 +62,11 @@
   display: flex;
   flex-direction: column;
   scroll-snap-type: y mandatory;
-  margin-top: -1px; /* remove extra gap between top and first project */
-
+  margin-top: -1px;
+  padding-bottom: 0px;
 }
 
 .project-container {
-  min-height: calc(100vh - 60px); /* Adjust for fixed footer */
   scroll-snap-align: start;
   display: flex;
   flex-direction: row;
@@ -73,61 +74,45 @@
   align-items: center;
   padding: 6vh 10vw;
   box-sizing: border-box;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   background-color: #111;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
-}
-
-.project-screenshots-container {
-  flex: 1;
-  text-align: center;
-}
-
-.project-image {
-  width: 100%;
-  max-width: 600px;
+  gap: 5vw;
+  min-height: 100vh;
   height: auto;
-  object-fit: contain;
-  border-radius: 12px;
 }
 
 .project-details-container {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: flex-start;
   min-height: 500px;
 }
 
 .project-details-container img[class^="project-logo"] {
   width: 200px;
-  /* margin-bottom: 20px; */
 }
 
 .project-description {
   font-size: 1.15rem;
   line-height: 1.65;
-  /* margin-bottom: 16px; */
   color: #f1f1f1;
-  /* min-height: 100px; */
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .project-details-container h4 {
-  min-height: 80px;
   font-weight: 400;
   font-size: 1rem;
   color: #ccc;
-  margin-bottom: 16px;
+  max-width: 90%;
 }
 
 .project-buttons-container {
   display: flex;
   gap: 15px;
   margin-top: auto;
+  flex-wrap: wrap;
 }
 
 .project-button {
@@ -143,25 +128,40 @@
 }
 
 .project-button:hover {
-  background-color: yellowgreen;
+  background-color: #aad400;
+}
+
+.project-screenshots-container {
+  flex: 1;
+  text-align: center;
+}
+
+.project-image {
+  height: 600px;
+  object-fit: contain;
+  border-radius: 12px;
 }
 
 .project-screenshots-container-mobile {
-  display: block;
-  text-align: center;
-  /* margin-bottom: 1rem; reduced spacing */
+  display: none;
 }
 
-/* ===== Responsive ===== */
+/* === Responsive === */
 @media screen and (max-width: 768px) {
   .project-container {
     flex-direction: column;
     text-align: center;
-    padding: 6vh 6vw;
-    min-height: calc(100vh - 60px); /* fix overflow behind footer */
+    padding: 6vh 6vw 14vh;
+    scroll-snap-align: center; /* ← changed from start */
+    scroll-margin-top: 60px;
     box-sizing: border-box;
+    min-height: auto;
+    height: auto;
   }
 
+  .project-container:last-child {
+    padding-bottom: 200px; /* ← ensures footer never cuts in */
+  }
 
   .project-screenshots-container {
     display: none;
@@ -170,53 +170,56 @@
   .project-screenshots-container-mobile {
     display: block;
     text-align: center;
-    /* margin-bottom: 1rem; */
+    margin-bottom: 1.2rem;
   }
 
   .project-image {
-    max-width: 92vw;
-    max-height: 320px;
+    max-height: 260px;
+    margin-bottom: 1rem;
   }
-
 
   .project-details-container {
     align-items: center;
-    padding: 0;
+    padding: 0 0 3.5rem;
     justify-content: flex-start;
-    min-height: auto;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .project-details-container img[class^="project-logo"] {
+    width: 180px;
+    margin-bottom: 0.5rem;
   }
 
   .project-description {
     text-align: center;
     font-size: 1.05rem;
-    line-height: 1.6;
-    min-height: auto;
-    -webkit-line-clamp: unset;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
   }
 
   .project-details-container h4 {
     text-align: center;
-    min-height: auto;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    color: #ccc;
   }
 
   .project-buttons-container {
     flex-direction: row;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     width: 100%;
-    /* gap: 12px; */
+    gap: 10px;
     margin-top: 1rem;
+    z-index: 1;
   }
 
   .project-button {
-    min-width: 180px;
-  }
-
-  .skills-icon {
-    height: 44px;
-  }
-
-  .pagination-dots {
-    right: 10px;
+    width: 100%;
+    min-width: 150px;
+    max-width: 180px;
   }
 }
