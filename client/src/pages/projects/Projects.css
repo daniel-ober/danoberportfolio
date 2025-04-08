@@ -2,10 +2,10 @@
   background-color: #111;
   color: white;
   font-family: 'Poppins', sans-serif;
-  overflow: hidden;
-  height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .projects-header-section {
@@ -45,8 +45,8 @@
   align-items: center;
   text-align: center;
   justify-content: flex-start;
-  height: 100%;
   overflow-y: auto;
+  margin-bottom: 80px; /* Give space for footer */
 }
 
 .project-logo {
@@ -91,7 +91,7 @@
 .project-button {
   padding: 8px 20px;
   font-size: 0.95rem;
-  background-color:rgb(0, 196, 98);
+  background-color: rgb(0, 196, 98);
   border: none;
   border-radius: 6px;
   font-weight: 600;
@@ -107,7 +107,6 @@
 
 .carousel-dots {
   text-align: center;
-  /* padding: 0.8rem 0; */
 }
 
 .dot {
@@ -121,7 +120,7 @@
 }
 
 .dot.active {
-  background-color:cornflowerblue;
+  background-color: cornflowerblue;
 }
 
 /* Mobile Tweaks */
@@ -165,7 +164,10 @@
   }
 
   .project-button {
-    /* width: 100%; */
     max-width: 165px;
+  }
+
+  .carousel-slide {
+    margin-bottom: 100px; /* extra room for footer on mobile */
   }
 }

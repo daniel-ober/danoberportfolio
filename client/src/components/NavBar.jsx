@@ -7,7 +7,7 @@ export default function NavBar() {
   const location = useLocation();
 
   useEffect(() => {
-    setIsOpen(false); // Auto-close menu on route change
+    setIsOpen(false);
   }, [location.pathname]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -22,39 +22,30 @@ export default function NavBar() {
         </Link>
       </div>
 
-      <button className="navbar__toggle" onClick={toggleMenu} aria-label="Toggle Menu">
-        ☰
+      <button
+        className={`navbar__toggle ${isOpen ? "open" : ""}`}
+        onClick={toggleMenu}
+        aria-label="Toggle Menu"
+      >
+        <div className="bar top" />
+        <div className="bar middle" />
+        <div className="bar bottom" />
       </button>
 
       <nav className={`navbar__links ${isOpen ? "open" : ""}`}>
-        <Link
-          to="/"
-          className={`navbar__link ${location.pathname === "/" ? "active" : ""}`}
-          onClick={closeMenu}
-        >
-          Home
-        </Link>
-        <Link
-          to="/about"
-          className={`navbar__link ${location.pathname === "/about" ? "active" : ""}`}
-          onClick={closeMenu}
-        >
-          About
-        </Link>
-        <Link
-          to="/projects"
-          className={`navbar__link ${location.pathname === "/projects" ? "active" : ""}`}
-          onClick={closeMenu}
-        >
-          Projects
-        </Link>
-        <Link
-          to="/contact"
-          className={`navbar__link ${location.pathname === "/contact" ? "active" : ""}`}
-          onClick={closeMenu}
-        >
-          Contact
-        </Link>
+        {["/", "/about", "/projects", "/contact"].map((path) => {
+          const label = path === "/" ? "Home" : path.slice(1).charAt(0).toUpperCase() + path.slice(2);
+          return (
+            <Link
+              key={path}
+              to={path}
+              className={`navbar__link ${location.pathname === path ? "active" : ""}`}
+              onClick={closeMenu}
+            >
+              {label}
+            </Link>
+          );
+        })}
       </nav>
     </header>
   );
