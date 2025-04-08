@@ -18,6 +18,7 @@
   max-width: 720px;
   margin-right: 32px;
   z-index: 2;
+  text-align:justify;
 }
 
 /* DESKTOP IMAGE */
@@ -42,6 +43,10 @@
 /* MOBILE IMAGE */
 .home__portrait-mobile {
   display: none;
+}
+
+.home__headline {
+  margin: 0px;
 }
 
 @media (max-width: 1024px) {
@@ -86,7 +91,7 @@
   .home__headline {
     text-align: center;
     font-weight: 700;
-
+    font-size: 30px;
   }
 
   .home__headline__sub {
