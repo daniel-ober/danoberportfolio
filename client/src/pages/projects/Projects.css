@@ -1,225 +1,171 @@
-/* === Projects.css (Updated) === */
-
-.projects-main-container {
-  background-color: transparent;
+.projects-page-container {
+  background-color: #111;
   color: white;
   font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  scroll-snap-type: y mandatory;
-  overflow-y: auto;
-  height: 100vh;
-  overscroll-behavior: none;
-  scroll-padding-top: 0px;
-  scroll-padding-bottom: 25vh; /* ← key to prevent bottom clipping */
 }
 
-.projects-top-container {
-  min-height: 100vh;
-  scroll-snap-align: start;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 8vh 10vw 4vh;
-  background-color: transparent;
+.projects-header-section {
+  text-align: center;
+  padding: 1vh 5vw 1vh;
 }
 
-.projects-header {
-  font-size: 3rem;
+.projects-title {
+  font-size: 2.4rem;
+  letter-spacing: 1.5px;
   font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 .projects-subtitle {
-  font-size: 1.3rem;
-  color: #bbbbbb;
+  font-size: 12px;
+  color: #ccc;
+  margin-bottom: 0.5rem;
 }
 
-.projects-stack-list {
+.carousel-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  max-width: 900px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  flex-grow: 1;
 }
 
-.skills-icon {
-  height: 52px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  opacity: 0.9;
-}
-
-.skills-icon:hover {
-  transform: scale(1.12);
-  opacity: 1;
-}
-
-.projects-scroll-note {
-  margin-top: 40px;
-  font-size: 1rem;
-  color: #adff2f;
-}
-
-.projects-bottom-container {
-  display: flex;
-  flex-direction: column;
-  scroll-snap-type: y mandatory;
-  margin-top: -1px;
-  padding-bottom: 0px;
-}
-
-.project-container {
+.carousel-slide {
   scroll-snap-align: start;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6vh 10vw;
+  flex: 0 0 100%;
+  padding: 0vh 5vw 3vh;
   box-sizing: border-box;
-  background-color: #111;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative;
-  gap: 5vw;
-  min-height: 100vh;
-  height: auto;
-}
-
-.project-details-container {
-  flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   justify-content: flex-start;
-  align-items: flex-start;
-  min-height: 500px;
+  height: 100%;
+  overflow-y: auto;
 }
 
-.project-details-container img[class^="project-logo"] {
-  width: 200px;
+.project-logo {
+  width: 150px;
+  margin-bottom: 1rem;
+}
+
+.project-name {
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
 }
 
 .project-description {
-  font-size: 1.15rem;
-  line-height: 1.65;
-  color: #f1f1f1;
-}
-
-.project-details-container h4 {
-  font-weight: 400;
   font-size: 1rem;
-  color: #ccc;
-  max-width: 90%;
+  line-height: 1.5;
+  max-width: 700px;
+  margin: 0 auto 0.75rem;
+  color: #ddd;
 }
 
-.project-buttons-container {
+.project-stack {
+  font-size: 14px;
+  margin-bottom: 0.75rem;
+  color: #bbb;
+}
+
+.project-image {
+  width: 100%;
+  max-width: 680px;
+  border-radius: 10px;
+  margin-bottom: 1.25rem;
+}
+
+.project-buttons {
   display: flex;
-  gap: 15px;
-  margin-top: auto;
+  gap: 12px;
   flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
 }
 
 .project-button {
-  padding: 10px 22px;
-  font-size: 1rem;
+  padding: 8px 20px;
+  font-size: 0.95rem;
+  background-color:rgb(0, 196, 98);
   border: none;
   border-radius: 6px;
-  background-color: yellowgreen;
-  color: black;
   font-weight: 600;
+  width: 200px;
+  color: black;
   cursor: pointer;
   transition: background-color 0.25s ease;
 }
 
 .project-button:hover {
-  background-color: #aad400;
+  background-color: springgreen;
 }
 
-.project-screenshots-container {
-  flex: 1;
+.carousel-dots {
   text-align: center;
+  /* padding: 0.8rem 0; */
 }
 
-.project-image {
-  height: 600px;
-  object-fit: contain;
-  border-radius: 12px;
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 6px;
+  background-color: #888;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
 }
 
-.project-screenshots-container-mobile {
-  display: none;
+.dot.active {
+  background-color:cornflowerblue;
 }
 
-/* === Responsive === */
-@media screen and (max-width: 768px) {
-  .project-container {
-    flex-direction: column;
-    text-align: center;
-    padding: 6vh 6vw 14vh;
-    scroll-snap-align: center; /* ← changed from start */
-    scroll-margin-top: 60px;
-    box-sizing: border-box;
-    min-height: auto;
-    height: auto;
+/* Mobile Tweaks */
+@media (max-width: 768px) {
+  .projects-title {
+    font-size: 1.9rem;
   }
 
-  .project-container:last-child {
-    padding-bottom: 200px; /* ← ensures footer never cuts in */
+  .projects-subtitle {
+    font-size: 10px;
   }
 
-  .project-screenshots-container {
-    display: none;
+  .project-logo {
+    width: 120px;
+    margin-bottom: 0.8rem;
   }
 
-  .project-screenshots-container-mobile {
-    display: block;
-    text-align: center;
-    margin-bottom: 1.2rem;
-  }
-
-  .project-image {
-    max-height: 260px;
-    margin-bottom: 1rem;
-  }
-
-  .project-details-container {
-    align-items: center;
-    padding: 0 0 3.5rem;
-    justify-content: flex-start;
-    gap: 12px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .project-details-container img[class^="project-logo"] {
-    width: 180px;
-    margin-bottom: 0.5rem;
+  .project-name {
+    font-size: 1.35rem;
   }
 
   .project-description {
-    text-align: center;
-    font-size: 1.05rem;
-    line-height: 1.5;
-    margin-bottom: 0.5rem;
-  }
-
-  .project-details-container h4 {
-    text-align: center;
     font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-    color: #ccc;
+    padding: 0 12px;
+    margin-bottom: 0.6rem;
   }
 
-  .project-buttons-container {
+  .project-stack {
+    font-size: 11px;
+    margin-bottom: 0.6rem;
+  }
+
+  .project-image {
+    max-width: 90vw;
+    margin-bottom: 1rem;
+  }
+
+  .project-buttons {
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
     gap: 10px;
-    margin-top: 1rem;
-    z-index: 1;
   }
 
   .project-button {
-    width: 100%;
-    min-width: 150px;
-    max-width: 180px;
+    /* width: 100%; */
+    max-width: 165px;
   }
 }

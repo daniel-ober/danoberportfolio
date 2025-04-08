@@ -54,20 +54,6 @@ footer {
 /* MOBILE VIEW */
 @media (max-width: 768px) {
   footer {
-    flex-direction: row;
-    flex-wrap: wrap;
-    height: auto;
-    padding: 0.75rem 1.5rem;
-    justify-content: space-between;
-  }
-
-  .footer__left,
-  .footer__right {
-    width: auto;
-    margin: 0.25rem 0;
-  }
-
-  .footer__center {
-    display: none; /* if sitemap nav is hidden */
+    display: none;
   }
 }

@@ -17,15 +17,12 @@ export default function Home() {
         </h2>
 
         <p className="home__text">
-          I'm a full-stack developer with a background in customer experience,
-          problem solving, and creative brand-building. My work blends empathy,
-          precision, and persistence — from code to concept.
+          I build software and physical products that blend function, story, and
+          thoughtful design. From full-stack web apps to custom-built instruments,
+          I care about the details that make ideas resonate.
           <br /><br />
-          Most recently, I launched <strong>Ober Artisan Drums</strong>, a handcrafted
-          drum company powered by custom tech, visual design, and story.
-          <br /><br />
-          Whether it’s building scalable platforms or handcrafted products, I care
-          deeply about the process and the people behind it.
+          My work bridges the technical and the tactile — with a focus on clean
+          experiences, strong architecture, and meaningful impact.
         </p>
 
         <Link to="/about" className="home__link">Learn more →</Link>

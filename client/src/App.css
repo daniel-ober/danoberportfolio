@@ -31,13 +31,14 @@ p {
 }
 
 a {
-  color:salmon;
+  color:rgb(228, 149, 0);
   text-decoration: none;
   transition: color 0.2s ease;
+  font-weight: 1000;
 }
 
 a:hover {
-  color: tomato;
+  color:orange;
 }
 
 li {

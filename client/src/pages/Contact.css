@@ -28,15 +28,12 @@
 }
 
 .contact__email {
-  color:salmon;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.contact__email:hover {
-  color: tomato;
-}
+
 
 /* === Form === */
 .contact__form {
@@ -64,7 +61,7 @@
 
 .contact__form input:focus,
 .contact__form textarea:focus {
-  border-color: greenyellow;
+  border-color: springgreen;
   outline: none;
 }
 
@@ -73,12 +70,12 @@
 }
 
 .contact__submit {
-  width: 160px;
-  padding: 0.75rem;
-  background-color: greenyellow;
+  width: 25%;
+  padding: 0.65rem;
+  background-color:#00c462;
   border: none;
   color: black;
-  font-weight: 600;
+  font-weight: 1000;
   font-size: 1rem;
   border-radius: 6px;
   cursor: pointer;
@@ -86,7 +83,7 @@
 }
 
 .contact__submit:hover {
-  background-color:greenyellow;
+  background-color:springgreen;
 }
 
 /* Fade animation */

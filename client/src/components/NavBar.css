@@ -9,7 +9,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 65px;
+  height: 35px;
   z-index: 1000;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
@@ -29,7 +29,7 @@
 }
 
 .navbar__logo span:last-child {
-  color: greenyellow; /* Deep blue for 'OBER' */
+  color:orange; /* Deep blue for 'OBER' */
 }
 
 /* Hamburger toggle */
@@ -56,11 +56,11 @@
 }
 
 .navbar__link.active {
-  color:salmon; /* Accent color for hover/active */
+  color:rgb(0, 196, 98);
 }
 
 .navbar__link:hover {
-  color:tomato;
+  color:springgreen;
 }
 
 /* ===== Responsive Mobile Nav ===== */
