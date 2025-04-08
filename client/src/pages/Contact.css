@@ -2,7 +2,7 @@
   animation: fade 1.2s ease;
   display: flex;
   justify-content: center;
-  padding: 4rem 2rem;
+  padding: 1.5rem 2rem;
   min-height: 80vh;
 }
 
@@ -28,14 +28,14 @@
 }
 
 .contact__email {
-  color: coral;
+  color:salmon;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .contact__email:hover {
-  color: coral;
+  color: tomato;
 }
 
 /* === Form === */
@@ -64,7 +64,7 @@
 
 .contact__form input:focus,
 .contact__form textarea:focus {
-  border-color: coral;
+  border-color: greenyellow;
   outline: none;
 }
 
@@ -75,9 +75,9 @@
 .contact__submit {
   width: 160px;
   padding: 0.75rem;
-  background-color: coral;
+  background-color: greenyellow;
   border: none;
-  color: white;
+  color: black;
   font-weight: 600;
   font-size: 1rem;
   border-radius: 6px;
@@ -86,7 +86,7 @@
 }
 
 .contact__submit:hover {
-  background-color:coral;
+  background-color:greenyellow;
 }
 
 /* Fade animation */

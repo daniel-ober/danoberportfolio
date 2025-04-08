@@ -31,13 +31,13 @@ p {
 }
 
 a {
-  color: coral;
+  color:salmon;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #ff8261;
+  color: tomato;
 }
 
 li {

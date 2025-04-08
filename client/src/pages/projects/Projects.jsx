@@ -10,8 +10,8 @@ export default function Projects() {
       name: "Ober Artisan Drums",
       logo: "https://i.imgur.com/D0BniTO.png",
       description:
-        "A handcrafted drum company built from scratch — including the custom e-commerce system, inventory + order management, and media-rich product experience. Designed for both storytelling and seamless checkout.",
-      tech: "React.js, Firebase (Auth, Firestore, Functions), Stripe, Node.js, Express, Tailwind CSS, Cloud Storage, Deployment via Netlify + Google Cloud",
+        "A handcrafted drum company built from scratch — featuring a custom e-commerce platform, full inventory and order tracking, and a media-rich product experience that blends storytelling with functionality.",
+      tech: "React.js, Firebase, Firestore, Stripe, Node.js, Cloud Functions, Google Cloud",
       site: "https://oberartisandrums.com/",
       code: "null",
       image: "https://i.imgur.com/lycxDAZ.png",
@@ -21,8 +21,8 @@ export default function Projects() {
       name: "Doberpop",
       logo: "https://i.imgur.com/1nzGA9M.png",
       description:
-        "Doberpop is a gourmet popcorn e-commerce site offering over 40 flavors and a community recipe-sharing feature.",
-      tech: "React.js, Ruby on Rails, PostgreSQL, CSS Flexbox",
+        "A gourmet popcorn site offering over 40 flavors — complete with full e-commerce functionality and a community recipe-sharing feature designed for fans and snack lovers.",
+      tech: "React.js, Ruby on Rails, PostgreSQL, REST APIs, CSS Flexbox, Netlify",
       site: "https://doberpop.netlify.app/",
       code: "https://github.com/daniel-ober/doberpop",
       image: "https://i.imgur.com/FVo119M.png",
@@ -32,8 +32,8 @@ export default function Projects() {
       name: "Sunday Driver",
       logo: "https://i.imgur.com/2KjLTZx.png",
       description:
-        "Marketplace for vintage car lovers to list, browse, and connect directly via listings.",
-      tech: "React.js, Express.js, MongoDB, Node.js, CSS Flexbox",
+        "A community platform and marketplace for vintage car lovers to list, browse, and connect — featuring searchable listings, real-time user messaging, and custom profile pages.",
+      tech: "React.js, Express.js, MongoDB, Node.js, REST APIs, CSS Flexbox",
       site: "https://sundaydriver.netlify.app/",
       code: "https://github.com/arbayer4/car-app",
       image: "https://i.imgur.com/ICX5fh8.png",
@@ -43,8 +43,8 @@ export default function Projects() {
       name: "WeatherNest",
       logo: "https://i.imgur.com/h742CMv.png",
       description:
-        "Real-time weather updates powered by OpenWeather API with user-friendly UI.",
-      tech: "React.js, HTML, CSS Flexbox, Ajax, OpenWeather API",
+        "Real-time weather app with a clean UI and API-driven forecasts, built to demonstrate asynchronous data handling and geolocation features.",
+      tech: "React.js, HTML, CSS Flexbox, OpenWeather API, Ajax",
       site: "https://weathernest.netlify.app/",
       code: "https://github.com/daniel-ober/weather-app",
       image: "https://i.imgur.com/SUtrZVQ.png",
@@ -54,8 +54,8 @@ export default function Projects() {
       name: "Hot Chicken Heroes",
       logo: "https://i.imgur.com/J71G0vi.png",
       description:
-        "Score and rate hot chicken meals using a structured judging system inspired by competitive formats.",
-      tech: "React.js, External API, CSS Flexbox, Postman",
+        "A judging and scoring app for hot chicken competitions, featuring structured scorecards, cumulative rankings, and comparison dashboards inspired by competitive tasting formats.",
+      tech: "React.js, Custom APIs, Postman, CSS Flexbox, Netlify",
       site: "https://hotchickenheroes.netlify.app/",
       code: "https://github.com/daniel-ober/hotchickenheroes",
       image: "https://i.imgur.com/ePl2IZ4.png",
@@ -65,8 +65,8 @@ export default function Projects() {
       name: "Artist ABC",
       logo: "https://i.imgur.com/rj8TLht.png",
       description:
-        "Discover new music artists through a randomized exploration experience based on your favorites.",
-      tech: "JavaScript, HTML, CSS Flexbox, Ajax, AudioDB API",
+        "A playful music discovery tool that recommends new artists based on your favorites using randomized queries and artist metadata from the AudioDB API.",
+      tech: "JavaScript, HTML5, CSS Flexbox, Ajax, AudioDB API",
       site: "https://artist-abc.netlify.app/",
       code: "https://github.com/daniel-ober/artist-abc",
       image: "https://i.imgur.com/1gHVjzS.png",
@@ -143,7 +143,7 @@ export default function Projects() {
             </div>
             <div className="project-details-container">
               <img
-                className={`project-logo-${project.imageId}`}
+                className={`project-logo`}
                 src={project.logo}
                 alt={`${project.name.toLowerCase()}-logo`}
               />

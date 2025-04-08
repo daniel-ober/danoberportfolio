@@ -1,18 +1,20 @@
 .projects-main-container {
   background-color: transparent;
   color: white;
-  font-family: 'Poppins', sans-serif;
-  display: flex;
-  flex-direction: column;
-  /* padding-top: 65px; */
-  scroll-snap-type: y mandatory;
-  overflow-y: auto;
-  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.project-container {
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
 }
 
 .projects-top-container {
   min-height: 100vh;
   scroll-snap-align: start;
+  /* display: flex; */
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -23,7 +25,7 @@
 .projects-header {
   font-size: 3rem;
   font-weight: 600;
-  /* margin-bottom: 12px; */
+  margin-bottom: 12px;
 }
 
 .projects-subtitle {
@@ -60,22 +62,6 @@
   display: flex;
   flex-direction: column;
   scroll-snap-type: y mandatory;
-  margin-top: -1px; /* remove extra gap between top and first project */
-
-}
-
-.project-container {
-  min-height: calc(100vh - 60px); /* Adjust for fixed footer */
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6vh 10vw;
-  box-sizing: border-box;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: #111;
-  position: relative;
 }
 
 .project-screenshots-container {
@@ -85,49 +71,37 @@
 
 .project-image {
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   height: auto;
   object-fit: contain;
   border-radius: 12px;
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.35); */
 }
 
 .project-details-container {
+  flex: 1;
+  padding-left: 5vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 500px;
+  align-items: flex-start;
 }
 
 .project-details-container img[class^="project-logo"] {
   width: 200px;
-  /* margin-bottom: 20px; */
+  margin-bottom: 20px;
 }
 
 .project-description {
   font-size: 1.15rem;
   line-height: 1.65;
-  /* margin-bottom: 16px; */
+  margin-bottom: 20px;
   color: #f1f1f1;
-  /* min-height: 100px; */
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.project-details-container h4 {
-  min-height: 80px;
-  font-weight: 400;
-  font-size: 1rem;
-  color: #ccc;
-  margin-bottom: 16px;
 }
 
 .project-buttons-container {
   display: flex;
   gap: 15px;
-  margin-top: auto;
+  margin-top: 24px;
 }
 
 .project-button {
@@ -147,9 +121,35 @@
 }
 
 .project-screenshots-container-mobile {
-  display: block;
-  text-align: center;
-  /* margin-bottom: 1rem; reduced spacing */
+  display: none;
+}
+
+/* Pagination Dots */
+.pagination-dots {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pagination-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #666;
+  opacity: 0.5;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.pagination-dot.active {
+  opacity: 1;
+  background-color: yellowgreen;
+  transform: scale(1.2);
 }
 
 /* ===== Responsive ===== */
@@ -158,10 +158,7 @@
     flex-direction: column;
     text-align: center;
     padding: 6vh 6vw;
-    min-height: calc(100vh - 60px); /* fix overflow behind footer */
-    box-sizing: border-box;
   }
-
 
   .project-screenshots-container {
     display: none;
@@ -170,7 +167,7 @@
   .project-screenshots-container-mobile {
     display: block;
     text-align: center;
-    /* margin-bottom: 1rem; */
+    margin-bottom: 3vh;
   }
 
   .project-image {
@@ -178,38 +175,27 @@
     max-height: 320px;
   }
 
-
   .project-details-container {
     align-items: center;
     padding: 0;
-    justify-content: flex-start;
-    min-height: auto;
   }
 
   .project-description {
     text-align: center;
     font-size: 1.05rem;
     line-height: 1.6;
-    min-height: auto;
-    -webkit-line-clamp: unset;
-  }
-
-  .project-details-container h4 {
-    text-align: center;
-    min-height: auto;
   }
 
   .project-buttons-container {
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
     width: 100%;
-    /* gap: 12px; */
-    margin-top: 1rem;
+    gap: 12px;
   }
 
   .project-button {
-    min-width: 180px;
+    width: 100%;
+    max-width: 280px;
   }
 
   .skills-icon {

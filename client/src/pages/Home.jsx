@@ -11,8 +11,8 @@ export default function Home() {
       </div>
 
       <div className="home__left fade-in-left">
-        <h2 className="home__headline">Builder. Designer. Collaborator.</h2>
-        <h2 className="home__headline">
+        <h2 className="home__headline">Builder + Designer</h2>
+        <h2 className="home__headline__sub">
           Rooted in experience. Driven by curiosity.
         </h2>
 

@@ -85,6 +85,14 @@
 
   .home__headline {
     text-align: center;
+    font-weight: 700;
+
+  }
+
+  .home__headline__sub {
+    text-align: center;
+    font-size:x-large;
+    font-weight: 50;
   }
 }
 

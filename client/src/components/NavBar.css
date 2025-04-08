@@ -55,9 +55,12 @@
   transition: color 0.2s ease;
 }
 
-.navbar__link:hover,
 .navbar__link.active {
-  color:coral; /* Accent color for hover/active */
+  color:salmon; /* Accent color for hover/active */
+}
+
+.navbar__link:hover {
+  color:tomato;
 }
 
 /* ===== Responsive Mobile Nav ===== */
