@@ -5,37 +5,39 @@ import "./About.css";
 export default function About() {
   return (
     <div className="about">
-      <div className="about__left">
+      {/* Mobile portrait (top only) */}
+      <div className="about__portrait-mobile">
+        <img src="/danober-portfolio.png" alt="Dan Ober" />
+      </div>
+
+      <div className="about__left fade-in-left">
         <h2 className="about-header">ABOUT DAN</h2>
         <div className="about-body">
           <p>
-            I'm a full-stack web developer and creative problem solver with a
+            I'm a full-stack developer and creative problem solver with a
             background in customer success, leadership, and technical solutions
             across industries like automotive, finance, HR, and entertainment.
           </p>
           <p>
-            My prior experience leading cross-functional teams shaped how I
-            approach collaboration, communication, and user-focused development.
-            I thrive in environments that prioritize empathy, iteration, and
-            creative thinking.
+            My experience leading cross-functional teams shaped how I approach
+            collaboration, communication, and user-focused development. I thrive
+            in environments that value empathy, iteration, and creativity.
           </p>
           <p>
             Beyond code, I’m a lifelong musician and builder. I recently
             launched <strong>Ober Artisan Drums</strong>, a handcrafted drum
-            company that blends product design, storytelling, and technical
-            infrastructure — from custom-built checkout systems to brand
-            development, media, and logistics.
+            company that blends design, story, and technical infrastructure —
+            from checkout systems to brand and media.
           </p>
           <p>
-            When I’m not building, you’ll find me writing music, chasing new
-            ideas, or trying to beat my fastest Rubik’s Cube solve. I’m also big
-            on live music — whether it’s catching a local show, hitting a
-            festival, or digging for new artists to obsess over.
+            Outside of work, I’m writing music, chasing ideas, or trying to beat
+            my Rubik’s Cube time. I’m big on live music — whether it’s a local
+            show, festival, or new artist to obsess over.
           </p>
           <p>
-            I'm seeking a full-time opportunity on a collaborative team where I
-            can grow, solve meaningful problems, and keep building toward better
-            experiences — for users and for people behind the product.
+            I’m looking for a full-time role on a collaborative team where I can
+            solve meaningful problems and build better experiences — for users
+            and the people behind the product.
           </p>
           <p className="about-learn-more">
             Interested in learning more? <br />
@@ -55,12 +57,9 @@ export default function About() {
         </div>
       </div>
 
-      <div className="about__right">
-        <img
-          className="about__portrait"
-          src="/danober-portfolio.png"
-          alt="Dan Ober"
-        />
+      {/* Desktop portrait (right fixed) */}
+      <div className="about__portrait-desktop">
+        <img src="/danober-portfolio.png" alt="Dan Ober" />
       </div>
     </div>
   );

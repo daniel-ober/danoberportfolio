@@ -5,7 +5,12 @@ import "./Home.css";
 export default function Home() {
   return (
     <div className="home">
-      <div className="home__left">
+      {/* Mobile portrait */}
+      <div className="home__portrait-mobile">
+        <img src="/danober-portfolio.png" alt="Dan Ober" />
+      </div>
+
+      <div className="home__left fade-in-left">
         <h2 className="home__headline">Builder. Designer. Collaborator.</h2>
         <h2 className="home__headline">
           Rooted in experience. Driven by curiosity.
@@ -26,12 +31,9 @@ export default function Home() {
         <Link to="/about" className="home__link">Learn more →</Link>
       </div>
 
-      <div className="home__right">
-        <img
-          className="home__portrait"
-          src="/danober-portfolio.png"
-          alt="Dan Ober"
-        />
+      {/* Desktop portrait */}
+      <div className="home__portrait-desktop">
+        <img src="/danober-portfolio.png" alt="Dan Ober" />
       </div>
     </div>
   );

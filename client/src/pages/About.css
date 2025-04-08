@@ -1,51 +1,108 @@
 .about {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
-  gap: 3rem;
-  padding: 3rem 2rem;
-  min-height: calc(100vh - 125px);
+  padding: 0 2rem;
   box-sizing: border-box;
-  animation: fade 1.2s ease;
   margin: 0;
+  position: relative;
+  min-height: calc(100vh - 125px);
 }
 
+/* TEXT BLOCK */
 .about__left {
   flex: 1;
-  max-width: 700px;
+  padding-top: 60px;
+  padding-bottom: 55px;
+  max-width: 720px;
+  margin-right: 32px;
+  z-index: 2;
 }
 
-.about__right {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* DESKTOP PORTRAIT */
+.about__portrait-desktop {
+  width: 500px;
+  height: 100vh;
+  pointer-events: none;
 }
 
-.about__portrait {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
+.about__portrait-desktop img {
+  position: fixed;
+  right: 2rem;
+  top: 60px;
+  height: calc(100vh - 115px);
+  width: auto;
   object-fit: contain;
   border-radius: 12px;
   opacity: 0.96;
   filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.35));
-  margin-bottom: 2rem;
 }
 
+/* MOBILE IMAGE WRAPPER */
+.about__portrait-mobile {
+  display: none;
+}
+
+/* ===== MOBILE VIEW ===== */
 @media (max-width: 1024px) {
   .about {
     flex-direction: column;
-    padding: 2rem;
+    padding: 0;
     align-items: center;
-    height: auto;
+    min-height: auto;
   }
 
-  .about__portrait {
-    max-width: 300px;
-    width: 90%;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+  .about__portrait-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    background-color: #1a1a1a;
+  }
+
+  .about__portrait-mobile img {
+    width: auto;
+    height: auto;
+    max-height: 75vh;
+    max-width: 92vw;
+    object-fit: contain;
+    border-radius: 12px;
+    opacity: 0.96;
+    filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.35));
+  }
+
+  .about__portrait-desktop {
+    display: none;
+  }
+
+  .about__left {
+    padding: 2rem 1.5rem;
+    padding-top: 1.25rem;
+    margin-right: 0;
+    max-width: 100%;
+  }
+
+  .about-header {
+    text-align: center;
+    width: 100%;
+    margin: 1.25rem auto 1.5rem auto;
+  }
+}
+
+/* === Left-side animation === */
+.fade-in-left {
+  animation: fadeInLeft 0.6s ease;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

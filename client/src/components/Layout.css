@@ -1,15 +1,43 @@
-.layout {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #1a1a1a; /* dark background */
-  color: white;
+/* Layout.css */
+.layout-portrait {
+  pointer-events: none;
+  z-index: 0;
 }
 
-.layout__main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  width: 100%;
+.layout-portrait img {
+  position: fixed;
+  right: 2rem;
+  top: 60px;
+  height: calc(100vh - 115px);
+  width: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  opacity: 0.96;
+  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.35));
+}
+
+/* Portrait layout for about vs home if needed */
+.portrait-about img,
+.portrait-home img {
+  transition: none !important;
+}
+
+@media (max-width: 1024px) {
+  .layout-portrait {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+  }
+
+  .layout-portrait img {
+    position: static;
+    width: auto;
+    max-width: 92vw;
+    max-height: 75vh;
+  }
 }
