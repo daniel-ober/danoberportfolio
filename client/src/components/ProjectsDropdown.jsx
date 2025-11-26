@@ -11,7 +11,7 @@ export default function ProjectsDropdown() {
         <div className="submenu">
           <NavLink to="/projects/ober-artisan-drums">Ober Artisan Drums</NavLink>
           <NavLink to="/projects/sunday-driver">Sunday Driver</NavLink>
-          <NavLink to="/projects/weathernest">Weathernest</NavLink>
+          <NavLink to="/projects/weathernest">WeatherNest</NavLink>
           <NavLink to="/projects/artist-abc">Artist ABC</NavLink>
           <NavLink to="/projects/hot-chicken-heroes">Hot Chicken Heroes</NavLink>
         </div>

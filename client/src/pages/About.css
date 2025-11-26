@@ -10,20 +10,52 @@
   min-height: calc(100vh - 125px);
 }
 
-/* TEXT BLOCK */
+/* LEFT COLUMN — TEXT */
 .about__left {
   flex: 1;
   padding-top: 60px;
   padding-bottom: 55px;
-  max-width: 720px;
+  max-width: 760px;
   margin-right: 32px;
   z-index: 2;
-  text-align: justify;
+}
+
+.about-header {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+}
+
+.about-body p {
+  margin-bottom: 1.15rem;
+  line-height: 1.75;
+  color: #e6e6e6;
+  font-size: 1.05rem;
+}
+
+.about-cta {
+  margin-top: 2rem;
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+.about-cta a {
+  color: rgb(228, 149, 0);
+}
+
+.about-resume {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.about-resume a {
+  color: rgb(228, 149, 0);
 }
 
 /* DESKTOP PORTRAIT */
 .about__portrait-desktop {
-  width: 500px;
+  width: 480px;
   height: 100vh;
   pointer-events: none;
 }
@@ -36,16 +68,16 @@
   width: auto;
   object-fit: contain;
   border-radius: 12px;
-  opacity: 0.96;
+  opacity: 0.95;
   filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.35));
 }
 
-/* MOBILE IMAGE WRAPPER */
+/* MOBILE PORTRAIT */
 .about__portrait-mobile {
   display: none;
 }
 
-/* ===== MOBILE VIEW ===== */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
   .about {
     flex-direction: column;
@@ -57,17 +89,13 @@
   .about__portrait-mobile {
     display: flex;
     justify-content: center;
-    align-items: center;
     width: 100%;
-    padding: 1rem 0;
-    background-color: #1a1a1a;
+    padding: 1rem 0 0.5rem;
   }
 
   .about__portrait-mobile img {
-    width: auto;
-    height: auto;
-    max-height: 75vh;
     max-width: 92vw;
+    max-height: 75vh;
     object-fit: contain;
     border-radius: 12px;
     opacity: 0.96;
@@ -79,28 +107,26 @@
   }
 
   .about__left {
-    padding: 2rem 1.5rem;
-    padding-top: 1.25rem;
+    padding: 1.5rem 1.5rem 3rem;
     margin-right: 0;
     max-width: 100%;
   }
 
   .about-header {
     text-align: center;
-    width: 100%;
-    margin: 1.25rem auto 1.5rem auto;
+    margin: 1rem 0 1.5rem;
   }
 }
 
-/* === Left-side animation === */
+/* ANIMATION */
 .fade-in-left {
-  animation: fadeInLeft 0.6s ease;
+  animation: fadeInLeft 0.5s ease;
 }
 
 @keyframes fadeInLeft {
   from {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateX(-18px);
   }
   to {
     opacity: 1;

@@ -1,52 +1,81 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+// src/components/NavBar.jsx
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
 
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location.pathname]);
+  const handleToggle = () => setIsOpen((prev) => !prev);
+  const handleClose = () => setIsOpen(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-  const closeMenu = () => setIsOpen(false);
+  const navItems = [
+    { to: "/", label: "Home" },
+    { to: "/services", label: "Services" },
+    { to: "/projects", label: "Projects" },
+    { to: "/about", label: "About" },
+    { to: "/contact", label: "Contact" },
+  ];
 
   return (
     <header className="navbar">
-      <div className="navbar__logo">
-        <Link to="/" onClick={closeMenu}>
-          <span className="navbar__logo--highlight">DAN</span>
-          <span>OBER</span>
-        </Link>
+      <div className="navbar__inner">
+        <div className="navbar__brand">
+          <Link to="/" className="navbar__logo" onClick={handleClose}>
+            <span className="navbar__logo-main">DAN OBER</span>
+            <span className="navbar__logo-sub">Builder · Engineer · Creative</span>
+          </Link>
+        </div>
+
+        {/* Desktop links */}
+        <nav className="navbar__nav">
+          {navItems.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              end={item.to === "/"}
+              className={({ isActive }) =>
+                isActive ? "navbar__link navbar__link--active" : "navbar__link"
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
+        </nav>
+
+        {/* Mobile menu button */}
+        <button
+          className="navbar__toggle"
+          type="button"
+          aria-label="Toggle navigation"
+          onClick={handleToggle}
+        >
+          <span className={isOpen ? "navbar__bar navbar__bar--top open" : "navbar__bar navbar__bar--top"} />
+          <span className={isOpen ? "navbar__bar navbar__bar--middle open" : "navbar__bar navbar__bar--middle"} />
+          <span className={isOpen ? "navbar__bar navbar__bar--bottom open" : "navbar__bar navbar__bar--bottom"} />
+        </button>
       </div>
 
-      <button
-        className={`navbar__toggle ${isOpen ? "open" : ""}`}
-        onClick={toggleMenu}
-        aria-label="Toggle Menu"
-      >
-        <div className="bar top" />
-        <div className="bar middle" />
-        <div className="bar bottom" />
-      </button>
-
-      <nav className={`navbar__links ${isOpen ? "open" : ""}`}>
-        {["/", "/about", "/projects", "/contact"].map((path) => {
-          const label = path === "/" ? "Home" : path.slice(1).charAt(0).toUpperCase() + path.slice(2);
-          return (
-            <Link
-              key={path}
-              to={path}
-              className={`navbar__link ${location.pathname === path ? "active" : ""}`}
-              onClick={closeMenu}
+      {/* Mobile dropdown */}
+      {isOpen && (
+        <nav className="navbar__mobile">
+          {navItems.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              end={item.to === "/"}
+              className={({ isActive }) =>
+                isActive
+                  ? "navbar__mobile-link navbar__mobile-link--active"
+                  : "navbar__mobile-link"
+              }
+              onClick={handleClose}
             >
-              {label}
-            </Link>
-          );
-        })}
-      </nav>
+              {item.label}
+            </NavLink>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }

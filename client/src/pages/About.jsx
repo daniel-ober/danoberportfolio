@@ -5,44 +5,56 @@ import "./About.css";
 export default function About() {
   return (
     <div className="about">
-      {/* Mobile portrait (top only) */}
+      {/* Mobile portrait */}
       <div className="about__portrait-mobile">
         <img src="/danober-portfolio.png" alt="Dan Ober" />
       </div>
 
       <div className="about__left fade-in-left">
         <h2 className="about-header">ABOUT DAN</h2>
+
         <div className="about-body">
           <p>
-            I'm a full-stack developer and creative problem solver with a
-            background in customer success, leadership, and technical solutions
-            across industries like automotive, finance, HR, and entertainment.
+            I’m a builder at heart — part engineer, part creative, and part problem-solver. My
+            background spans full-stack software engineering, solutions engineering, customer
+            success leadership, audio production, and hands-on craftsmanship.
           </p>
+
           <p>
-            My experience leading cross-functional teams shaped how I approach
-            collaboration, communication, and user-focused development. I thrive
-            in environments that value empathy, iteration, and creativity.
+            I’ve helped founders, teams, and artists ship tools and experiences that feel
+            intentional. Much of my work blends system design, technical execution, and clear
+            communication — the core ingredients for products people actually use.
           </p>
+
           <p>
-            Beyond code, I’m a lifelong musician and builder. I recently
-            launched <strong>Ober Artisan Drums</strong>, a handcrafted drum
-            company that blends design, story, and technical infrastructure —
-            from checkout systems to brand and media.
+            I’ve led and supported teams in Customer Success and API solutions, building playbooks,
+            KPIs, and enablement resources that keep both customers and internal teams aligned. I’m
+            comfortable switching between technical deep dives, roadmap conversations, and coaching
+            sessions.
           </p>
+
           <p>
-            Outside of work, I’m writing music, chasing ideas, or trying to beat
-            my Rubik’s Cube time. I’m big on live music — whether it’s a local
-            show, festival, or new artist to obsess over.
+            Outside software, I run <strong>Ober Artisan Drums</strong>, a handcrafted stave-drum
+            company where I design shells, build jigs, create media, and manage the full digital
+            ecosystem — from e-commerce and customer portals to production workflows and artist
+            experiences.
           </p>
+
           <p>
-            I’m looking for a full-time role on a collaborative team where I can
-            solve meaningful problems and build better experiences — for users
-            and the people behind the product.
+            I’m also a lifelong musician and recording engineer. I take on remote sessions, scoring
+            and composition work, and I’m open to live performance and touring opportunities when
+            the right project comes along.
           </p>
-          <p className="about-learn-more">
-            Interested in learning more? <br />
-            <Link to="/contact">Let’s connect</Link>
+
+          <p>
+            When I’m not building something, I’m writing music, exploring new tools, or working on
+            the next idea that keeps me up at night.
           </p>
+
+          <p className="about-cta">
+            Want to connect or collaborate? <Link to="/contact">Let’s talk.</Link>
+          </p>
+
           <p className="about-resume">
             Download my resume{" "}
             <a
@@ -53,11 +65,12 @@ export default function About() {
             >
               here
             </a>
+            .
           </p>
         </div>
       </div>
 
-      {/* Desktop portrait (right fixed) */}
+      {/* Desktop portrait */}
       <div className="about__portrait-desktop">
         <img src="/danober-portfolio.png" alt="Dan Ober" />
       </div>
