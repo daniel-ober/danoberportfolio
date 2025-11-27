@@ -1,3 +1,4 @@
+// src/components/Layout.jsx
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import NavBar from "./NavBar";
@@ -7,7 +8,6 @@ import "./Layout.css";
 export default function Layout({ children }) {
   const location = useLocation();
   const isHome = location.pathname === "/";
-  const isAbout = location.pathname === "/about"; // kept in case you still use it
 
   // Disable body scroll on home, enable elsewhere
   useEffect(() => {
@@ -25,6 +25,7 @@ export default function Layout({ children }) {
   return (
     <>
       <NavBar />
+
       <div
         className={
           isHome ? "layout-content layout-content--home" : "layout-content"
@@ -36,6 +37,7 @@ export default function Layout({ children }) {
           {children}
         </main>
       </div>
+
       <Footer />
     </>
   );

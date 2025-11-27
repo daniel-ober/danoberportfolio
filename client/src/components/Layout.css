@@ -1,8 +1,9 @@
 /* MAIN LAYOUT FRAME ------------------------------------------ */
 
 .layout-content {
-  min-height: calc(100vh - 0px);
+  min-height: 100vh;
   display: flex;
+  flex-direction: column; /* stack main + (any future) helpers vertically */
 }
 
 .layout-main {
@@ -11,17 +12,22 @@
 
 /* Home page: main should be exactly the slot between nav & footer */
 .layout-content--home {
-  /* nothing special yet, but hook point if we need */
+  /* Home uses explicit height on .layout-main--home */
+  min-height: 0;
 }
 
 .layout-main--home {
-  height: calc(100vh - 120px); /* approx nav + footer height – adjust as needed */
+  /* Approximate total height of NavBar + Footer.
+     Tweak if you adjust their padding/heights. */
+  height: calc(100vh - 120px);
   padding: 0;
+  overflow: hidden; /* no scrollbars inside main on home */
 }
 
-/* ensure the home wrapper can stretch */
+/* ensure the home wrapper can stretch and not overflow */
 .layout-main--home .home-page {
   height: 100%;
+  overflow: hidden;
 }
 
 /* EXISTING PORTRAIT STYLES (kept for About / others) ---------- */

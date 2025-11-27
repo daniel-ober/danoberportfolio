@@ -23,34 +23,34 @@ const WEB_HOTSPOTS = [
     label: "Feather jacket · Photo & Video",
     layer: "dreamfeather",
     left: 10,
-    top: 25,
+    top: 3,
     width: 14,
-    height: 50,
+    height: 36,
   },
   {
     id: "monitor",
     label: "Computer monitor · Web & Software",
     layer: "web",
-    left: 25,
-    top: 28,
-    width: 18,
-    height: 20,
+    left: 23,
+    top: 15,
+    width: 15,
+    height: 40,
   },
   {
     id: "acoustic-guitar",
     label: "Acoustic guitar · Music & Audio",
     layer: "acoustic-guitar",
-    left: 11.5,
-    top: 32,
-    width: 11.5,
-    height: 44,
+    left: 5,
+    top: 30,
+    width: 12,
+    height: 57,
   },
   {
     id: "snare",
     label: "Custom snare drum · Craft & Making",
     layer: "drum",
     left: 18.5,
-    top: 47,
+    top: 55,
     width: 15,
     height: 32,
   },
@@ -58,79 +58,191 @@ const WEB_HOTSPOTS = [
     id: "camera",
     label: "Camera on the floor · Photo & Video",
     layer: "camera",
-    left: 34,
-    top: 66,
-    width: 12,
-    height: 18,
+    left: 32,
+    top: 80,
+    width: 10,
+    height: 15,
   },
   {
     id: "dog",
     label: "Studio dog · Story & Life",
     layer: "lucy", // 🐶 Lucy (dog)
-    left: 43.5,
-    top: 33,
-    width: 18,
-    height: 51,
+    left: 42,
+    top: 22,
+    width: 20,
+    height: 70,
   },
   {
     id: "orange-cat",
     label: "Studio kitten · Story & Life",
     layer: "sunny", // 🧡 Sunny (orange cat)
-    left: 54,
-    top: 60,
+    left: 58,
+    top: 70,
     width: 11,
-    height: 25,
+    height: 30,
   },
   {
     id: "electric-guitar",
     label: "Electric guitar · Music & Audio",
     layer: "electric-guitar",
     left: 59,
-    top: 36,
-    width: 12,
-    height: 37,
+    top: 20,
+    width: 10,
+    height: 57,
   },
   {
     id: "rubiks",
     label: "Rubik's cube in display · Problem Solving",
     layer: "rubiks",
-    left: 73.5,
-    top: 50,
-    width: 15,
-    height: 25,
+    left: 72,
+    top: 52,
+    width: 12.5,
+    height: 22,
   },
   {
     id: "printer",
     label: "3D printer · Craft & Making",
     layer: "3d",
-    left: 72,
-    top: 28,
-    width: 18,
-    height: 20,
+    left: 68,
+    top: 23,
+    width: 19,
+    height: 24,
   },
   {
     id: "top-cat",
     label: "Black & white cat on the printer · Story",
     layer: "freddie", // 🐈‍⬛ Freddie (black cat)
-    left: 66,
-    top: 15,
-    width: 21,
-    height: 20,
+    left: 68,
+    top: 6,
+    width: 17,
+    height: 18,
   },
   {
     id: "dan-chelsea",
     label: "Dan & Chelsea · Story & Life",
     layer: "danandchelsea",
-    left: 55,
-    top: 21,
-    width: 16,
-    height: 23,
+    left: 61,
+    top: 5,
+    width: 10,
+    height: 17.5,
   },
 ];
 
-// For now mobile uses the same hotspot map.
-// You can later tune the % separately if you export a different crop.
-const MOBILE_HOTSPOTS = WEB_HOTSPOTS;
+/* ---------------------------------------------------------
+   MOBILE HOTSPOTS
+   - Your tuned layout, independent from desktop.
+   --------------------------------------------------------- */
+
+const MOBILE_HOTSPOTS = [
+  {
+    id: "feather",
+    label: "Feather jacket · Photo & Video",
+    layer: "dreamfeather",
+    left: 1,
+    top: 15,
+    width: 33,
+    height: 22,
+  },
+  {
+    id: "monitor",
+    label: "Computer monitor · Web & Software",
+    layer: "web",
+    left: 0,
+    top: 36,
+    width: 36,
+    height: 20,
+  },
+  // {
+  //   id: "acoustic-guitar",
+  //   label: "Acoustic guitar · Music & Audio",
+  //   layer: "acoustic-guitar",
+  //   left: 5,
+  //   top: 30,
+  //   width: 12,
+  //   height: 57,
+  // },
+  {
+    id: "snare",
+    label: "Custom snare drum · Craft & Making",
+    layer: "drum",
+    left: 1,
+    top: 55,
+    width: 34,
+    height: 18,
+  },
+  {
+    id: "camera",
+    label: "Camera on the floor · Photo & Video",
+    layer: "camera",
+    left: 8,
+    top: 72,
+    width: 29,
+    height: 10,
+  },
+  {
+    id: "dog",
+    label: "Studio dog · Story & Life",
+    layer: "lucy", // 🐶 Lucy (dog)
+    left: 33,
+    top: 35,
+    width: 33,
+    height: 40.5,
+  },
+  {
+    id: "orange-cat",
+    label: "Studio kitten · Story & Life",
+    layer: "sunny", // 🧡 Sunny (orange cat)
+    left: 59,
+    top: 67,
+    width: 25,
+    height: 17,
+  },
+  {
+    id: "electric-guitar",
+    label: "Electric guitar · Music & Audio",
+    layer: "electric-guitar",
+    left: 75,
+    top: 47,
+    width: 22,
+    height: 31,
+  },
+  {
+    id: "rubiks",
+    label: "Rubik's cube in display · Problem Solving",
+    layer: "rubiks",
+    left: 40,
+    top: 75,
+    width: 20,
+    height: 9.5,
+  },
+  {
+    id: "printer",
+    label: "3D printer · Craft & Making",
+    layer: "3d",
+    left: 64,
+    top: 36,
+    width: 35,
+    height: 16,
+  },
+  {
+    id: "top-cat",
+    label: "Black & white cat on the printer · Story",
+    layer: "freddie", // 🐈‍⬛ Freddie (black cat)
+    left: 70,
+    top: 16,
+    width: 28,
+    height: 21,
+  },
+  {
+    id: "dan-chelsea",
+    label: "Dan & Chelsea · Story & Life",
+    layer: "danandchelsea",
+    left: 41,
+    top: 17,
+    width: 30,
+    height: 17,
+  },
+];
 
 /* =========================================================
    IMAGE PATH HELPERS
@@ -162,7 +274,8 @@ function getHotspots(variant) {
 
 const HOTSPOT_DETAILS = {
   feather: {
-    title: "Feather Jacket · Creative Direction",
+    title: "Feather Jacket",
+    subtitle: "Creative Direction",
     disciplines: [
       "Story, Music & Creative Life",
       "Product & UX Design",
@@ -179,7 +292,8 @@ const HOTSPOT_DETAILS = {
   },
 
   monitor: {
-    title: "The Monitor · Web & Software Engineering",
+    title: "The Monitor",
+    subtitle: "Web & Software Engineering",
     disciplines: [
       "Web & Software Engineering",
       "Product & UX Design",
@@ -196,11 +310,9 @@ const HOTSPOT_DETAILS = {
   },
 
   "acoustic-guitar": {
-    title: "Acoustic Guitar · Musicality & Empathy",
-    disciplines: [
-      "Story, Music & Creative Life",
-      "Product & UX Design",
-    ],
+    title: "Acoustic Guitar",
+    subtitle: "Musicality & Empathy",
+    disciplines: ["Story, Music & Creative Life", "Product & UX Design"],
     body: [
       `Music has always been how I listen first and speak second. Playing and writing music forces me 
       to think in phrases, tension and release, and dynamics — exactly how I like to design flows 
@@ -212,9 +324,10 @@ const HOTSPOT_DETAILS = {
   },
 
   snare: {
-    title: "Custom Snare Drum · Craft & Making",
+    title: "Custom Snare Drum",
+    subtitle: "Craft & Making",
     disciplines: [
-      "Craft & Making (Ober Artisan Drums)",
+      "Craft & Making",
       "Technical Problem Solving",
       "Story, Music & Creative Life",
     ],
@@ -228,11 +341,9 @@ const HOTSPOT_DETAILS = {
   },
 
   camera: {
-    title: "Camera · Visual Systems & Documentation",
-    disciplines: [
-      "Product & UX Design",
-      "Story, Music & Creative Life",
-    ],
+    title: "Camera",
+    subtitle: "Visual Systems & Documentation",
+    disciplines: ["Product & UX Design", "Story, Music & Creative Life"],
     body: [
       `The camera represents how I document work. I don’t just ship a feature or a drum and walk away — 
       I record the process, highlight the decisions, and give people a way to remember what went into it.`,
@@ -242,10 +353,9 @@ const HOTSPOT_DETAILS = {
   },
 
   dog: {
-    title: "Lucy · Story & Life",
-    disciplines: [
-      "Story, Music & Creative Life",
-    ],
+    title: "Lucy",
+    subtitle: "Story & Life",
+    disciplines: ["Story, Music & Creative Life"],
     body: [
       `Lucy is the studio dog and the emotional center of the room. She’s there to remind me that 
       all of this — the code, the drums, the craft — is still about people, connection, and 
@@ -256,11 +366,9 @@ const HOTSPOT_DETAILS = {
   },
 
   "orange-cat": {
-    title: "Sunny · Play & Curiosity",
-    disciplines: [
-      "Story, Music & Creative Life",
-      "Technical Problem Solving",
-    ],
+    title: "Sunny",
+    subtitle: "Play & Curiosity",
+    disciplines: ["Story, Music & Creative Life", "Technical Problem Solving"],
     body: [
       `Sunny is the little spark of mischief in the scene — the reminder that curiosity matters. 
       Most of my favorite solutions started as “What if we just tried…?” moments that didn’t feel 
@@ -271,11 +379,9 @@ const HOTSPOT_DETAILS = {
   },
 
   "electric-guitar": {
-    title: "Electric Guitar · Performance & Collaboration",
-    disciplines: [
-      "Story, Music & Creative Life",
-      "Product & UX Design",
-    ],
+    title: "Electric Guitar",
+    subtitle: "Performance & Collaboration",
+    disciplines: ["Story, Music & Creative Life", "Product & UX Design"],
     body: [
       `The electric guitar is about performance under pressure. Live shows taught me how to stay present, 
       adapt, and deliver even when something goes sideways — a cable dies, a monitor cuts out, or the set 
@@ -286,11 +392,9 @@ const HOTSPOT_DETAILS = {
   },
 
   rubiks: {
-    title: "Rubik’s Cube · Technical Problem Solving",
-    disciplines: [
-      "Technical Problem Solving",
-      "Web & Software Engineering",
-    ],
+    title: "Rubik’s Cube",
+    subtitle: "Technical Problem Solving",
+    disciplines: ["Technical Problem Solving", "Web & Software Engineering"],
     body: [
       `The cube is my little altar to problem solving. I love breaking down messy, 
       real-world constraints into something we can actually reason about and solve.`,
@@ -300,7 +404,8 @@ const HOTSPOT_DETAILS = {
   },
 
   printer: {
-    title: "3D Printer · Prototyping & Systems Thinking",
+    title: "3D Printer",
+    subtitle: "Prototyping & Systems Thinking",
     disciplines: [
       "Web & Software Engineering",
       "Technical Problem Solving",
@@ -315,11 +420,9 @@ const HOTSPOT_DETAILS = {
   },
 
   "top-cat": {
-    title: "Freddie · Observation & Detail",
-    disciplines: [
-      "Product & UX Design",
-      "Story, Music & Creative Life",
-    ],
+    title: "Freddie",
+    subtitle: "Observation & Detail",
+    disciplines: ["Product & UX Design", "Story, Music & Creative Life"],
     body: [
       `Freddie is the quiet observer on top of the printer. In the studio he’s the one who sees everything 
       but never says much — which is pretty close to how I like to approach discovery and research.`,
@@ -330,10 +433,9 @@ const HOTSPOT_DETAILS = {
   },
 
   "dan-chelsea": {
-    title: "Dan & Chelsea · Relationships & Resilience",
-    disciplines: [
-      "Story, Music & Creative Life",
-    ],
+    title: "Dan & Chelsea",
+    subtitle: "Relationships & Resilience",
+    disciplines: ["Story, Music & Creative Life"],
     body: [
       `This frame is about the life outside the work. Building a career in tech and a boutique drum 
       business at the same time has only been possible because of real support and honest feedback 
@@ -349,7 +451,7 @@ const HOTSPOT_DETAILS = {
    INFO MODAL COMPONENT
    ========================================================= */
 
-function InfoModal({ open, onClose, title, disciplines, body }) {
+function InfoModal({ open, onClose, title, subtitle, disciplines, body }) {
   // lock scroll when modal is open
   useEffect(() => {
     if (!open) return;
@@ -360,6 +462,7 @@ function InfoModal({ open, onClose, title, disciplines, body }) {
     };
   }, [open]);
 
+  // close on Escape
   useEffect(() => {
     if (!open) return;
     const handler = (e) => {
@@ -379,17 +482,10 @@ function InfoModal({ open, onClose, title, disciplines, body }) {
         aria-modal="true"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="mh-modal__title">{title}</h2>
-
-        {disciplines && disciplines.length > 0 && (
-          <div className="mh-modal__disciplines">
-            {disciplines.map((d) => (
-              <span key={d} className="mh-pill">
-                {d}
-              </span>
-            ))}
-          </div>
-        )}
+        <div className="mh-modal__header">
+          <h2 className="mh-modal__title">{title}</h2>
+          {subtitle && <div className="mh-modal__subtitle">{subtitle}</div>}
+        </div>
 
         {body && (
           <div className="mh-modal__body">
@@ -402,7 +498,7 @@ function InfoModal({ open, onClose, title, disciplines, body }) {
         <div className="mh-modal__actions">
           <button
             type="button"
-            className="mh-button mh-button--primary"
+            className="mh-button mh-button--ghost"
             onClick={onClose}
           >
             Close
@@ -418,35 +514,59 @@ function InfoModal({ open, onClose, title, disciplines, body }) {
    ========================================================= */
 
 export default function MakinHomeScene({ variant = "desktop" }) {
-  const [activeHoverId, setActiveHoverId] = useState(null); // for highlight layer
-  const [modalId, setModalId] = useState(null); // for info modal
+  // hover = transient highlight
+  const [hoverId, setHoverId] = useState(null);
+  // selected = bubble + persistent highlight
+  const [selectedId, setSelectedId] = useState(null);
+  // controls the full modal
+  const [modalId, setModalId] = useState(null);
+  // bubble placement: "above" or "below"
+  const [bubblePlacement, setBubblePlacement] = useState("below");
 
   const hotspots = getHotspots(variant);
   const baseSrc = getBaseSrc(variant);
 
-  const activeHotspot =
-    hotspots.find((h) => h.id === activeHoverId) || null;
+  const activeId = selectedId || hoverId;
+  const activeHotspot = hotspots.find((h) => h.id === activeId) || null;
   const activeLayerSrc = activeHotspot
     ? getLayerSrc(activeHotspot.layer, variant)
     : null;
 
   const modalDetails = modalId ? HOTSPOT_DETAILS[modalId] : null;
 
-  const handleActivateHover = useCallback((id) => {
-    setActiveHoverId(id);
+  const handleMouseEnter = useCallback((id) => {
+    setHoverId(id);
   }, []);
 
-  const handleClearHover = useCallback(() => {
-    setActiveHoverId(null);
+  const handleMouseLeave = useCallback(() => {
+    setHoverId(null);
   }, []);
 
-  const handleOpenModal = useCallback(
-    (id) => {
-      setModalId(id);
-      setActiveHoverId(id);
-    },
-    []
-  );
+  // click = select + decide whether bubble goes above/below
+  const handleSelectHotspot = useCallback((id, evt) => {
+    setSelectedId((prev) => {
+      const nextId = prev === id ? null : id;
+
+      // if we're activating (not just deselecting), calculate placement
+      if (nextId && evt && evt.currentTarget) {
+        const rect = evt.currentTarget.getBoundingClientRect();
+        const centerY = rect.top + rect.height / 2;
+        const screenMid = window.innerHeight / 2;
+
+        if (centerY > screenMid) {
+          setBubblePlacement("above");
+        } else {
+          setBubblePlacement("below");
+        }
+      }
+
+      return nextId;
+    });
+  }, []);
+
+  const handleOpenModal = useCallback((id) => {
+    setModalId(id);
+  }, []);
 
   const handleCloseModal = useCallback(() => {
     setModalId(null);
@@ -475,27 +595,56 @@ export default function MakinHomeScene({ variant = "desktop" }) {
         )}
 
         {/* Hotspots */}
-        {hotspots.map((spot) => (
-          <button
-            key={spot.id}
-            type="button"
-            className="mh-hotspot"
-            style={{
-              left: `${spot.left}%`,
-              top: `${spot.top}%`,
-              width: `${spot.width}%`,
-              height: `${spot.height}%`,
-            }}
-            onMouseEnter={() => handleActivateHover(spot.id)}
-            onMouseLeave={handleClearHover}
-            onFocus={() => handleActivateHover(spot.id)}
-            onBlur={handleClearHover}
-            onClick={() => handleOpenModal(spot.id)}
-          >
-            <span className="mh-hotspot__label">{spot.label}</span>
-            <span className="mh-hotspot__sr-only">{spot.label}</span>
-          </button>
-        ))}
+        {hotspots.map((spot) => {
+          const detail = HOTSPOT_DETAILS[spot.id];
+          const isSelected = selectedId === spot.id;
+
+          return (
+            <button
+              key={spot.id}
+              type="button"
+              className="mh-hotspot"
+              style={{
+                left: `${spot.left}%`,
+                top: `${spot.top}%`,
+                width: `${spot.width}%`,
+                height: `${spot.height}%`,
+              }}
+              onMouseEnter={() => handleMouseEnter(spot.id)}
+              onMouseLeave={handleMouseLeave}
+              onFocus={() => handleMouseEnter(spot.id)}
+              onBlur={handleMouseLeave}
+              onClick={(e) => handleSelectHotspot(spot.id, e)}
+            >
+              {/* Hover pill label
+              <span className="mh-hotspot__label">{spot.label}</span> */}
+
+              {/* Expanded bubble when selected */}
+              {isSelected && (
+                <div
+                  className={
+                    "mh-hotspot__bubble mh-hotspot__bubble--visible " +
+                    `mh-hotspot__bubble--${bubblePlacement}`
+                  }
+                >
+                  <div className="mh-hotspot__bubble-title">
+                    {detail?.title || spot.label}
+                  </div>
+                  <button
+                    type="button"
+                    className="mh-hotspot__bubble-cta"
+                    onClick={(e) => {
+                      e.stopPropagation(); // don’t toggle selection again
+                      handleOpenModal(spot.id);
+                    }}
+                  >
+                    Learn more
+                  </button>
+                </div>
+              )}
+            </button>
+          );
+        })}
       </div>
 
       {/* Info Modal */}
@@ -503,6 +652,7 @@ export default function MakinHomeScene({ variant = "desktop" }) {
         open={!!modalDetails}
         onClose={handleCloseModal}
         title={modalDetails?.title}
+        subtitle={modalDetails?.subtitle}
         disciplines={modalDetails?.disciplines || []}
         body={modalDetails?.body || []}
       />

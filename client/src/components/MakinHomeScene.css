@@ -18,7 +18,7 @@
   overflow: hidden;
 }
 
-/* Desktop / web: lock to 16:9 so hotspots stay consistent */
+/* Desktop / web: lock to 16:9 so hotspots stay perfect */
 
 .mh-scene--desktop .mh-scene__stage {
   aspect-ratio: 16 / 9;
@@ -53,7 +53,7 @@
 
 .mh-scene__image--layer {
   opacity: 0;
-  transition: opacity 420ms ease-in-out; /* softer, slower fade */
+  transition: opacity 360ms ease-in-out;
 }
 
 .mh-scene__image--layer-visible {
@@ -98,6 +98,11 @@
   transition: opacity 180ms ease-in-out;
 }
 
+/* hide the small label when the hotspot is selected (bubble showing) */
+.mh-hotspot--selected .mh-hotspot__label {
+  opacity: 0;
+}
+
 .mh-hotspot:hover .mh-hotspot__label,
 .mh-hotspot:focus-visible .mh-hotspot__label {
   opacity: 1;
@@ -115,76 +120,148 @@
   border: 0;
 }
 
-/* MODAL STYLES ------------------------------------------------ */
+/* SELECTED BUBBLE --------------------------------------------- */
+/* Expanded bubble with title + centered "Learn more" button */
+
+.mh-hotspot__bubble {
+  position: absolute;
+  left: 50%;
+  bottom: 6px; /* anchor toward the bottom of the hotspot */
+  transform: translate(-50%, 12px); /* start slightly lower for animation */
+  min-width: 160px;
+  max-width: min(260px, 92vw); /* never overflow screen width */
+  padding: 10px 16px 12px;
+  border-radius: 24px;
+  background: rgba(3, 3, 6, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;      /* stack title + button */
+  align-items: center;         /* center horizontally */
+  gap: 8px;
+  color: #fefefe;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 200ms ease-out,
+    transform 200ms ease-out;
+  z-index: 5;
+}
+
+.mh-hotspot__bubble--visible {
+  opacity: 1;
+  transform: translate(-50%, 0); /* slide up into place */
+  pointer-events: auto;
+}
+
+.mh-hotspot__bubble-title {
+  font-weight: 600;
+  text-align: center;
+  white-space: normal;          /* allow wrapping */
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* CTA button centered under title */
+.mh-hotspot__bubble-cta {
+  border: none;
+  border-radius: 999px;
+  padding: 6px 18px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  background: #f7b24a;
+  color: #1a1010;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition:
+    transform 120ms ease-out,
+    box-shadow 120ms ease-out,
+    filter 120ms ease-out;
+}
+
+.mh-hotspot__bubble-cta:hover,
+.mh-hotspot__bubble-cta:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
+  filter: brightness(1.06);
+}
+
+/* MODAL ------------------------------------------------------- */
 
 .mh-modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(3, 3, 8, 0.7);
+  z-index: 60;
+  background: rgba(5, 5, 10, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 60;
-  animation: mh-backdrop-fade-in 180ms ease-out;
 }
 
 .mh-modal {
-  background: #111019;
-  color: #f6f3ff;
-  border-radius: 16px;
-  padding: 20px 22px 18px;
-  width: min(480px, 92vw);
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.65);
+  background: #111015;
+  color: #f8f5ff;
+  border-radius: 14px;
+  padding: 16px 18px 14px;
+  width: min(420px, 92vw);
+  max-height: 70vh;          /* so you still see the scene behind */
+  overflow-y: auto;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  animation: mh-modal-fade-in 200ms ease-out;
+}
+
+/* Header: centered title + subtitle */
+
+.mh-modal__header {
+  text-align: center;
+  margin-bottom: 8px;
 }
 
 .mh-modal__title {
-  margin: 0 0 8px;
-  font-size: 1.15rem;
+  margin: 0 0 2px;
+  font-size: 1.2rem;
   font-weight: 600;
+  letter-spacing: 0.08em;
 }
 
-.mh-modal__disciplines {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 10px;
+.mh-modal__subtitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #f7b24a; /* warm orange-gold accent */
+  margin-top: 10px;
 }
 
-.mh-pill {
-  font-size: 0.68rem;
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: rgba(122, 115, 255, 0.18);
-  border: 1px solid rgba(180, 173, 255, 0.4);
-  color: #ddd7ff;
-}
+/* Body text stays left-aligned for readability */
 
 .mh-modal__body {
-  font-size: 0.9rem;
+  margin: 6px 0 8px;
+  font-size: 0.88rem;
   line-height: 1.55;
-  margin-bottom: 14px;
+  color: #f0ecff;
+  text-align: left;
 }
 
-.mh-modal__body p {
-  margin: 0 0 8px;
+.mh-modal__body p + p {
+  margin-top: 0.5rem;
 }
 
-.mh-modal__body p:last-child {
-  margin-bottom: 0;
-}
+/* Modal footer actions */
 
 .mh-modal__actions {
+  margin-top: 10px;
   display: flex;
   justify-content: flex-end;
 }
 
-/* Buttons ----------------------------------------------------- */
+/* Buttons used inside modal */
 
 .mh-button {
   border-radius: 999px;
-  padding: 6px 16px;
+  padding: 6px 14px;
   font-size: 0.85rem;
   border: 1px solid transparent;
   cursor: pointer;
@@ -197,27 +274,47 @@
 }
 
 .mh-button--primary:hover {
-  filter: brightness(1.06);
+  filter: brightness(1.05);
 }
 
-/* ANIMATIONS -------------------------------------------------- */
-
-@keyframes mh-backdrop-fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.mh-button--ghost {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #f8f5ff;
 }
 
-@keyframes mh-modal-fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.mh-button--ghost:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* --------------------------------------------- */
+/* Bubble below selected item                    */
+/* --------------------------------------------- */
+
+.mh-hotspot__bubble--below {
+  top: calc(100% + 10px);     /* Always BELOW the hotspot, with spacing */
+  bottom: auto;
+  transform: translateX(-50%) translateY(12px);
+}
+
+.mh-hotspot__bubble--below.mh-hotspot__bubble--visible {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* --------------------------------------------- */
+/* Bubble above selected item                    */
+/* --------------------------------------------- */
+
+/* Bubble ABOVE hotspot — attach to bottom edge */
+.mh-hotspot__bubble--above {
+  bottom: 100%;
+  margin-bottom: 8px; /* small gap */
+}
+
+/* Bubble BELOW hotspot — attach to top edge */
+.mh-hotspot__bubble--below {
+  top: 100%;
+  margin-top: 8px; /* small gap */
 }
 
 /* RESPONSIVE -------------------------------------------------- */
@@ -232,8 +329,21 @@
     padding: 3px 8px;
   }
 
+  .mh-hotspot__bubble {
+    min-width: 150px;
+    max-width: min(230px, 92vw);
+    padding: 9px 14px 11px;
+    font-size: 0.76rem;
+  }
+
+  .mh-hotspot__bubble-cta {
+    padding: 5px 14px;
+    font-size: 0.74rem;
+  }
+
   .mh-modal {
-    padding: 18px 16px 16px;
-    width: 92vw;
+    width: min(400px, 94vw);
+    max-height: 72vh;
+    padding: 14px 14px 12px;
   }
 }

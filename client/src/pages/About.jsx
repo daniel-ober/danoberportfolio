@@ -11,48 +11,108 @@ export default function About() {
       </div>
 
       <div className="about__left fade-in-left">
-        <h2 className="about-header">ABOUT DAN</h2>
+        <h2 className="about-eyebrow">ABOUT DAN</h2>
+        <h1 className="about-title">
+          Human-first builder of tools, stories, and drums.
+        </h1>
 
         <div className="about-body">
           <p>
-            I’m a builder at heart — part engineer, part creative, and part problem-solver. My
-            background spans full-stack software engineering, solutions engineering, customer
-            success leadership, audio production, and hands-on craftsmanship.
+            I’m a builder at heart — part engineer, part designer, part
+            problem-solver. My background spans full-stack web development,
+            solutions engineering, customer success leadership, audio
+            production, and hands-on craftsmanship.
           </p>
 
           <p>
-            I’ve helped founders, teams, and artists ship tools and experiences that feel
-            intentional. Much of my work blends system design, technical execution, and clear
-            communication — the core ingredients for products people actually use.
+            I’ve helped founders, teams, and artists ship tools and experiences
+            that feel intentional. Most of my work sits at the intersection of
+            system design, technical execution, and clear communication — the
+            pieces you need when you actually want people to use what you ship.
           </p>
 
           <p>
-            I’ve led and supported teams in Customer Success and API solutions, building playbooks,
-            KPIs, and enablement resources that keep both customers and internal teams aligned. I’m
-            comfortable switching between technical deep dives, roadmap conversations, and coaching
-            sessions.
+            Outside of software, I run{" "}
+            <strong>Ober Artisan Drums</strong>, a boutique stave-drum company
+            where I design shells, build jigs, capture media, and manage the
+            full digital ecosystem — from e-commerce and customer portals to
+            production workflows and artist experiences.
           </p>
 
           <p>
-            Outside software, I run <strong>Ober Artisan Drums</strong>, a handcrafted stave-drum
-            company where I design shells, build jigs, create media, and manage the full digital
-            ecosystem — from e-commerce and customer portals to production workflows and artist
-            experiences.
+            I’m also a lifelong musician and recording engineer, taking on
+            remote sessions, scoring and composition work, and the occasional
+            live / touring project when it aligns with the season I’m in.
           </p>
 
-          <p>
-            I’m also a lifelong musician and recording engineer. I take on remote sessions, scoring
-            and composition work, and I’m open to live performance and touring opportunities when
-            the right project comes along.
-          </p>
+          {/* Five disciplines */}
+          <section className="about-section">
+            <h3 className="about-section-title">Five disciplines I work in</h3>
+            <ul className="about-disciplines">
+              <li>
+                <span className="about-disciplines__label">
+                  Web &amp; Software Engineering
+                </span>
+                <span className="about-disciplines__text">
+                  React, Firebase, APIs, and the glue that connects product
+                  ideas to real users.
+                </span>
+              </li>
+              <li>
+                <span className="about-disciplines__label">
+                  Product &amp; UX Design
+                </span>
+                <span className="about-disciplines__text">
+                  Turning messy requirements into clear flows, interfaces, and
+                  narratives that make sense.
+                </span>
+              </li>
+              <li>
+                <span className="about-disciplines__label">
+                  Technical Problem Solving
+                </span>
+                <span className="about-disciplines__text">
+                  Breaking down complex systems, untangling edge cases, and
+                  building tools that make future work easier.
+                </span>
+              </li>
+              <li>
+                <span className="about-disciplines__label">
+                  Craft &amp; Making (Ober Artisan Drums)
+                </span>
+                <span className="about-disciplines__text">
+                  Applying the same rigor of engineering to physical builds,
+                  jigs, finish work, and shipping real objects into the world.
+                </span>
+              </li>
+              <li>
+                <span className="about-disciplines__label">
+                  Story, Music &amp; Creative Life
+                </span>
+                <span className="about-disciplines__text">
+                  Using music, narrative, and visual systems to explain ideas,
+                  celebrate customers, and keep the work human.
+                </span>
+              </li>
+            </ul>
+          </section>
 
-          <p>
-            When I’m not building something, I’m writing music, exploring new tools, or working on
-            the next idea that keeps me up at night.
-          </p>
+          {/* How you like to work */}
+          <section className="about-section">
+            <h3 className="about-section-title">How I like to work</h3>
+            <p>
+              I do my best work in environments where we can move thoughtfully,
+              not frantically — small teams, honest feedback, and clear
+              ownership. I care a lot about reliability, documentation, and
+              building systems that age well, whether that’s an internal tool, a
+              public product, or a single custom drum.
+            </p>
+          </section>
 
           <p className="about-cta">
-            Want to connect or collaborate? <Link to="/contact">Let’s talk.</Link>
+            Curious about my approach in more detail? Explore my{" "}
+            <Link to="/philosophy">philosophy &amp; core disciplines</Link> or{" "}
+            <Link to="/contact">reach out to start a conversation</Link>.
           </p>
 
           <p className="about-resume">
@@ -61,7 +121,6 @@ export default function About() {
               href="https://drive.google.com/file/d/1_X5oLBBUVw1U6wJcZz-Dr_uUkTU72hnm/view?usp=sharing"
               rel="noopener noreferrer"
               target="_blank"
-              download
             >
               here
             </a>

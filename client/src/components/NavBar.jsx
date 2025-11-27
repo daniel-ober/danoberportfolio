@@ -11,7 +11,7 @@ export default function NavBar() {
 
   const navItems = [
     { to: "/", label: "Home" },
-    { to: "/services", label: "Services" },
+    { to: "/philosophy", label: "Philosophy" }, // ⭐ UPDATED
     { to: "/projects", label: "Projects" },
     { to: "/about", label: "About" },
     { to: "/contact", label: "Contact" },
@@ -20,14 +20,17 @@ export default function NavBar() {
   return (
     <header className="navbar">
       <div className="navbar__inner">
+        {/* Logo / Brand */}
         <div className="navbar__brand">
           <Link to="/" className="navbar__logo" onClick={handleClose}>
             <span className="navbar__logo-main">DAN OBER</span>
-            <span className="navbar__logo-sub">Builder · Engineer · Creative</span>
+            <span className="navbar__logo-sub">
+              Builder · Engineer · Creative
+            </span>
           </Link>
         </div>
 
-        {/* Desktop links */}
+        {/* Desktop navigation */}
         <nav className="navbar__nav">
           {navItems.map((item) => (
             <NavLink
@@ -35,7 +38,9 @@ export default function NavBar() {
               to={item.to}
               end={item.to === "/"}
               className={({ isActive }) =>
-                isActive ? "navbar__link navbar__link--active" : "navbar__link"
+                isActive
+                  ? "navbar__link navbar__link--active"
+                  : "navbar__link"
               }
             >
               {item.label}
@@ -43,20 +48,38 @@ export default function NavBar() {
           ))}
         </nav>
 
-        {/* Mobile menu button */}
+        {/* Mobile hamburger */}
         <button
           className="navbar__toggle"
           type="button"
           aria-label="Toggle navigation"
           onClick={handleToggle}
         >
-          <span className={isOpen ? "navbar__bar navbar__bar--top open" : "navbar__bar navbar__bar--top"} />
-          <span className={isOpen ? "navbar__bar navbar__bar--middle open" : "navbar__bar navbar__bar--middle"} />
-          <span className={isOpen ? "navbar__bar navbar__bar--bottom open" : "navbar__bar navbar__bar--bottom"} />
+          <span
+            className={
+              isOpen
+                ? "navbar__bar navbar__bar--top open"
+                : "navbar__bar navbar__bar--top"
+            }
+          />
+          <span
+            className={
+              isOpen
+                ? "navbar__bar navbar__bar--middle open"
+                : "navbar__bar navbar__bar--middle"
+            }
+          />
+          <span
+            className={
+              isOpen
+                ? "navbar__bar navbar__bar--bottom open"
+                : "navbar__bar navbar__bar--bottom"
+            }
+          />
         </button>
       </div>
 
-      {/* Mobile dropdown */}
+      {/* Mobile menu */}
       {isOpen && (
         <nav className="navbar__mobile">
           {navItems.map((item) => (
@@ -64,12 +87,12 @@ export default function NavBar() {
               key={item.to}
               to={item.to}
               end={item.to === "/"}
+              onClick={handleClose}
               className={({ isActive }) =>
                 isActive
                   ? "navbar__mobile-link navbar__mobile-link--active"
                   : "navbar__mobile-link"
               }
-              onClick={handleClose}
             >
               {item.label}
             </NavLink>
