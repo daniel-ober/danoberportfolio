@@ -29,7 +29,7 @@ const WEB_HOTSPOTS = [
   },
   {
     id: "monitor",
-    label: "Computer monitor · Web & Software",
+    label: "Command Center · Web & Software",
     layer: "web",
     left: 23,
     top: 15,
@@ -47,7 +47,7 @@ const WEB_HOTSPOTS = [
   },
   {
     id: "snare",
-    label: "Custom snare drum · Craft & Making",
+    label: "SoundLegend · Craft & Making",
     layer: "drum",
     left: 18.5,
     top: 55,
@@ -66,7 +66,7 @@ const WEB_HOTSPOTS = [
   {
     id: "dog",
     label: "Studio dog · Story & Life",
-    layer: "lucy", // 🐶 Lucy (dog)
+    layer: "lucy",
     left: 42,
     top: 22,
     width: 20,
@@ -75,7 +75,7 @@ const WEB_HOTSPOTS = [
   {
     id: "orange-cat",
     label: "Studio kitten · Story & Life",
-    layer: "sunny", // 🧡 Sunny (orange cat)
+    layer: "sunny",
     left: 58,
     top: 70,
     width: 11,
@@ -111,7 +111,7 @@ const WEB_HOTSPOTS = [
   {
     id: "top-cat",
     label: "Black & white cat on the printer · Story",
-    layer: "freddie", // 🐈‍⬛ Freddie (black cat)
+    layer: "freddie",
     left: 68,
     top: 6,
     width: 17,
@@ -119,7 +119,7 @@ const WEB_HOTSPOTS = [
   },
   {
     id: "dan-chelsea",
-    label: "Dan & Chelsea · Story & Life",
+    label: "Dan & Chelsea · Foundation",
     layer: "danandchelsea",
     left: 61,
     top: 5,
@@ -130,7 +130,6 @@ const WEB_HOTSPOTS = [
 
 /* ---------------------------------------------------------
    MOBILE HOTSPOTS
-   - Your tuned layout, independent from desktop.
    --------------------------------------------------------- */
 
 const MOBILE_HOTSPOTS = [
@@ -145,25 +144,16 @@ const MOBILE_HOTSPOTS = [
   },
   {
     id: "monitor",
-    label: "Computer monitor · Web & Software",
+    label: "Command Center · Web & Software",
     layer: "web",
     left: 0,
     top: 36,
     width: 36,
     height: 20,
   },
-  // {
-  //   id: "acoustic-guitar",
-  //   label: "Acoustic guitar · Music & Audio",
-  //   layer: "acoustic-guitar",
-  //   left: 5,
-  //   top: 30,
-  //   width: 12,
-  //   height: 57,
-  // },
   {
     id: "snare",
-    label: "Custom snare drum · Craft & Making",
+    label: "SoundLegend · Craft & Making",
     layer: "drum",
     left: 1,
     top: 55,
@@ -182,7 +172,7 @@ const MOBILE_HOTSPOTS = [
   {
     id: "dog",
     label: "Studio dog · Story & Life",
-    layer: "lucy", // 🐶 Lucy (dog)
+    layer: "lucy",
     left: 33,
     top: 35,
     width: 33,
@@ -191,7 +181,7 @@ const MOBILE_HOTSPOTS = [
   {
     id: "orange-cat",
     label: "Studio kitten · Story & Life",
-    layer: "sunny", // 🧡 Sunny (orange cat)
+    layer: "sunny",
     left: 59,
     top: 67,
     width: 25,
@@ -227,7 +217,7 @@ const MOBILE_HOTSPOTS = [
   {
     id: "top-cat",
     label: "Black & white cat on the printer · Story",
-    layer: "freddie", // 🐈‍⬛ Freddie (black cat)
+    layer: "freddie",
     left: 70,
     top: 16,
     width: 28,
@@ -235,7 +225,7 @@ const MOBILE_HOTSPOTS = [
   },
   {
     id: "dan-chelsea",
-    label: "Dan & Chelsea · Story & Life",
+    label: "Dan & Chelsea · Foundation",
     layer: "danandchelsea",
     left: 41,
     top: 17,
@@ -292,7 +282,7 @@ const HOTSPOT_DETAILS = {
   },
 
   monitor: {
-    title: "The Monitor",
+    title: "Command Center",
     subtitle: "Web & Software Engineering",
     disciplines: [
       "Web & Software Engineering",
@@ -324,7 +314,7 @@ const HOTSPOT_DETAILS = {
   },
 
   snare: {
-    title: "Custom Snare Drum",
+    title: "SoundLegend",
     subtitle: "Craft & Making",
     disciplines: [
       "Craft & Making",
@@ -434,7 +424,7 @@ const HOTSPOT_DETAILS = {
 
   "dan-chelsea": {
     title: "Dan & Chelsea",
-    subtitle: "Relationships & Resilience",
+    subtitle: "Foundation",
     disciplines: ["Story, Music & Creative Life"],
     body: [
       `This frame is about the life outside the work. Building a career in tech and a boutique drum 
@@ -452,7 +442,6 @@ const HOTSPOT_DETAILS = {
    ========================================================= */
 
 function InfoModal({ open, onClose, title, subtitle, disciplines, body }) {
-  // lock scroll when modal is open
   useEffect(() => {
     if (!open) return;
     const previous = document.body.style.overflow;
@@ -462,7 +451,6 @@ function InfoModal({ open, onClose, title, subtitle, disciplines, body }) {
     };
   }, [open]);
 
-  // close on Escape
   useEffect(() => {
     if (!open) return;
     const handler = (e) => {
@@ -514,13 +502,9 @@ function InfoModal({ open, onClose, title, subtitle, disciplines, body }) {
    ========================================================= */
 
 export default function MakinHomeScene({ variant = "desktop" }) {
-  // hover = transient highlight
   const [hoverId, setHoverId] = useState(null);
-  // selected = bubble + persistent highlight
   const [selectedId, setSelectedId] = useState(null);
-  // controls the full modal
   const [modalId, setModalId] = useState(null);
-  // bubble placement: "above" or "below"
   const [bubblePlacement, setBubblePlacement] = useState("below");
 
   const hotspots = getHotspots(variant);
@@ -542,27 +526,39 @@ export default function MakinHomeScene({ variant = "desktop" }) {
     setHoverId(null);
   }, []);
 
-  // click = select + decide whether bubble goes above/below
-  const handleSelectHotspot = useCallback((id, evt) => {
-    setSelectedId((prev) => {
-      const nextId = prev === id ? null : id;
+  // click = select + decide whether bubble goes above/below,
+  // but clamp top-row items to "below" and bottom-row items to "above"
+  const handleSelectHotspot = useCallback(
+    (id, evt) => {
+      setSelectedId((prev) => {
+        const nextId = prev === id ? null : id;
 
-      // if we're activating (not just deselecting), calculate placement
-      if (nextId && evt && evt.currentTarget) {
-        const rect = evt.currentTarget.getBoundingClientRect();
-        const centerY = rect.top + rect.height / 2;
-        const screenMid = window.innerHeight / 2;
+        if (nextId) {
+          const spot = hotspots.find((h) => h.id === nextId);
 
-        if (centerY > screenMid) {
-          setBubblePlacement("above");
-        } else {
-          setBubblePlacement("below");
+          if (spot) {
+            // top band: always show bubble below so it stays inside frame
+            if (spot.top <= 18) {
+              setBubblePlacement("below");
+            }
+            // bottom band: always show bubble above
+            else if (spot.top >= 72) {
+              setBubblePlacement("above");
+            } else if (evt && evt.currentTarget) {
+              // middle area: use viewport mid logic
+              const rect = evt.currentTarget.getBoundingClientRect();
+              const centerY = rect.top + rect.height / 2;
+              const screenMid = window.innerHeight / 2;
+              setBubblePlacement(centerY > screenMid ? "above" : "below");
+            }
+          }
         }
-      }
 
-      return nextId;
-    });
-  }, []);
+        return nextId;
+      });
+    },
+    [hotspots]
+  );
 
   const handleOpenModal = useCallback((id) => {
     setModalId(id);
@@ -583,7 +579,7 @@ export default function MakinHomeScene({ variant = "desktop" }) {
           draggable={false}
         />
 
-        {/* Single color layer, fades in/out */}
+        {/* Single color layer */}
         {activeLayerSrc && (
           <img
             src={activeLayerSrc}
@@ -616,10 +612,7 @@ export default function MakinHomeScene({ variant = "desktop" }) {
               onBlur={handleMouseLeave}
               onClick={(e) => handleSelectHotspot(spot.id, e)}
             >
-              {/* Hover pill label
-              <span className="mh-hotspot__label">{spot.label}</span> */}
-
-              {/* Expanded bubble when selected */}
+              {/* Bubble only */}
               {isSelected && (
                 <div
                   className={
@@ -634,7 +627,7 @@ export default function MakinHomeScene({ variant = "desktop" }) {
                     type="button"
                     className="mh-hotspot__bubble-cta"
                     onClick={(e) => {
-                      e.stopPropagation(); // don’t toggle selection again
+                      e.stopPropagation();
                       handleOpenModal(spot.id);
                     }}
                   >

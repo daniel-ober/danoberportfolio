@@ -114,16 +114,21 @@
   pointer-events: none;
 }
 
+/* 
+   Push the image off to the right so only part of the face is visible.
+   Lower opacity so it feels like a subtle edge element instead of a big focal card.
+*/
 .about__portrait-desktop img {
   position: fixed;
-  right: 2rem;
-  top: 60px;
-  height: calc(100vh - 115px);
+  right: -5rem; /* move part of the image off-screen */
+  top: 70px;
+  height: calc(100vh - 130px);
   width: auto;
   object-fit: contain;
   border-radius: 12px;
-  opacity: 0.95;
-  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.35));
+  opacity: 0.25; /* softer / less shouty */
+  filter: grayscale(100%) contrast(1.05) brightness(1.05)
+    drop-shadow(0 0 15px rgba(0, 0, 0, 0.35));
 }
 
 /* MOBILE PORTRAIT */

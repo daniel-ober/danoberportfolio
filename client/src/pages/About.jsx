@@ -1,3 +1,4 @@
+// src/components/About.js
 import React from "react";
 import { Link } from "react-router-dom";
 import "./About.css";
@@ -45,57 +46,12 @@ export default function About() {
             live / touring project when it aligns with the season I’m in.
           </p>
 
-          {/* Five disciplines */}
-          <section className="about-section">
-            <h3 className="about-section-title">Five disciplines I work in</h3>
-            <ul className="about-disciplines">
-              <li>
-                <span className="about-disciplines__label">
-                  Web &amp; Software Engineering
-                </span>
-                <span className="about-disciplines__text">
-                  React, Firebase, APIs, and the glue that connects product
-                  ideas to real users.
-                </span>
-              </li>
-              <li>
-                <span className="about-disciplines__label">
-                  Product &amp; UX Design
-                </span>
-                <span className="about-disciplines__text">
-                  Turning messy requirements into clear flows, interfaces, and
-                  narratives that make sense.
-                </span>
-              </li>
-              <li>
-                <span className="about-disciplines__label">
-                  Technical Problem Solving
-                </span>
-                <span className="about-disciplines__text">
-                  Breaking down complex systems, untangling edge cases, and
-                  building tools that make future work easier.
-                </span>
-              </li>
-              <li>
-                <span className="about-disciplines__label">
-                  Craft &amp; Making (Ober Artisan Drums)
-                </span>
-                <span className="about-disciplines__text">
-                  Applying the same rigor of engineering to physical builds,
-                  jigs, finish work, and shipping real objects into the world.
-                </span>
-              </li>
-              <li>
-                <span className="about-disciplines__label">
-                  Story, Music &amp; Creative Life
-                </span>
-                <span className="about-disciplines__text">
-                  Using music, narrative, and visual systems to explain ideas,
-                  celebrate customers, and keep the work human.
-                </span>
-              </li>
-            </ul>
-          </section>
+          <p>
+            A lot of my work lives across a small set of disciplines — engineering,
+            UX, problem solving, craft, and story. You’ll see those threads woven
+            through the rest of this site and in my{" "}
+            <Link to="/philosophy">philosophy &amp; core disciplines</Link>.
+          </p>
 
           {/* How you like to work */}
           <section className="about-section">
@@ -110,8 +66,7 @@ export default function About() {
           </section>
 
           <p className="about-cta">
-            Curious about my approach in more detail? Explore my{" "}
-            <Link to="/philosophy">philosophy &amp; core disciplines</Link> or{" "}
+            If you’d like to talk through a project, role, or collaboration,{" "}
             <Link to="/contact">reach out to start a conversation</Link>.
           </p>
 
