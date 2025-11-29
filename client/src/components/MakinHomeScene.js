@@ -291,7 +291,7 @@ const HOTSPOT_DETAILS = {
       "Technical Problem Solving",
     ],
     body: [
-      `The monitor is where Ober Artisan Drums, the SoundLegend portal, and this portfolio live. 
+      `The command center is where Ober Artisan Drums, the SoundLegend portal, and this portfolio live. 
       I design and ship full stacks: React front ends, Firebase backends, custom tooling for 
       artists, customers, and admins.`,
       `In practice that looks like: auth flows, portals, progress trackers, file uploads, secure 

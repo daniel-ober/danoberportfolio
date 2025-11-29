@@ -1,10 +1,11 @@
-// src/pages/PolyrhythmicMethod.jsx
 import React, { useMemo, useState } from "react";
 import "./PolyrhythmicMethod.css";
 
 /* =========================================================
    DISCIPLINES (for the blend tool)
    ========================================================= */
+
+const ICON_BASE = "/media/icons";
 
 const DISCIPLINES = [
   {
@@ -13,7 +14,7 @@ const DISCIPLINES = [
     chipLabel: "Web & Software",
     legendLabel: "Web & Software",
     color: "#3b82f6",
-    iconChar: "💻",
+    iconSrc: `${ICON_BASE}/computer.png`,
   },
   {
     key: "product",
@@ -21,7 +22,7 @@ const DISCIPLINES = [
     chipLabel: "Product & UX",
     legendLabel: "Product & UX Design",
     color: "#f97316",
-    iconChar: "📐",
+    iconSrc: `${ICON_BASE}/navigate.png`,
   },
   {
     key: "problem",
@@ -29,7 +30,7 @@ const DISCIPLINES = [
     chipLabel: "Problem Solving",
     legendLabel: "Technical Problem Solving",
     color: "#a855f7",
-    iconChar: "🧠",
+    iconSrc: `${ICON_BASE}/puzzle.png`,
   },
   {
     key: "craft",
@@ -37,7 +38,7 @@ const DISCIPLINES = [
     chipLabel: "Craft & Making",
     legendLabel: "Craft & Making",
     color: "#facc15",
-    iconChar: "🛠️",
+    iconSrc: `${ICON_BASE}/wood.png`,
   },
   {
     key: "story",
@@ -45,15 +46,15 @@ const DISCIPLINES = [
     chipLabel: "Story & Music",
     legendLabel: "Story, Music & Creative Life",
     color: "#ec4899",
-    iconChar: "🎵",
+    iconSrc: `${ICON_BASE}/microphone.png`,
   },
   {
     key: "ai",
     label: "AI & Systems",
     chipLabel: "AI & Systems",
-    legendLabel: "AI & Systems Thinking",
+    legendLabel: "AI & Systems",
     color: "#22c55e",
-    iconChar: "🤖",
+    iconSrc: `${ICON_BASE}/systems.png`,
   },
 ];
 
@@ -68,7 +69,6 @@ function makeKey(keys) {
 
 /* =========================================================
    BLEND RECIPES
-   (title + paragraphs, now including AI as a full rhythm)
    ========================================================= */
 
 const BLEND_RECIPES = {
@@ -76,468 +76,729 @@ const BLEND_RECIPES = {
     title: "Choose a Blend to See the Work",
     paragraphs: [
       `Start by toggling one or more disciplines on the left. As you add them, the blend shifts and the description updates to show the kind of work, outcomes, and collaboration style you can expect from me with that mix.`,
-      `It’s a small demo of how I connect code, craft, story, systems, and AI — tuned to the parts of my toolkit you’re most interested in.`,
+      `It’s a small demo of how I connect code, craft, systems, and story — tuned to the parts of my toolkit you’re most interested in.`,
     ],
+    examples: [],
   },
 
-  /* ------------------------- SINGLES ------------------------- */
+  /* ============================
+     SINGLES
+     ============================ */
 
   web: {
     title: "Engineering With an Opinion",
     paragraphs: [
       `With just web & software selected, you’re seeing me primarily as an engineer: React, Firebase, auth flows, data models, and the plumbing that holds real products together.`,
-      `You can expect reliable implementation, clear technical trade-offs, and code structured so future work doesn’t have to fight the past — plus practical artifacts like API contracts, environment checklists, and admin tools that make the system easier to support day to day.`,
+    ],
+    examples: [
+      `Designed and launched the Ober Artisan Drums e-commerce platform (React, Firebase, Stripe) with custom checkout, inventory, and cart logic.`,
+      `Built API-driven projects at General Assembly like Sunday Driver and Doberpop, wiring React front ends into Node/Rails backends and third-party APIs.`,
     ],
   },
+
   product: {
     title: "UX With a Point of View",
     paragraphs: [
       `With only product & UX in play, the work is about listening, mapping flows, and shaping interfaces that feel obvious in hindsight.`,
-      `You can expect customer-aware journeys, crisp user stories, and design decisions that aren’t just pretty — alongside concrete outputs like wireframes, flow maps, and “happy path vs edge case” notes that make it easier for engineers and stakeholders to stay aligned.`,
+    ],
+    examples: [
+      `Shaped the SoundLegend portal UX so drummers land on progress, scope, and media instead of getting dropped into a generic dashboard.`,
+      `Partnered with marketing and product at JumpCrew to turn campaign KPIs into simple performance stories and next-step recommendations for clients.`,
     ],
   },
+
   problem: {
     title: "The Systems Troubleshooter",
     paragraphs: [
       `When you select only problem solving, you’re asking me to be a pattern-maker and constraint mapper before anything else.`,
-      `You can expect structured thinking, simplified diagrams, and a clear path from “this is a mess” to “here’s the next small, high-leverage move we should ship,” often captured as decision docs, runbooks, or playbooks that teams can reuse when similar issues show up later.`,
+    ],
+    examples: [
+      `At JLL Technologies, debugged and de-risked API integrations for enterprise real-estate clients, turning recurring support issues into repeatable playbooks.`,
+      `At CarGurus, used data analysis and trend spotting to improve support workflows and maintain 90%+ CSAT at scale.`,
     ],
   },
+
   craft: {
     title: "The Maker in the Room",
     paragraphs: [
       `On its own, craft & making is me in the shop: jigs, shells, finishes, fixtures, and processes that turn ideas into physical, repeatable reality.`,
-      `You can expect build plans, thoughtful trade-offs between precision and practicality, and an appreciation for how objects feel in the hand — expressed through process checklists, fixture designs, and repeatable workflows that make future builds smoother and more consistent.`,
+    ],
+    examples: [
+      `Designed a ten-phase drum build lifecycle for Ober Artisan Drums, then mirrored it one-to-one in the project portal and internal tools.`,
+      `Built and iterated physical jigs and fixtures (compression rigs, routing setups, veneer workflows) with documentation that future builds can follow.`,
     ],
   },
+
   story: {
     title: "Making the Work Feel Human",
     paragraphs: [
       `With only story & music selected, you’re asking for narrative, mood, and emotional clarity around the work.`,
-      `You can expect launch stories, copy that actually sounds like people, and sound or visuals that help customers feel why the product matters — usually delivered as marketing copy, onboarding language, or narrative outlines that can be used across product, sales, and support surfaces.`,
     ],
-  },
-  ai: {
-    title: "AI & Systems Rhythm",
-    paragraphs: [
-      `With only AI & systems selected, the focus is on designing feedback loops: how data flows, how tools talk to each other, and where AI can safely accelerate the work without taking over judgment.`,
-      `You can expect structured prompts, evaluation loops, and small automations that help teams move faster while staying grounded in clear constraints and human-owned decisions.`,
+    examples: [
+      `Wrote the SoundLegend Series positioning (“Every drum tells a story…”) and built portal copy that makes each project feel like a chapter, not a ticket.`,
+      `Helped translate performance data and customer insights into clear narratives for sales and leadership during CarGurus’ hyper-growth phase.`,
     ],
   },
 
-  /* --------------------------- PAIRS ------------------------- */
+  ai: {
+    title: "AI & Systems as a Second Brain",
+    paragraphs: [
+      `With only AI & systems selected, the emphasis is on using models to extend my reach — not to replace human judgment.`,
+    ],
+    examples: [
+      `Use AI to draft and refine technical enablement content, FAQ outlines, and internal guides, then tighten the details based on real customer questions.`,
+      `Prototype AI-assisted workflows for Ober (project update drafts, prompt patterns for mockup descriptions) while keeping final decisions and voice human-owned.`,
+    ],
+  },
+
+  /* ============================
+     DOUBLES (all pairs)
+     ============================ */
 
   "web+product": {
     title: "From Spec to Shipping",
     paragraphs: [
       `This blend is where product ideas stop living in decks and start living in code. UX decisions and engineering trade-offs happen in the same conversation.`,
-      `You can expect pragmatic features that ship, a clean hand-off between design and implementation, and a codebase that still respects the original product intent — supported by UX specs that map cleanly to components and tickets that tell the whole story.`,
+    ],
+    examples: [
+      `Designed and built the SoundLegend customer portal from scratch: information architecture, wireframes, React implementation, and Firebase integration.`,
+      `At JLL Technologies, turned loosely defined integration asks into scoped API flows and sample apps that product, sales, and engineering could all rally around.`,
     ],
   },
+
   "web+problem": {
     title: "Refactoring the Mess",
     paragraphs: [
       `Here the focus is taking something tangled — legacy code, mismatched APIs, brittle flows — and making it workable again.`,
-      `You can expect careful debugging, simplified architecture, and tooling that turns recurring pain points into one-time fixes, documented as before/after diagrams and migration plans.`,
+    ],
+    examples: [
+      `Untangled a mix of one-off Firestore writes and inline business logic into reusable utilities and hooks that simplified order + project updates across the app.`,
+      `At JLL, traced intermittent API failures across multiple partners, then standardized error-handling patterns so support no longer had to play “integration whack-a-mole.”`,
     ],
   },
+
   "web+craft": {
     title: "Digital Tools for Physical Work",
     paragraphs: [
       `This mix connects the workshop to the web. Think build portals, production trackers, and internal tools tuned for real hands-on workflows.`,
-      `You can expect systems that actually reflect how work happens on the floor: fewer spreadsheets, more purpose-built interfaces, and tangible outputs like production dashboards, build timelines, and QC checklists that live in a portal instead of in someone’s head.`,
+    ],
+    examples: [
+      `Built admin views that mirror the physical drum build: each step has checklists, timers, and notes so what happens in the shop is always reflected online.`,
+      `Designed lightweight shop tooling to track wood selection, shell progress, and shipping prep — grounded in years of real “move the heavy stuff” work, from hay bales to landscaping equipment.`,
     ],
   },
+
   "web+story": {
     title: "Interactive Stories",
     paragraphs: [
       `With web plus story, we’re building experiences where the narrative is baked into the product itself — not bolted on at the end.`,
-      `You can expect interactive pages, portals, or tools that explain themselves and feel alive, along with narrative-driven UX flows and microcopy that keep the story consistent across the experience.`,
+    ],
+    examples: [
+      `Implemented a “Legacy” view that ties video, photos, and write-ups into a timeline, so a drummer can literally scroll through the story of their instrument.`,
+      `During GA, built projects like Doberpop and Artist ABC where the UI, search results, and copy all reinforced the story of who the product was for and how they’d use it.`,
     ],
   },
+
   "product+problem": {
     title: "Design That Solves the Right Problem",
     paragraphs: [
       `This blend is about making sure we’re designing for the real constraint, not just the loudest request.`,
-      `You can expect clarified goals, prioritised use cases, and flows that quietly reduce support tickets — often delivered as problem-framing docs, prioritized journey maps, and backlog plans that make it clear what we are and aren’t doing next.`,
+    ],
+    examples: [
+      `Reframed “we need more portal features” into a smaller scope: show progress, show files, show expectations — which cut feature creep and made the first launch shippable.`,
+      `At CarGurus, used KPI trends and call feedback to shift product asks from “we need more leads” to “we need cleaner lead routing and better expectations,” which actually moved renewal and upsell numbers.`,
     ],
   },
+
   "product+craft": {
     title: "UX You Can Hold",
     paragraphs: [
       `Here, the product thinking extends all the way into the physical world — packaging, unboxing, documentation, and how it feels to use the thing in real life.`,
-      `You can expect experiences where the portal, the instrument, and the follow-up all feel like one continuous story, supported by unboxing flows, care guides, and portal touchpoints designed as one journey.`,
+    ],
+    examples: [
+      `Aligned portal milestones with real-world events (wood arrival, shell construction, tuning, delivery) so emails and UI copy match what’s actually happening in the shop.`,
+      `Designed drum care guides and post-purchase flows so the first time someone opens the case, the experience of the physical object matches what the product promised online.`,
     ],
   },
+
   "product+story": {
     title: "Narrative-Driven Product",
     paragraphs: [
       `This pairing makes sure every interaction has a story behind it: who it’s for, what it unlocks, and how it fits into someone’s day.`,
-      `You can expect clear microcopy, thoughtful onboarding, and surfaces that speak the same language, backed by messaging hierarchies and tone guidelines.`,
+    ],
+    examples: [
+      `Defined a simple messaging ladder for Ober (craft → story → legacy) and reused it across portal copy, email updates, and sales conversations.`,
+      `At JumpCrew, turned dense campaign reporting into “here’s the story of what your ads did this month” narratives that made decisions easier for busy clients.`,
     ],
   },
+
   "problem+craft": {
     title: "Fixing Bottlenecks in the Shop",
     paragraphs: [
       `Here the focus is on process: jigs, fixtures, layouts, and workflows that remove friction from physical builds.`,
-      `You can expect measured tweaks that save time, reduce error rates, and make the craft work feel more like a practiced performance than a scramble — captured as revised SOPs and layout diagrams.`,
+    ],
+    examples: [
+      `Turned a loose “remember to photograph builds” goal into a checklist baked into the build phases, so media capture happens as part of the process instead of as an afterthought.`,
+      `Brought the same “flow of work” instincts from summers hauling hay and landscaping — planning paths, minimizing rework, and reducing unnecessary lifting — into how drum builds move through the shop.`,
     ],
   },
+
   "problem+story": {
     title: "Clarity in the Chaos",
     paragraphs: [
       `This mix turns complex situations into explanations people can actually follow — diagrams, narratives, and metaphors that stick.`,
-      `You can expect clear write-ups, honest post-mortems, and communication that helps teams stay aligned when things are noisy.`,
+    ],
+    examples: [
+      `Documented edge cases and failure modes for shipping, payment, and risk flows in plain language so non-engineers could help debug issues with confidence.`,
+      `At Mercer, translated complex retirement and survivor-benefit rules into calm, step-by-step explanations for people calling on some of the hardest days of their lives — then fed those learnings back into clearer scripts and reference material.`,
     ],
   },
+
   "craft+story": {
     title: "Artifacts With a Story",
     paragraphs: [
       `With craft and story together, every object carries its own narrative — where it came from, how it was made, and who it’s for.`,
-      `You can expect documented builds, legacy portals, and media that turn a one-off purchase into a longer-term relationship.`,
+    ],
+    examples: [
+      `Built “SoundLegend Legacy” pages so each drum has a permanent home for its photos, specs, media, and owner notes.`,
+      `Produced drum demos, photo sets, and written “build notes” that give each instrument a personality players can actually talk about with their own audiences.`,
     ],
   },
-
-  /* PAIRS WITH AI */
 
   "web+ai": {
-    title: "Code, Systems & Smart Helpers",
+    title: "AI-Backed Engineering",
     paragraphs: [
-      `With web & software plus AI, we’re building systems that can observe themselves: logs, metrics, and assistants that sit close to the code instead of feeling bolted on.`,
-      `You can expect guarded automations, AI-assisted debugging, and small copilots for admins or support — always wired to clear constraints and a data model we actually understand.`,
+      `Web & software plus AI & systems is about shipping solid code while using models to speed up exploration and guardrail checks.`,
     ],
-  },
-  "product+ai": {
-    title: "AI-Aware Product Design",
-    paragraphs: [
-      `Here, product & UX decisions are made with AI in mind from day one: where it should appear, how it should be constrained, and how to keep users in control.`,
-      `You can expect flows that clearly signal what’s human vs machine, scoped assistants that solve specific problems, and UX that keeps AI from feeling like a mysterious black box.`,
-    ],
-  },
-  "problem+ai": {
-    title: "Pattern-Finding With Guardrails",
-    paragraphs: [
-      `Problem solving plus AI is about using models to explore options and spot patterns faster — not to hand them the steering wheel.`,
-      `You can expect structured experiments, evaluation criteria, and write-ups that show what AI is good at in this context and where humans need to step in.`,
-    ],
-  },
-  "craft+ai": {
-    title: "Augmented Craft Work",
-    paragraphs: [
-      `With craft & making plus AI, we stay firmly in the physical world while using AI for planning, documentation, and “what if” scenarios.`,
-      `You can expect smarter checklists, annotated build plans, and assistants that help capture the process — while the actual cuts, finishes, and tuning stay human-controlled.`,
-    ],
-  },
-  "story+ai": {
-    title: "Story, Edited by a Human",
-    paragraphs: [
-      `Story & music plus AI means using tools for expansion, variation, and remixing — then cutting it back down with taste and intent.`,
-      `You can expect faster exploration of voice and framing, with final copy, narratives, and musical decisions still owned and signed off by me.`,
+    examples: [
+      `Used AI to propose refactors and test scenarios for complex project-timeline logic, then manually implemented and validated the final code paths.`,
+      `Leaned on AI to generate scaffolding for small utilities and integration tests, freeing up time to focus on the tricky parts of auth and data modeling.`,
     ],
   },
 
-  /* -------------------------- TRIPLES ------------------------ */
+  "product+ai": {
+    title: "Faster Product Discovery, Still Human",
+    paragraphs: [
+      `Product & UX plus AI focuses on speeding up research, naming, and copy exploration without losing a human sense of taste.`,
+    ],
+    examples: [
+      `Generated multiple onboarding-copy and tooltip variants with AI, then A/B tested tone and clarity with real users before locking in the final messaging.`,
+      `Used AI to explore naming and microcopy around new SoundLegend features, then edited everything back into a single, cohesive voice.`,
+    ],
+  },
+
+  "problem+ai": {
+    title: "Pattern-Finding at Scale",
+    paragraphs: [
+      `Problem solving plus AI is about letting models surface patterns and edge cases, then deciding what actually matters.`,
+    ],
+    examples: [
+      `Fed anonymized support notes and admin observations into AI to cluster recurring pain points, then used that map to prioritize new dashboard features.`,
+      `Experimented with AI-assisted log summarization to spot integration issues faster, while still doing the final debugging and fix planning by hand.`,
+    ],
+  },
+
+  "craft+ai": {
+    title: "Smart Processes for Hands-On Work",
+    paragraphs: [
+      `Craft & making plus AI uses models to simulate, document, and refine physical workflows without replacing the hands-on judgment.`,
+    ],
+    examples: [
+      `Drafted step-by-step jig instructions and safety notes with AI, then rewrote them in “shop language” after testing them against actual build sessions.`,
+      `Explored AI-generated variants of build checklists, then picked and tuned the ones that actually matched how sawdust, glue, and shell dimensions behave in reality.`,
+    ],
+  },
+
+  "story+ai": {
+    title: "Scaling Story Without Losing Voice",
+    paragraphs: [
+      `Story and AI together aim to reach more people without sounding generic.`,
+    ],
+    examples: [
+      `Built a lightweight AI-assisted workflow for project updates: models propose first-draft copy, I tune tone and details, then publish to the artist portal and email.`,
+      `Use AI to generate “first pass” outlines for long-form launch stories, then rewrite them from scratch so they sound like a human who’s actually been in the room.`,
+    ],
+  },
+
+  /* ============================
+     TRIPLES
+     ============================ */
 
   "web+product+problem": {
     title: "Full-Stack Problem Solver",
     paragraphs: [
       `This blend is for when you need someone to live at the intersection of architecture, UX, and constraints.`,
-      `You can expect well-reasoned technical plans, product decisions backed by trade-offs, and a path from “we’re stuck” to “here’s what we’re shipping next.”`,
+    ],
+    examples: [
+      `Designed and implemented the admin overview board that unifies orders, support, SoundLegend requests, and risk alerts into one drag-and-drop system.`,
+      `At JLL, acted as the connective tissue between sales engineers, product, and customer IT teams to turn gnarly API requirements into deployable, maintainable integrations.`,
     ],
   },
+
   "web+product+craft": {
     title: "Digital Front Door to Physical Craft",
     paragraphs: [
       `Here, portals and tools are designed specifically around a physical process — like the lifecycle of a custom drum or a handcrafted product line.`,
-      `You can expect customer-facing and internal experiences that stay in sync with reality: build phases, timelines, media, and logistics all in one ecosystem.`,
+    ],
+    examples: [
+      `Created a build-tracking experience where admin and customer views both read from the same lifecycle data, reducing “status check” messages.`,
+      `Planned the overall Ober experience so someone can move from inspiration → spec exploration → purchase → build tracking → legacy story without ever feeling like they switched systems.`,
     ],
   },
+
   "web+product+story": {
     title: "Story-First Product Experiences",
     paragraphs: [
       `This mix creates interactive stories: the product explains itself through the way it’s built, not just through documentation.`,
-      `You can expect flows that feel narrative, content wired into the UI, and launches where messaging, product, and visuals line up.`,
+    ],
+    examples: [
+      `Designed the “Polyrhythmic Method” page itself as a product story: interactive blend tool, narrative copy, and concrete examples instead of a static résumé paragraph.`,
+      `During GA, built project UIs where the content, navigation, and microcopy all told the story of a specific user — from hot-chicken judges to weather nerds — not just a generic app.`,
     ],
   },
+
   "web+problem+craft": {
     title: "Tooling for the Shop Floor",
     paragraphs: [
       `Here the work is about building tools that remove bottlenecks from physical operations — inventory, scheduling, QC, or build tracking.`,
-      `You can expect dashboards grounded in how the work is actually done, plus configuration and training material that make it easy for non-technical teammates to own the system.`,
+    ],
+    examples: [
+      `Built a step-locked workflow so future builders always follow the same critical path from wood prep to quality check, reducing missed steps.`,
+      `Designed build views and QC checklists that reflect real constraints learned from years of literal heavy lifting — from farm work and landscaping to drum shells on the bench.`,
     ],
   },
+
   "web+problem+story": {
     title: "Debugging With Context",
     paragraphs: [
       `This blend is equal parts engineer, detective, and translator.`,
-      `You can expect clear incident write-ups, dashboards that tell a story, and code changes that come with human-readable explanations.`,
+    ],
+    examples: [
+      `Instrumented project and order flows, then wrote narrative-style internal notes so future teammates understand why certain guardrails exist.`,
+      `At JLL, paired API traces with plain-language “here’s what actually happened” summaries so customer IT teams and account managers could make decisions without wading through raw logs.`,
     ],
   },
+
   "web+craft+story": {
     title: "Portals for Living Artifacts",
     paragraphs: [
       `Here we’re creating digital homes for physical work — portals that follow an artifact from first sketch to final recording or delivery.`,
-      `You can expect rich build histories, media, and storytelling around each artifact, all anchored in a reliable web experience.`,
+    ],
+    examples: [
+      `Built legacy pages that show each drum’s specs, photos, audio, and owner notes, turning a one-time purchase into an ongoing narrative.`,
+      `Shot and edited product photos and drum demos, then wired them into the portal so artists have a shareable story instead of just a tracking number.`,
     ],
   },
+
   "product+problem+craft": {
     title: "Designing Better Processes",
     paragraphs: [
       `This blend reshapes how the work gets done — not just what the interface looks like.`,
-      `You can expect updated workflows, clearer responsibilities, and tools that feel built around how craftspeople actually move through a day.`,
+    ],
+    examples: [
+      `Mapped the real-world drum build process, then simplified it into 10 named phases with clear ownership and portal representations.`,
+      `Borrowed from years of customer-success playbooks to bring “case flow” discipline into the shop: fewer handoffs, clearer checkpoints, and tighter feedback loops.`,
     ],
   },
+
   "product+problem+story": {
     title: "Aligning People, Process, and Narrative",
     paragraphs: [
       `Here we’re making sure the story we tell about the product matches what it actually does and how teams operate behind the scenes.`,
-      `You can expect tighter alignment between roadmaps, customer promises, and internal reality.`,
+    ],
+    examples: [
+      `Aligned marketing language about “lifecycle transparency” with actual portal features so every promise is backed by a visible artifact.`,
+      `At CarGurus and JumpCrew, translated KPI dashboards into simple narratives leaders could repeat: what changed, why it mattered, and what we’d try next.`,
     ],
   },
+
   "product+craft+story": {
     title: "Experience Design, End to End",
     paragraphs: [
       `This blend treats the entire journey as one experience: discovery, purchase, build, delivery, and the story that lives on afterward.`,
-      `You can expect consistent details across web, packaging, portals, and follow-ups.`,
+    ],
+    examples: [
+      `Designed the experience from initial inquiry form → build proposal → portal onboarding → unboxing email, so the drummer always knows what’s next.`,
+      `Shaped the SoundLegend “from first call to first gig” arc so the drum, portal, emails, and media all feel like one continuous launch story.`,
     ],
   },
+
   "problem+craft+story": {
     title: "Meaningful Fixes, Memorable Results",
     paragraphs: [
       `This mix focuses on fixing what’s broken in a way that also deepens the story — not just patching, but improving how people feel about the work.`,
-      `You can expect thoughtful changes that are documented, communicated, and celebrated so teams can see the arc from issue to insight.`,
+    ],
+    examples: [
+      `Turned early friction around communication into a “project heartbeat” ritual: small, story-driven updates at key phases instead of sporadic long messages.`,
+      `Drew on Mercer days talking with survivors and hardship callers to keep updates grounded, honest, and calm when projects hit real-world delays.`,
     ],
   },
 
-  /* TRIPLES WITH AI */
+  /* triples with AI */
 
   "web+product+ai": {
-    title: "AI-Native Product Features",
+    title: "AI-Assisted Product Engineering",
     paragraphs: [
-      `Here, web, product, and AI come together to design features where AI isn’t a gimmick, it’s part of the core value.`,
-      `You can expect scoped assistants, smart defaults, and guardrails baked into the UX and data model so the feature feels powerful but predictable.`,
+      `Web, product, and AI together focus on shipping real features quickly while keeping UX and quality high.`,
     ],
-  },
-  "web+problem+ai": {
-    title: "Observability & Assisted Ops",
-    paragraphs: [
-      `This blend uses AI to help watch the system while web and problem solving keep it understandable and fixable.`,
-      `You can expect anomaly detection, triage helpers, and runbooks that explain both the automation and how to override it when you need to.`,
-    ],
-  },
-  "web+craft+ai": {
-    title: "Bridging Shop Floor and Cloud",
-    paragraphs: [
-      `Web, craft, and AI together mean the physical workflow and the digital system actually learn from each other.`,
-      `You can expect build-tracking dashboards that surface patterns, suggestions for process tweaks, and documentation that evolves as the craft does.`,
-    ],
-  },
-  "web+story+ai": {
-    title: "Interactive, Adaptive Story Surfaces",
-    paragraphs: [
-      `Here we use AI to adapt story-driven experiences in small, controlled ways — while the core narrative stays human-shaped.`,
-      `You can expect personalized copy or sequencing inside a fixed narrative frame, with clear boundaries on tone and claims.`,
-    ],
-  },
-  "product+problem+ai": {
-    title: "Decision Loops With AI in the Room",
-    paragraphs: [
-      `Product, problem solving, and AI together focus on tightening feedback: how we learn from users and systems, and what we do next.`,
-      `You can expect instrumentation plans, experiment designs, and AI helpers that surface insights without making the decisions for us.`,
-    ],
-  },
-  "product+craft+ai": {
-    title: "AI-Aware Physical Experiences",
-    paragraphs: [
-      `This blend designs physical products and journeys that assume AI will be part of the support and storytelling layer.`,
-      `You can expect care flows, onboarding, and portal experiences where AI helps explain the craft, not replace it.`,
-    ],
-  },
-  "product+story+ai": {
-    title: "Scaling Story Without Losing Voice",
-    paragraphs: [
-      `Product, story, and AI here aim to reach more people without sounding generic.`,
-      `You can expect tightly defined voice guides, prompt patterns, and editorial passes that keep the personality intact while AI handles some of the volume.`,
-    ],
-  },
-  "problem+craft+ai": {
-    title: "Continuous Improvement in the Shop",
-    paragraphs: [
-      `Problem solving, craft, and AI focus on finding and smoothing the friction points in physical workflows.`,
-      `You can expect small, measurable experiments, with AI helping analyze patterns in time, defects, or throughput while humans choose what to change.`,
-    ],
-  },
-  "problem+story+ai": {
-    title: "Making Complex Things Legible",
-    paragraphs: [
-      `This mix uses AI as a drafting tool to explore ways of explaining complex situations — with problem solving and story doing the editing.`,
-      `You can expect faster iteration on diagrams, FAQs, and narratives, then a human pass that makes them honest and clear.`,
-    ],
-  },
-  "craft+story+ai": {
-    title: "Documented, Shareable Craft",
-    paragraphs: [
-      `Craft, story, and AI together focus on capturing the build in a way that’s easy to share and revisit.`,
-      `You can expect semi-automated build logs, caption drafts, and story beats, all curated so the final artifact still feels handcrafted, not machine-generated.`,
+    examples: [
+      `Used AI to quickly explore variants for portal navigation and onboarding text, then implemented the chosen patterns in React with Firebase-backed routing.`,
+      `Let AI draft edge-case test ideas for complex flows, then curated and encoded the ones that actually mapped to real user behavior.`,
     ],
   },
 
-  /* --------------------------- QUADS ------------------------ */
+  "web+problem+ai": {
+    title: "Systems Debugging With a Co-Analyst",
+    paragraphs: [
+      `Here AI helps scan logs, spot patterns, and propose hypotheses, while I drive the actual debugging and fixes.`,
+    ],
+    examples: [
+      `Pulled error logs and edge-case descriptions into AI to group issues, then used that map to prioritize which Firestore writes and auth flows to harden first.`,
+      `Used AI-summarized ticket trends to flag where onboarding docs or runbooks needed updating before they turned into bigger outages.`,
+    ],
+  },
+
+  "web+craft+ai": {
+    title: "Smart Shop-Floor Tooling",
+    paragraphs: [
+      `Web, craft, and AI blend into tools that understand the physical build but can still adapt over time.`,
+    ],
+    examples: [
+      `Prototyped AI-assisted checklists that propose next actions based on project phase, while keeping final control with the builder.`,
+      `Experimented with AI-generated fixture ideas and sanding sequences, then pressure-tested them against what actually works in the shop.`,
+    ],
+  },
+
+  "web+story+ai": {
+    title: "Dynamic Story-Driven Interfaces",
+    paragraphs: [
+      `Here the UI, copy, and AI all work together so the experience feels like a guided story instead of a static dashboard.`,
+    ],
+    examples: [
+      `Explored AI-generated “tour” copy for complex admin views, then locked in human-written versions informed by what resonated most.`,
+      `Used AI to rough in long-form portal content and FAQ structures, then rewrote them to sound like a drummer explaining things to another drummer.`,
+    ],
+  },
+
+  "product+problem+ai": {
+    title: "Decision Support for Messy Roadmaps",
+    paragraphs: [
+      `Product, problem solving, and AI here focus on mapping trade-offs quickly and turning them into clear decisions.`,
+    ],
+    examples: [
+      `Used AI to simulate pros/cons of different portal rollout orders, then chose a path that minimized risk while still showing clear user-facing value early.`,
+      `Let AI suggest backlog clusters by theme and risk, then reshaped those into a roadmap the team could actually execute against.`,
+    ],
+  },
+
+  "product+craft+ai": {
+    title: "Designing Hybrid Physical–Digital Journeys",
+    paragraphs: [
+      `This blend uses AI to explore messaging and touchpoints across both the physical build and the digital portal.`,
+    ],
+    examples: [
+      `Drafted multi-step email sequences for build milestones with AI, then edited them to match the Ober voice and real production constraints.`,
+      `Explored AI-generated variations of care guides and setup tips, then pared them back to the handful of moves that actually help players on day one.`,
+    ],
+  },
+
+  "product+story+ai": {
+    title: "Scaling Story Across the Product Surface",
+    paragraphs: [
+      `Product, story, and AI here aim to reach more people without sounding generic.`,
+    ],
+    examples: [
+      `Built a pattern where AI proposes newsletter and release-note drafts from project data, then I do the final shaping before anything ships.`,
+      `Used AI to brainstorm campaign angles, then anchored everything back to a simple throughline: craft, story, and long-term trust.`,
+    ],
+  },
+
+  "problem+craft+ai": {
+    title: "Continuous Improvement Loops",
+    paragraphs: [
+      `Problem solving, craft, and AI together focus on learning from every build cycle.`,
+    ],
+    examples: [
+      `Collected timing and note data from each drum build step, had AI summarize patterns, then used that to reorganize the order of certain phases.`,
+      `Let AI digest scattered workshop notes into themes, then turned those into one-page process updates the future me will actually read.`,
+    ],
+  },
+
+  "problem+story+ai": {
+    title: "Data Into Narratives",
+    paragraphs: [
+      `This blend turns raw incidents and observations into stories teams can act on.`,
+    ],
+    examples: [
+      `Summarized scattered admin feedback with AI, then wrote a narrative doc explaining root causes and a phased plan for dashboard improvements.`,
+      `Used AI to condense long call or ticket histories into “here’s what this really feels like for the user” briefs for stakeholders.`,
+    ],
+  },
+
+  "craft+story+ai": {
+    title: "Documenting Craft at Scale",
+    paragraphs: [
+      `Craft, story, and AI work together to make sure each build is documented without becoming a full-time writing job.`,
+    ],
+    examples: [
+      `Used AI to draft “build recap” blurbs from phase notes and photos, then edited them into the final story shown on each SoundLegend project page.`,
+      `Experimented with AI-assisted captioning for drum photos and clips, then kept the ones that sounded like a musician, not a marketing bot.`,
+    ],
+  },
+
+  /* ============================
+     QUADS
+     ============================ */
 
   "web+product+problem+craft": {
     title: "The Product-Minded Builder",
     paragraphs: [
       `Here you’re getting a builder who can design the system, shape the flows, debug the weirdness, and understand how it all lands in the physical world.`,
-      `You can expect cohesive tools and experiences where the line between “product” and “operations” is intentionally blurred in your favor.`,
+    ],
+    examples: [
+      `Designed and built the drum project workflow: a single source of truth that drives admin tools, customer views, and physical checklists in the shop.`,
+      `Brought call-center and customer-success instincts into portal and shop tooling so the people doing the work spend more time helping humans and less time fighting systems.`,
     ],
   },
+
   "web+product+problem+story": {
     title: "From Incident to Story",
     paragraphs: [
       `This blend is built for complex, user-facing systems where reliability and narrative both matter.`,
-      `You can expect strong engineering foundations, UX that respects constraints, and communication that keeps stakeholders informed without drowning them in detail.`,
+    ],
+    examples: [
+      `Handled risk-notification flows end-to-end: schema design, admin UI, and clear explanations for artists when something needed extra review.`,
+      `At CarGurus, turned messy outage and escalation stories into “what happened / what we learned / what we changed” narratives leaders could stand behind.`,
     ],
   },
+
   "web+product+craft+story": {
     title: "Digital, Physical, and Everything Between",
     paragraphs: [
       `Here the web experience, the physical artifact, and the surrounding story are treated as one product.`,
-      `You can expect portals tied directly to real-world builds and details that make the whole system feel handcrafted rather than stitched together.`,
+    ],
+    examples: [
+      `Launched new drum lines with matching portal experiences, photography, and copy so the website, instrument, and story all feel like one thing.`,
+      `Planned the Ober “Legend Vault” concept so a drummer’s relationship with their instrument extends from checkout to the first gig and beyond.`,
     ],
   },
+
   "web+problem+craft+story": {
     title: "Resilient Systems With a Human Face",
     paragraphs: [
       `This blend balances reliability, physical reality, and the stories people tell about the work.`,
-      `You can expect strong troubleshooting, durable processes, and communication that helps customers and teammates feel taken care of.`,
+    ],
+    examples: [
+      `Added guardrails around risky orders and built narratives that explain what’s happening, rather than just blocking actions with opaque errors.`,
+      `Leaned on Mercer experience handling hardship and survivor calls to keep even “the system said no” moments grounded and empathetic.`,
     ],
   },
+
   "product+problem+craft+story": {
     title: "Orchestrating the Whole Experience",
     paragraphs: [
       `Here the focus is orchestrating everything around the core product: expectations, processes, and the human experience at each step.`,
-      `You can expect aligned roadmaps, smoother operations, and narratives that make sense to customers, leaders, and the people doing the hands-on work.`,
+    ],
+    examples: [
+      `Turned a loose “we should offer a portal” idea into a sequenced rollout plan: messaging, features, operations, and follow-up all mapped together.`,
+      `Brought leadership experience from managing 20+ reps at CarGurus into how Ober’s future ops can scale without losing the human touch.`,
     ],
   },
 
-  /* QUADS WITH AI */
+  /* quads with AI */
 
   "web+product+problem+ai": {
-    title: "AI in the Core Stack, Not as a Sticker",
+    title: "AI-Augmented Full-Stack Problem Solving",
     paragraphs: [
-      `Web, product, problem solving, and AI together design systems where AI is part of the architecture, not an afterthought.`,
-      `You can expect clear boundaries for what AI does, data models that support it, and UX that makes those boundaries visible to users and teams.`,
+      `Here AI helps explore implementation options and edge cases while I keep one coherent mental model of the system.`,
+    ],
+    examples: [
+      `Used AI to generate alternative API and data-model sketches, then chose and implemented the version that best fit Firestore and portal constraints.`,
+      `Let AI pressure-test acceptance criteria and edge cases for complex admin features, then refined them into developer-ready tickets.`,
     ],
   },
+
   "web+product+craft+ai": {
-    title: "Portals, Process, and Smart Support",
+    title: "Systems for Real-World Production",
     paragraphs: [
-      `This blend builds portals for physical work where AI helps with planning, status, and communication.`,
-      `You can expect build timelines, checklists, and helper tools that stay grounded in the real constraints of the shop.`,
+      `This blend uses AI to make digital tooling for physical builds smarter over time.`,
+    ],
+    examples: [
+      `Explored AI-based suggestions for build timelines based on shell type and options, while keeping final scheduling judgment with the builder.`,
+      `Used AI to summarize build retros so future portal changes track with what’s actually happening at the workbench, not just in Figma.`,
     ],
   },
+
   "web+product+story+ai": {
-    title: "Adaptive Product Storytelling",
+    title: "Narrative Interfaces at Scale",
     paragraphs: [
-      `Here, experiences adapt in small, meaningful ways using AI, while the core story and structure are designed up front.`,
-      `You can expect personalized touches that still feel on-brand, backed by clear editorial rules and implementation details.`,
+      `Web, product, story, and AI together make it possible to keep interfaces feeling personal even as content volume grows.`,
+    ],
+    examples: [
+      `Structured portal content so future AI tools can safely propose copy within guardrails (tone, length, allowed claims) instead of free-styling.`,
+      `Used AI to keep new pages and flows anchored in the same Ober tone, even as the surface area of the product expanded.`,
     ],
   },
+
   "web+problem+craft+ai": {
-    title: "Operational Intelligence for Hands-On Work",
+    title: "Operational Intelligence for the Shop",
     paragraphs: [
-      `Web, problem solving, craft, and AI work together to surface the right operational signals to the right people at the right time.`,
-      `You can expect instrumentation, dashboards, and AI helpers that focus on real bottlenecks: time, material, and quality.`,
+      `This blend turns build data into actionable insights for both software and physical workflows.`,
+    ],
+    examples: [
+      `Used AI summaries of build notes to spot which phases most often caused rework, then adjusted both code and workflow to address them.`,
+      `Let AI cluster QC issues and timing outliers, then turned those findings into small, high-leverage changes in process and tooling.`,
     ],
   },
+
   "web+problem+story+ai": {
-    title: "Explaining the System as It Evolves",
+    title: "Incidents Into Shared Understanding",
     paragraphs: [
-      `Here we use AI to help narrate what’s happening in complex systems — incidents, changes, trends — while engineering and story keep things accurate and human.`,
-      `You can expect status updates, changelogs, and dashboards that feel like explanations, not just data dumps.`,
+      `Here AI helps turn noisy incidents into clearer stories and system changes.`,
+    ],
+    examples: [
+      `Let AI help condense long error and feedback threads into “what happened / why it mattered / what we changed” briefs.`,
+      `Used those briefs to align engineering, support, and leadership around the same narrative instead of three partial versions.`,
     ],
   },
+
   "web+craft+story+ai": {
     title: "Living Portals for Living Artifacts",
     paragraphs: [
-      `This blend turns each physical build into a living, evolving digital story, with AI helping on the connective tissue.`,
-      `You can expect rich project timelines, annotated media, and small automations that make it easy to keep the story up to date.`,
+      `Here we’re creating digital homes for physical work that stay up to date as builds progress.`,
     ],
-  },
-  "product+problem+craft+ai": {
-    title: "Designing Smarter, Smoother Operations",
-    paragraphs: [
-      `Product, problem solving, craft, and AI aim at the same thing: a smoother day for the people doing the work.`,
-      `You can expect revised workflows, AI-assisted planning tools, and clear responsibilities that respect both people’s time and the realities of the shop.`,
-    ],
-  },
-  "product+problem+story+ai": {
-    title: "Strategy, Reality, and Narrative Aligned",
-    paragraphs: [
-      `This mix keeps what we say we’re doing, what we’re actually doing, and how we talk about it all in sync — with AI helping us see drift sooner.`,
-      `You can expect planning docs, internal comms, and customer-facing narratives that are easier to keep aligned over time.`,
-    ],
-  },
-  "product+craft+story+ai": {
-    title: "End-to-End Journeys With Smart Support",
-    paragraphs: [
-      `Product, craft, story, and AI together design journeys where each stage can be supported, documented, and communicated without feeling robotic.`,
-      `You can expect onboarding, build, and follow-up experiences that stay human while using AI to fill in details and surface the right next step.`,
-    ],
-  },
-  "problem+craft+story+ai": {
-    title: "Learning From Every Build",
-    paragraphs: [
-      `Problem solving, craft, story, and AI focus on turning each project into learning material for the next.`,
-      `You can expect structured retros, pattern libraries, and build stories where AI does some of the organizing and humans do the meaning-making.`,
+    examples: [
+      `Maintained legacy pages that evolve over time as new media and notes get added, without turning updates into a full-time job.`,
+      `Used AI to propose sectioning and captions for build media, then edited for tone and accuracy.`,
     ],
   },
 
-  /* --------------------------- QUINTS ------------------------ */
+  "product+problem+craft+ai": {
+    title: "Smarter Processes, Same Human Judgment",
+    paragraphs: [
+      `This blend uses AI to surface where processes creak, then fixes them in a way teams actually feel.`,
+    ],
+    examples: [
+      `Used AI to highlight where builds tended to get stuck, then simplified checklists and responsibilities for those phases.`,
+      `Summarized cross-team feedback into one plan instead of dueling narratives from shop, product, and ops.`,
+    ],
+  },
+
+  "product+problem+story+ai": {
+    title: "Strategic Storytelling With Teeth",
+    paragraphs: [
+      `Here AI helps explore scenarios and draft communication, and I ensure the narrative matches the real constraints and roadmap.`,
+    ],
+    examples: [
+      `Drafted and refined roadmap narratives for portal evolution so artists know what’s coming and why, without overpromising.`,
+      `Used AI to prototype different stakeholder narratives (exec, artist, ops), then consolidated them into one truthful story instead of three conflicting ones.`,
+    ],
+  },
+
+  "product+craft+story+ai": {
+    title: "Hybrid Experiences That Keep Improving",
+    paragraphs: [
+      `This blend keeps the website, the instrument, and the story in sync as the system grows.`,
+    ],
+    examples: [
+      `Maintained a consistent Ober voice and experience across new drum lines and portal sections even as the surface area expanded.`,
+      `Used AI to draft new permutations of portal content as offerings evolved, then edited everything back into one coherent brand story.`,
+    ],
+  },
+
+  "problem+craft+story+ai": {
+    title: "Resilient Hybrid Systems With a Human Face",
+    paragraphs: [
+      `Here AI, systems thinking, craft, and story work together to keep operations resilient and communication empathetic.`,
+    ],
+    examples: [
+      `Implemented guardrails and narratives around shipping delays so artists see honest, context-rich updates instead of vague status changes.`,
+      `Grounded those updates in the same calm, clear tone developed at Mercer when guiding people through high-stakes benefit decisions.`,
+    ],
+  },
+
+  /* ============================
+     QUINTS (5 disciplines)
+     ============================ */
+
+  "web+product+problem+craft+story": {
+    title: "Polyrhythmic Without the Robots",
+    paragraphs: [
+      `Here everything but AI is in the mix: engineering, product, systems thinking, craft, and story.`,
+    ],
+    examples: [
+      `Scoped and built the first versions of the Ober portal and workflows without AI, grounding every decision in what artists and the shop actually needed.`,
+      `Used customer calls, shop notes, and metrics to iterate on the experience long before AI ever entered the picture.`,
+    ],
+  },
 
   "web+product+problem+craft+ai": {
-    title: "Systems That Respect the Shop",
+    title: "AI in the Loop of Product & Production",
     paragraphs: [
-      `This blend uses all the technical and operational tools — plus AI — to support physical craft rather than fight it.`,
-      `You can expect ecosystems where the portal, processes, and analytics make it easier to build great things instead of adding noise.`,
+      `This blend connects strategy, systems, physical work, and AI so improvements in one place show up everywhere.`,
     ],
-  },
-  "web+product+problem+story+ai": {
-    title: "Complex Systems, Clear Story",
-    paragraphs: [
-      `Here, the full digital stack lines up with a narrative that leaders, customers, and teams can actually follow — with AI helping keep the picture current.`,
-      `You can expect strong foundations, thoughtful UX, clear comms, and assistants that help people stay oriented as the system evolves.`,
-    ],
-  },
-  "web+product+craft+story+ai": {
-    title: "Unified Product Across Web, Shop, and Story",
-    paragraphs: [
-      `This blend treats the entire ecosystem — digital surfaces, physical builds, and narrative — as one product, with AI helping connect the dots.`,
-      `You can expect consistent details, shared data, and stories that are easy to keep up-to-date without burning out the humans involved.`,
-    ],
-  },
-  "web+problem+craft+story+ai": {
-    title: "Resilient, Explainable Operations",
-    paragraphs: [
-      `Here the focus is on resilience: making sure the system survives reality and that people understand what’s going on.`,
-      `You can expect instrumentation, troubleshooting flows, and narrative patterns where AI assists but human ownership is obvious.`,
-    ],
-  },
-  "product+problem+craft+story+ai": {
-    title: "Orchestrating People, Process, and Signals",
-    paragraphs: [
-      `This blend pulls together product direction, real-world constraints, story, and AI to orchestrate the whole experience around a build or system.`,
-      `You can expect aligned expectations, smoother handoffs, and communication that helps everyone see where they are in the journey.`,
+    examples: [
+      `Designed systems where learnings from completed projects feed into future portal defaults, build checklists, and communication templates.`,
+      `Used AI to turn cross-functional feedback (artists, internal team, logistics) into concrete changes to both the software and the build process.`,
     ],
   },
 
-  /* -------------------------- ALL SIX ----------------------- */
+  "web+product+problem+story+ai": {
+    title: "From Incident to Story to System",
+    paragraphs: [
+      `Here AI helps translate complex events into stories and system changes that stick.`,
+    ],
+    examples: [
+      `Turned a messy risk incident into an AI-assisted summary, then into code changes, new admin tooling, and a clear narrative for stakeholders.`,
+      `Leaned on years of customer-facing experience to keep those narratives grounded in how incidents actually feel to the person on the other end of the screen or phone.`,
+    ],
+  },
+
+  "web+product+craft+story+ai": {
+    title: "Hybrid Experiences That Feel Handbuilt",
+    paragraphs: [
+      `This blend keeps the website, the instrument, and the story in sync as the system grows.`,
+    ],
+    examples: [
+      `Maintained a consistent Ober voice and experience across new drum lines and portal sections even as the surface area expanded.`,
+      `Used AI to draft new permutations of portal content as offerings evolved, then edited everything back into one coherent brand story.`,
+    ],
+  },
+
+  "web+problem+craft+story+ai": {
+    title: "Operational Intelligence With a Human Face",
+    paragraphs: [
+      `Here AI helps surface where operations need tightening, and the fixes come with stories people can actually follow.`,
+    ],
+    examples: [
+      `Used AI to summarize build and support notes, then turned those into visible changes in workflows and checklists.`,
+      `Paired every change with a simple “why we’re doing this” story so future teammates don’t undo it by accident.`,
+    ],
+  },
+
+  "product+problem+craft+story+ai": {
+    title: "Directing the Whole Ensemble",
+    paragraphs: [
+      `This blend treats AI as one more player in a cross-functional ensemble: helpful, fast, but not in charge.`,
+    ],
+    examples: [
+      `Used AI-driven option exploration to support planning for future offerings (like cases and add-ons) while keeping the final product roadmap grounded in craft and customer value.`,
+      `Paired roadmap narratives with concrete operational plans so what’s promised to customers is always backed by staffing, process, and tooling.`,
+    ],
+  },
+
+  /* ============================
+     ALL SIX
+     ============================ */
 
   "web+product+problem+craft+story+ai": {
     title: "The Full Polyrhythmic Stack",
     paragraphs: [
-      `This is everything at once: engineering, product, systems thinking, physical craft, story, and AI — all pointed at one problem.`,
-      `You can expect me to move between strategy and implementation: sketching flows, shaping data models, designing AI’s role, building tools, tuning physical details, and wrapping everything in a narrative that feels honest, human, and sustainable to maintain.`,
+      `This is the whole toolkit — engineering, product, systems thinking, physical craft, story, and AI — all pointed at one problem.`,
+    ],
+    examples: [
+      `SoundLegend artist portal and legacy tools: custom drum lifecycles, NFC verification, admin dashboards, artist-facing progress and media, AI-assisted copy, and a story that follows each instrument from first board to final track.`,
+      `Draws on the whole path — Mercer call floors, CarGurus leadership, JumpCrew client strategy, JLL API work, GA builds, and Ober in the shop — to show how I solve problems when all the rhythms are playing at once.`,
     ],
   },
 };
@@ -580,9 +841,15 @@ export default function PolyrhythmicMethod() {
 
     const bg = `
       radial-gradient(circle at 0% 0%, ${(c1 || base) + "33"}, transparent 55%),
-      radial-gradient(circle at 100% 0%, ${(c2 || c1 || base) + "33"}, transparent 55%),
-      radial-gradient(circle at 0% 100%, ${(c3 || c2 || base) + "33"}, transparent 55%),
-      radial-gradient(circle at 100% 100%, ${(c4 || c3 || base) + "33"}, transparent 55%),
+      radial-gradient(circle at 100% 0%, ${
+        (c2 || c1 || base) + "33"
+      }, transparent 55%),
+      radial-gradient(circle at 0% 100%, ${
+        (c3 || c2 || base) + "33"
+      }, transparent 55%),
+      radial-gradient(circle at 100% 100%, ${
+        (c4 || c3 || base) + "33"
+      }, transparent 55%),
       radial-gradient(circle at 50% 50%, ${base + "1f"}, #020617)
     `;
 
@@ -593,8 +860,7 @@ export default function PolyrhythmicMethod() {
       borderColor: "transparent",
       borderImageSource: gradient,
       borderImageSlice: 1,
-      boxShadow:
-        "0 20px 50px rgba(0,0,0,0.8), 0 0 0 1px rgba(15,23,42,0.8)",
+      boxShadow: "0 20px 50px rgba(0,0,0,0.8), 0 0 0 1px rgba(15,23,42,0.8)",
     };
   }, [activeColors]);
 
@@ -621,7 +887,9 @@ export default function PolyrhythmicMethod() {
         <p className="pm-hero__body">
           The Polyrhythmic Method is my way of naming that approach. It&apos;s
           the lens I use to decide{" "}
-          <strong>what to focus on, when to blend disciplines, and how much</strong>{" "}
+          <strong>
+            what to focus on, when to blend disciplines, and how much
+          </strong>{" "}
           of each to bring into a project so the result feels clear, human, and
           shippable.
         </p>
@@ -630,18 +898,24 @@ export default function PolyrhythmicMethod() {
       {/* CORE DISCIPLINES */}
       <section className="pm-section">
         <header className="pm-section__header">
-          <h2 className="pm-section__title">The Core Rhythms</h2>
+          <h2 className="pm-section__title">Core Diciplines</h2>
           <p className="pm-section__subtitle">
             Six disciplines I move between. Each one can stand alone, or lock in
-            as part of a larger groove. AI is one of the rhythms — a systems
-            layer that helps the others play tighter, not a replacement for
-            human judgment.
+            as part of a larger groove. AI weaves through them as a systems
+            partner — a fast assistant, not a replacement.
           </p>
         </header>
 
         <div className="pm-grid pm-grid--disciplines">
+          {/* Web & Software */}
           <article className="pm-card">
-            <div className="pm-card__icon">🎧</div>
+            <div className="pm-card__icon">
+              <img
+                src={`${ICON_BASE}/computer.png`}
+                alt="Web & Software Engineering"
+                className="pm-card__icon-img"
+              />
+            </div>
             <h3 className="pm-card__title">Web &amp; Software Engineering</h3>
             <p className="pm-card__body">
               React frontends, Firebase backends, auth flows, portals, and
@@ -650,8 +924,15 @@ export default function PolyrhythmicMethod() {
             </p>
           </article>
 
+          {/* Product & UX */}
           <article className="pm-card">
-            <div className="pm-card__icon">📐</div>
+            <div className="pm-card__icon">
+              <img
+                src={`${ICON_BASE}/navigate.png`}
+                alt="Product & UX Design"
+                className="pm-card__icon-img"
+              />
+            </div>
             <h3 className="pm-card__title">Product &amp; UX Design</h3>
             <p className="pm-card__body">
               I care more about flows than pixels. How someone discovers a
@@ -660,8 +941,15 @@ export default function PolyrhythmicMethod() {
             </p>
           </article>
 
+          {/* Technical Problem Solving */}
           <article className="pm-card">
-            <div className="pm-card__icon">🧠</div>
+            <div className="pm-card__icon">
+              <img
+                src={`${ICON_BASE}/puzzle.png`}
+                alt="Technical Problem Solving"
+                className="pm-card__icon-img"
+              />
+            </div>
             <h3 className="pm-card__title">Technical Problem Solving</h3>
             <p className="pm-card__body">
               Untangling messy constraints, mapping the real problem, and
@@ -670,8 +958,15 @@ export default function PolyrhythmicMethod() {
             </p>
           </article>
 
+          {/* Craft & Making */}
           <article className="pm-card">
-            <div className="pm-card__icon">🛠️</div>
+            <div className="pm-card__icon">
+              <img
+                src={`${ICON_BASE}/wood.png`}
+                alt="Craft & Making"
+                className="pm-card__icon-img"
+              />
+            </div>
             <h3 className="pm-card__title">Craft &amp; Making</h3>
             <p className="pm-card__body">
               Building custom snares keeps me honest. Every drum moves from raw
@@ -681,8 +976,15 @@ export default function PolyrhythmicMethod() {
             </p>
           </article>
 
+          {/* Story, Music & Creative Life */}
           <article className="pm-card">
-            <div className="pm-card__icon">🎵</div>
+            <div className="pm-card__icon">
+              <img
+                src={`${ICON_BASE}/microphone.png`}
+                alt="Story, Music & Creative Life"
+                className="pm-card__icon-img"
+              />
+            </div>
             <h3 className="pm-card__title">Story, Music &amp; Creative Life</h3>
             <p className="pm-card__body">
               Music, photography, and writing are how I process and share the
@@ -691,15 +993,21 @@ export default function PolyrhythmicMethod() {
             </p>
           </article>
 
-          {/* AI as a sixth rhythm */}
+          {/* AI & Systems */}
           <article className="pm-card pm-card--ai">
-            <div className="pm-card__icon">🤖</div>
-            <h3 className="pm-card__title">AI &amp; Systems Rhythm</h3>
+            <div className="pm-card__icon">
+              <img
+                src={`${ICON_BASE}/systems.png`}
+                alt="AI & Systems"
+                className="pm-card__icon-img"
+              />
+            </div>
+            <h3 className="pm-card__title">AI &amp; Systems</h3>
             <p className="pm-card__body">
-              I use AI as part of the rhythm section: great at exploring
-              options, stress-testing ideas, and speeding up iteration — while
-              human judgment, ethics, and taste stay in charge of the final
-              decisions.
+              I treat AI like a sharp assistant: great at exploring options,
+              stress-testing ideas, and drafting. I keep a human hand on the
+              structure, decisions, and final voice — especially where judgment,
+              nuance, or ethics are involved.
             </p>
             <button
               type="button"
@@ -717,9 +1025,9 @@ export default function PolyrhythmicMethod() {
         <header className="pm-section__header">
           <h2 className="pm-section__title">Focused vs. Blended Work</h2>
           <p className="pm-section__subtitle">
-            Some problems need one clear pulse. Others need two, three, or more
-            rhythms working together. The method is mostly about knowing{" "}
-            <em>which</em> you need and when.
+            Some problems need one dedicated dicipline. Others need multiple
+            working together. The method is mostly about knowing <em>which</em>{" "}
+            you need and when.
           </p>
         </header>
 
@@ -740,8 +1048,7 @@ export default function PolyrhythmicMethod() {
             <p className="pm-mode__body">
               The most common mode. Engineering + UX for a new feature. Story +
               Product for onboarding and email flows. Craft + Engineering for
-              NFC tagging on physical drums. AI can join either side when it
-              actually helps.
+              NFC tagging on physical drums.
             </p>
           </article>
 
@@ -762,7 +1069,7 @@ export default function PolyrhythmicMethod() {
             </p>
             <p className="pm-mode__body">
               This is the “signature dish.” Used for full-stack initiatives
-              where brand, story, product, systems, AI, and physical craft all
+              where brand, story, product, systems, and physical craft all
               matter — like launching a drum line with its own portal, NFC
               verification, media, and customer journey.
             </p>
@@ -775,9 +1082,9 @@ export default function PolyrhythmicMethod() {
         <header className="pm-section__header">
           <h2 className="pm-section__title">Polyrhythmic Blend Tool</h2>
           <p className="pm-section__subtitle">
-            Toggle the core rhythms to see how I’d typically show up in that
-            mix — and the kinds of outputs you can expect at different blend
-            levels, including when AI joins the groove.
+            Toggle the core rhythms to see how I’d typically show up in that mix
+            — and the kinds of outputs you can expect at different blend levels,
+            including when AI joins the groove.
           </p>
         </header>
 
@@ -847,14 +1154,15 @@ export default function PolyrhythmicMethod() {
                     <li key={d.key} className="pm-blend__icon">
                       <span
                         className="pm-blend__icon-badge"
-                        style={{
-                          borderColor: d.color,
-                          color: d.color,
-                        }}
+                        style={{ borderColor: d.color }}
                         aria-label={d.legendLabel}
                         title={d.legendLabel}
                       >
-                        {d.iconChar}
+                        <img
+                          src={d.iconSrc}
+                          alt={d.legendLabel}
+                          className="pm-blend__icon-img"
+                        />
                       </span>
                     </li>
                   );
@@ -866,67 +1174,21 @@ export default function PolyrhythmicMethod() {
               {activeRecipe.paragraphs.map((para, idx) => (
                 <p key={idx}>{para}</p>
               ))}
+
+              {activeRecipe.examples && activeRecipe.examples.length > 0 && (
+                <>
+                  <h4 className="pm-blend__practice-heading">
+                    How this shows up in my work
+                  </h4>
+                  <ul className="pm-blend__practice-list">
+                    {activeRecipe.examples.map((ex, idx) => (
+                      <li key={idx}>{ex}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
             </div>
           </aside>
-        </div>
-      </section>
-
-      {/* HOW IT SHOWS UP IN REAL WORK */}
-      <section className="pm-section">
-        <header className="pm-section__header">
-          <h2 className="pm-section__title">How This Shows Up in Practice</h2>
-          <p className="pm-section__subtitle">
-            A few examples of where the Polyrhythmic Method is already running
-            under the hood.
-          </p>
-        </header>
-
-        <div className="pm-grid pm-grid--examples">
-          <article className="pm-example">
-            <h3 className="pm-example__title">
-              SoundLegend Artist Portal &amp; Legacy Tools
-            </h3>
-            <p className="pm-example__pill">
-              🎧 Engineering · 📐 UX · 🧠 Problem Solving · 🛠️ Craft · 🎵 Story · 🤖
-              AI
-            </p>
-            <p className="pm-example__body">
-              Artist-facing portals that show build progress, handle file
-              uploads, and tell the story of each drum — from raw lumber to
-              final mix. NFC tags, admin dashboards, AI-assisted helpers, and
-              media all pull from the same lifecycle.
-            </p>
-          </article>
-
-          <article className="pm-example">
-            <h3 className="pm-example__title">
-              Admin Dashboards &amp; Internal Tools
-            </h3>
-            <p className="pm-example__pill">
-              🎧 Engineering · 📐 UX · 🧠 Problem Solving · 🤖 AI
-            </p>
-            <p className="pm-example__body">
-              Tools for managing orders, timelines, risk, and customer
-              communication. Designed so future features plug in cleanly instead
-              of fighting the existing data model, with AI used where it helps
-              surface the right information faster.
-            </p>
-          </article>
-
-          <article className="pm-example">
-            <h3 className="pm-example__title">
-              Custom Drum Builds &amp; Launch Stories
-            </h3>
-            <p className="pm-example__pill">
-              🛠️ Craft · 🎵 Story · 📐 Product &amp; UX
-            </p>
-            <p className="pm-example__body">
-              Each instrument is treated like a product launch: scoped,
-              documented, photographed, and wrapped in a story that the drummer
-              can actually share with their own audience — with AI occasionally
-              helping explore options, not write the story for us.
-            </p>
-          </article>
         </div>
       </section>
 
@@ -944,8 +1206,8 @@ export default function PolyrhythmicMethod() {
           <article className="pm-cta">
             <h3 className="pm-cta__title">Product &amp; Engineering Work</h3>
             <p className="pm-cta__body">
-              Full-stack features, portals, internal tools, and system design.
-              I can drop in on an existing product, untangle the complexity, and
+              Full-stack features, portals, internal tools, and system design. I
+              can drop in on an existing product, untangle the complexity, and
               ship improvements that feel obvious in hindsight.
             </p>
           </article>
@@ -955,7 +1217,7 @@ export default function PolyrhythmicMethod() {
             <p className="pm-cta__body">
               Work that sits between worlds — physical/digital, artist/customer,
               story/system. This is where the polyrhythmic approach shines the
-              most, especially when AI is part of the picture.
+              most.
             </p>
           </article>
 
@@ -964,8 +1226,7 @@ export default function PolyrhythmicMethod() {
             <p className="pm-cta__body">
               Helping engineers, creatives, and founders use this way of
               thinking in their own work: deciding when to focus, when to blend,
-              and how to ship without burning out — even as AI becomes part of
-              their stack.
+              and how to ship without burning out.
             </p>
           </article>
         </div>
@@ -989,7 +1250,7 @@ export default function PolyrhythmicMethod() {
               <h2 className="pm-ai-modal__title">
                 How I Use AI (And Where I Don&apos;t)
               </h2>
-            <button
+              <button
                 type="button"
                 className="pm-ai-modal__close"
                 onClick={closeAiModal}
@@ -1003,10 +1264,10 @@ export default function PolyrhythmicMethod() {
               <div className="pm-ai-modal__section">
                 <h3>Where AI shows up in my work</h3>
                 <p>
-                  I use tools like this as part of the band — to explore
-                  options, stress-test ideas, and move faster on the parts that
-                  benefit from iteration: naming, draft copy, refactoring ideas,
-                  edge cases, and “what if we tried it this way?” experiments.
+                  I use tools like this as an assistant — to explore options,
+                  stress-test ideas, and move faster on the parts that benefit
+                  from iteration: naming, draft copy, refactoring ideas, edge
+                  cases, and “what if we tried it this way?” experiments.
                 </p>
                 <ul>
                   <li>
@@ -1057,9 +1318,9 @@ export default function PolyrhythmicMethod() {
                 <h3>How I think about ownership &amp; credit</h3>
                 <p>
                   When I use AI in a project, I&apos;m transparent about it and
-                  clear about what parts are human-authored vs. machine-assisted.
-                  My job is to bring judgment, taste, and context — and to
-                  ultimately stand behind the work as mine.
+                  clear about what parts are human-authored vs.
+                  machine-assisted. My job is to bring judgment, taste, and
+                  context — and to ultimately stand behind the work as mine.
                 </p>
               </div>
             </div>
