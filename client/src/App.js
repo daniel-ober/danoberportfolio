@@ -9,7 +9,9 @@ import Services from "./pages/Services";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Projects from "./pages/projects/Projects";
-import Philosophy from "./pages/Philosophy";
+
+/* ----- Polyrhythmic Method (replaces Philosophy tab) ----- */
+import PolyrhythmicMethod from "./pages/PolyrhythmicMethod";
 
 /* --------------------- Web & Software --------------------- */
 import OberArtisanDrums from "./pages/projects/web/OberArtisanDrums";
@@ -35,34 +37,28 @@ import CustomStaveSnareBuilds from "./pages/projects/drums/CustomStaveSnareBuild
 /* --------------------- Styles --------------------- */
 import "./App.css";
 
-
 function App() {
   return (
     <Router>
       <Layout>
         <Routes>
-
           {/* ---------- Core pages ---------- */}
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/philosophy" element={<Philosophy />} />
+
+          {/* ---------- Polyrhythmic Method ---------- */}
+          <Route path="/method" element={<PolyrhythmicMethod />} />
 
           {/* ---------- Web & Software ---------- */}
           <Route
             path="/projects/ober-artisan-drums"
             element={<OberArtisanDrums />}
           />
-          <Route
-            path="/projects/weathernest"
-            element={<WeatherNest />}
-          />
-          <Route
-            path="/projects/ez-synth"
-            element={<EZSynth />}
-          />
+          <Route path="/projects/weathernest" element={<WeatherNest />} />
+          <Route path="/projects/ez-synth" element={<EZSynth />} />
 
           {/* ---------- 3D Design & Printing ---------- */}
           <Route
@@ -103,7 +99,6 @@ function App() {
             path="/projects/custom-stave-snare-builds"
             element={<CustomStaveSnareBuilds />}
           />
-
         </Routes>
       </Layout>
     </Router>

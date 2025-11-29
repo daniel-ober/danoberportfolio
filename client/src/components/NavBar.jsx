@@ -11,7 +11,7 @@ export default function NavBar() {
 
   const navItems = [
     { to: "/", label: "Home" },
-    { to: "/philosophy", label: "Philosophy" }, // ⭐ UPDATED
+    { to: "/method", label: "Method" },
     { to: "/projects", label: "Projects" },
     { to: "/about", label: "About" },
     { to: "/contact", label: "Contact" },

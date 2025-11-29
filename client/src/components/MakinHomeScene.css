@@ -187,6 +187,30 @@
   filter: brightness(1.06);
 }
 
+/* --------------------------------------------- */
+/* Bubble below selected item                    */
+/* --------------------------------------------- */
+
+.mh-hotspot__bubble--below {
+  top: calc(100% + 10px);     /* Always BELOW the hotspot, with spacing */
+  bottom: auto;
+  transform: translateX(-50%) translateY(12px);
+}
+
+.mh-hotspot__bubble--below.mh-hotspot__bubble--visible {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* --------------------------------------------- */
+/* Bubble above selected item                    */
+/* --------------------------------------------- */
+
+/* Bubble ABOVE hotspot — attach to bottom edge */
+.mh-hotspot__bubble--above {
+  bottom: 100%;
+  margin-bottom: 8px; /* small gap */
+}
+
 /* MODAL ------------------------------------------------------- */
 
 .mh-modal-backdrop {
@@ -214,8 +238,11 @@
 /* Header: centered title + subtitle */
 
 .mh-modal__header {
+  margin-bottom: 4px;
+}
+
+.mh-modal__header-text {
   text-align: center;
-  margin-bottom: 8px;
 }
 
 .mh-modal__title {
@@ -232,6 +259,23 @@
   text-transform: uppercase;
   color: #f7b24a; /* warm orange-gold accent */
   margin-top: 10px;
+}
+
+/* Icon block between header and body */
+
+.mh-modal__icon {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 12px;
+}
+
+.mh-modal__icon img {
+  display: block;
+  width: 140px;
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;
+  border-radius: 0;
 }
 
 /* Body text stays left-aligned for readability */
@@ -286,36 +330,6 @@
   background: rgba(255, 255, 255, 0.06);
 }
 
-/* --------------------------------------------- */
-/* Bubble below selected item                    */
-/* --------------------------------------------- */
-
-.mh-hotspot__bubble--below {
-  top: calc(100% + 10px);     /* Always BELOW the hotspot, with spacing */
-  bottom: auto;
-  transform: translateX(-50%) translateY(12px);
-}
-
-.mh-hotspot__bubble--below.mh-hotspot__bubble--visible {
-  transform: translateX(-50%) translateY(0);
-}
-
-/* --------------------------------------------- */
-/* Bubble above selected item                    */
-/* --------------------------------------------- */
-
-/* Bubble ABOVE hotspot — attach to bottom edge */
-.mh-hotspot__bubble--above {
-  bottom: 100%;
-  margin-bottom: 8px; /* small gap */
-}
-
-/* Bubble BELOW hotspot — attach to top edge */
-.mh-hotspot__bubble--below {
-  top: 100%;
-  margin-top: 8px; /* small gap */
-}
-
 /* RESPONSIVE -------------------------------------------------- */
 
 @media (max-width: 768px) {
@@ -344,5 +358,10 @@
     width: min(400px, 94vw);
     max-height: 72vh;
     padding: 14px 14px 12px;
+  }
+
+  .mh-modal__icon img {
+    width: 120px;
+    max-height: 150px;
   }
 }

@@ -8,7 +8,7 @@ export default function About() {
     <div className="about">
       {/* Mobile portrait */}
       <div className="about__portrait-mobile">
-        <img src="/danober-portfolio.png" alt="Dan Ober" />
+        <img src="/danober-portfolio1.png" alt="Dan Ober" />
       </div>
 
       <div className="about__left fade-in-left">
@@ -86,7 +86,7 @@ export default function About() {
 
       {/* Desktop portrait */}
       <div className="about__portrait-desktop">
-        <img src="/danober-portfolio.png" alt="Dan Ober" />
+        <img src="/danober-portfolio1.png" alt="Dan Ober" />
       </div>
     </div>
   );

@@ -13,8 +13,6 @@ import "./MakinHomeScene.css";
 
 /* =========================================================
    HOTSPOT DEFINITIONS (WEB vs MOBILE)
-   - All positions are in % of the image area.
-   - You can tweak left/top/width/height any time.
    ========================================================= */
 
 const WEB_HOTSPOTS = [
@@ -239,6 +237,7 @@ const MOBILE_HOTSPOTS = [
    ========================================================= */
 
 const BASE_ROOT = "/media/photo-layers";
+const EMOJI_ROOT = "/media/emojis";
 
 function getSubfolder(variant) {
   return variant === "mobile" ? "mobile" : "web";
@@ -266,6 +265,7 @@ const HOTSPOT_DETAILS = {
   feather: {
     title: "Feather Jacket",
     subtitle: "Creative Direction",
+    emoji: "dreamfeather", // /media/emojis/dreamfeather.png
     disciplines: [
       "Story, Music & Creative Life",
       "Product & UX Design",
@@ -284,6 +284,7 @@ const HOTSPOT_DETAILS = {
   monitor: {
     title: "Command Center",
     subtitle: "Web & Software Engineering",
+    emoji: "web",
     disciplines: [
       "Web & Software Engineering",
       "Product & UX Design",
@@ -302,6 +303,7 @@ const HOTSPOT_DETAILS = {
   "acoustic-guitar": {
     title: "Acoustic Guitar",
     subtitle: "Musicality & Empathy",
+    emoji: "acoustic",
     disciplines: ["Story, Music & Creative Life", "Product & UX Design"],
     body: [
       `Music has always been how I listen first and speak second. Playing and writing music forces me 
@@ -316,6 +318,7 @@ const HOTSPOT_DETAILS = {
   snare: {
     title: "SoundLegend",
     subtitle: "Craft & Making",
+    emoji: "drum",
     disciplines: [
       "Craft & Making",
       "Technical Problem Solving",
@@ -333,6 +336,7 @@ const HOTSPOT_DETAILS = {
   camera: {
     title: "Camera",
     subtitle: "Visual Systems & Documentation",
+    emoji: "camera",
     disciplines: ["Product & UX Design", "Story, Music & Creative Life"],
     body: [
       `The camera represents how I document work. I don’t just ship a feature or a drum and walk away — 
@@ -345,6 +349,7 @@ const HOTSPOT_DETAILS = {
   dog: {
     title: "Lucy",
     subtitle: "Story & Life",
+    emoji: "lucy",
     disciplines: ["Story, Music & Creative Life"],
     body: [
       `Lucy is the studio dog and the emotional center of the room. She’s there to remind me that 
@@ -358,6 +363,7 @@ const HOTSPOT_DETAILS = {
   "orange-cat": {
     title: "Sunny",
     subtitle: "Play & Curiosity",
+    emoji: "sunny",
     disciplines: ["Story, Music & Creative Life", "Technical Problem Solving"],
     body: [
       `Sunny is the little spark of mischief in the scene — the reminder that curiosity matters. 
@@ -371,6 +377,7 @@ const HOTSPOT_DETAILS = {
   "electric-guitar": {
     title: "Electric Guitar",
     subtitle: "Performance & Collaboration",
+    emoji: "electric-guitar",
     disciplines: ["Story, Music & Creative Life", "Product & UX Design"],
     body: [
       `The electric guitar is about performance under pressure. Live shows taught me how to stay present, 
@@ -384,6 +391,7 @@ const HOTSPOT_DETAILS = {
   rubiks: {
     title: "Rubik’s Cube",
     subtitle: "Technical Problem Solving",
+    emoji: "rubiks",
     disciplines: ["Technical Problem Solving", "Web & Software Engineering"],
     body: [
       `The cube is my little altar to problem solving. I love breaking down messy, 
@@ -396,6 +404,7 @@ const HOTSPOT_DETAILS = {
   printer: {
     title: "3D Printer",
     subtitle: "Prototyping & Systems Thinking",
+    emoji: "3d",
     disciplines: [
       "Web & Software Engineering",
       "Technical Problem Solving",
@@ -412,6 +421,7 @@ const HOTSPOT_DETAILS = {
   "top-cat": {
     title: "Freddie",
     subtitle: "Observation & Detail",
+    emoji: "freddie",
     disciplines: ["Product & UX Design", "Story, Music & Creative Life"],
     body: [
       `Freddie is the quiet observer on top of the printer. In the studio he’s the one who sees everything 
@@ -425,6 +435,7 @@ const HOTSPOT_DETAILS = {
   "dan-chelsea": {
     title: "Dan & Chelsea",
     subtitle: "Foundation",
+    // no emoji image yet, renders without the icon
     disciplines: ["Story, Music & Creative Life"],
     body: [
       `This frame is about the life outside the work. Building a career in tech and a boutique drum 
@@ -441,7 +452,7 @@ const HOTSPOT_DETAILS = {
    INFO MODAL COMPONENT
    ========================================================= */
 
-function InfoModal({ open, onClose, title, subtitle, disciplines, body }) {
+function InfoModal({ open, onClose, title, subtitle, disciplines, body, emoji }) {
   useEffect(() => {
     if (!open) return;
     const previous = document.body.style.overflow;
@@ -471,9 +482,21 @@ function InfoModal({ open, onClose, title, subtitle, disciplines, body }) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mh-modal__header">
-          <h2 className="mh-modal__title">{title}</h2>
-          {subtitle && <div className="mh-modal__subtitle">{subtitle}</div>}
+          <div className="mh-modal__header-text">
+            <h2 className="mh-modal__title">{title}</h2>
+            {subtitle && <div className="mh-modal__subtitle">{subtitle}</div>}
+          </div>
         </div>
+
+        {emoji && (
+          <div className="mh-modal__icon">
+            <img
+              src={`/media/emojis/${emoji}.png`}
+              alt=""
+              aria-hidden="true"
+            />
+          </div>
+        )}
 
         {body && (
           <div className="mh-modal__body">
@@ -526,8 +549,6 @@ export default function MakinHomeScene({ variant = "desktop" }) {
     setHoverId(null);
   }, []);
 
-  // click = select + decide whether bubble goes above/below,
-  // but clamp top-row items to "below" and bottom-row items to "above"
   const handleSelectHotspot = useCallback(
     (id, evt) => {
       setSelectedId((prev) => {
@@ -537,15 +558,11 @@ export default function MakinHomeScene({ variant = "desktop" }) {
           const spot = hotspots.find((h) => h.id === nextId);
 
           if (spot) {
-            // top band: always show bubble below so it stays inside frame
             if (spot.top <= 18) {
               setBubblePlacement("below");
-            }
-            // bottom band: always show bubble above
-            else if (spot.top >= 72) {
+            } else if (spot.top >= 72) {
               setBubblePlacement("above");
             } else if (evt && evt.currentTarget) {
-              // middle area: use viewport mid logic
               const rect = evt.currentTarget.getBoundingClientRect();
               const centerY = rect.top + rect.height / 2;
               const screenMid = window.innerHeight / 2;
@@ -612,7 +629,6 @@ export default function MakinHomeScene({ variant = "desktop" }) {
               onBlur={handleMouseLeave}
               onClick={(e) => handleSelectHotspot(spot.id, e)}
             >
-              {/* Bubble only */}
               {isSelected && (
                 <div
                   className={
@@ -648,6 +664,7 @@ export default function MakinHomeScene({ variant = "desktop" }) {
         subtitle={modalDetails?.subtitle}
         disciplines={modalDetails?.disciplines || []}
         body={modalDetails?.body || []}
+        emoji={modalDetails?.emoji}
       />
     </div>
   );

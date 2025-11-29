@@ -126,7 +126,7 @@
   width: auto;
   object-fit: contain;
   border-radius: 12px;
-  opacity: 0.25; /* softer / less shouty */
+  opacity: 0.65; /* softer / less shouty */
   filter: grayscale(100%) contrast(1.05) brightness(1.05)
     drop-shadow(0 0 15px rgba(0, 0, 0, 0.35));
 }
