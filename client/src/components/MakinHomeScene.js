@@ -351,7 +351,7 @@ const HOTSPOT_DETAILS = {
   },
   "orange-cat": {
     title: "Sunny Cat",
-    subtitle: "Play & Curiosity",
+    subtitle: "Curiosity",
     emoji: "sunny",
     disciplines: ["Story, Music & Creative Life", "Technical Problem Solving"],
     body: [
@@ -477,7 +477,6 @@ function InfoModal({ open, onClose, title, subtitle, body, emoji }) {
         <div className="mh-modal__header">
           <div className="mh-modal__header-text">
             <h2 className="mh-modal__title">{title}</h2>
-            {subtitle && <div className="mh-modal__subtitle">{subtitle}</div>}
           </div>
         </div>
 
@@ -487,12 +486,9 @@ function InfoModal({ open, onClose, title, subtitle, body, emoji }) {
           </div>
         )}
 
+        {subtitle && <div className="mh-modal__subtitle">{subtitle}</div>}
+
         <div className="mh-modal__body">
-          {title && (
-            <p className="mh-modal__found">
-              You found the <strong>{title}</strong>.
-            </p>
-          )}
           {body && body.map((paragraph, idx) => <p key={idx}>{paragraph}</p>)}
         </div>
 
@@ -517,7 +513,6 @@ function InfoModal({ open, onClose, title, subtitle, body, emoji }) {
 export default function MakinHomeScene({ variant = "desktop" }) {
   const [modalId, setModalId] = useState(null);
   const [checkedIds, setCheckedIds] = useState([]);
-  const [justCheckedId, setJustCheckedId] = useState(null);
 
   const hotspots = getHotspots(variant);
   const baseSrc = getBaseSrc(variant);
@@ -533,7 +528,6 @@ export default function MakinHomeScene({ variant = "desktop" }) {
   }, []);
 
   // when modal closes, mark that hotspot as "checked" for the checklist
-  // and trigger the bubbly reveal effect for that item
   const handleCloseModal = useCallback(() => {
     if (!modalId) return;
 
@@ -542,7 +536,6 @@ export default function MakinHomeScene({ variant = "desktop" }) {
       return [...prev, modalId];
     });
 
-    setJustCheckedId(modalId);
     setModalId(null);
   }, [modalId]);
 
@@ -564,11 +557,10 @@ export default function MakinHomeScene({ variant = "desktop" }) {
           draggable={false}
         />
 
-        {/* Per-item color overlays stay visible once checked */}
+        {/* Per-item color overlays: always rendered, fade in when checked */}
         {hotspots.map((spot) => {
-          if (!checkedIds.includes(spot.id)) return null;
           const src = getLayerSrc(spot.layer, variant);
-          const isBurst = spot.id === justCheckedId;
+          const visible = checkedIds.includes(spot.id);
 
           return (
             <img
@@ -577,13 +569,10 @@ export default function MakinHomeScene({ variant = "desktop" }) {
               alt=""
               aria-hidden="true"
               className={
-                "mh-scene__image mh-scene__image--layer mh-scene__image--layer-visible" +
-                (isBurst ? " mh-scene__image--layer-burst" : "")
+                "mh-scene__image mh-scene__image--layer" +
+                (visible ? " mh-scene__image--layer-visible" : "")
               }
               draggable={false}
-              onAnimationEnd={() => {
-                if (isBurst) setJustCheckedId(null);
-              }}
             />
           );
         })}

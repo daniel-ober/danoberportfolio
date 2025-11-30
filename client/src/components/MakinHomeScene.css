@@ -8,17 +8,12 @@
   align-items: center;
   background: #050505;           /* blends with home background */
   padding: 1.25rem 0 0.75rem;
-
-  /* 🔹 Offset so fixed navbar doesn’t cover the scene */
-  margin-top: 4.5rem; /* tweak if your nav is taller/shorter */
-
-  /* 🔹 Keep the whole scene inside the viewport so checklist
-     can scroll without pushing image offscreen */
-  max-height: calc(100vh - 120px); /* header + footer allowance */
+  margin-top: 4.5rem;
+  max-height: calc(100vh - 120px);
   overflow: hidden;
 }
 
-/* 🔹 Hidden emoji preloader (for smooth modal icons) */
+/* Hidden emoji preloader */
 .mh-emoji-preload {
   position: absolute;
   inset: auto auto 0 0;
@@ -29,26 +24,21 @@
   overflow: hidden;
 }
 
-/* Stage: shared defaults */
+/* Stage ------------------------------------------------------- */
+
 .mh-scene__stage {
   position: relative;
   width: 100%;
   max-width: 1120px;
   overflow: hidden;
-  flex: 0 0 auto; /* don't stretch, keep natural/aspect height */
+  flex: 0 0 auto;
 }
-
-/* Desktop / web: lock to 16:9 so hotspots stay perfect,
-   but cap height so checklist can sit on-screen too. */
 
 .mh-scene--desktop .mh-scene__stage {
   aspect-ratio: 16 / 9;
   max-height: 58vh;
   margin: 0 auto;
 }
-
-/* Mobile: keep full image in view but cap height so
-   there is always space for the checklist below. */
 
 .mh-scene--mobile {
   padding: 0.75rem 0 0.5rem;
@@ -73,14 +63,10 @@
   pointer-events: none;
 }
 
-.mh-scene__image--base {
-  /* grayscale art already baked in */
-}
-
-/* Individual color layers (per-found item) */
+/* Per-item color overlays: fade in only */
 .mh-scene__image--layer {
   opacity: 0;
-  transition: opacity 260ms ease-in-out;
+  transition: opacity 1100ms ease-out;
 }
 
 .mh-scene__image--layer-visible {
@@ -118,8 +104,6 @@
   position: absolute;
   inset: 0;
 }
-
-/* Label pill (currently not used, but kept for future) */
 
 .mh-hotspot__label {
   position: absolute;
@@ -159,7 +143,7 @@
   border: 0;
 }
 
-/* SELECTED BUBBLE (GLOBAL POSITION) --------------------------- */
+/* BUBBLE (if you use it later) ------------------------------- */
 
 .mh-hotspot__bubble {
   position: absolute;
@@ -194,38 +178,6 @@
   pointer-events: auto;
 }
 
-.mh-hotspot__bubble-title {
-  font-weight: 600;
-  text-align: center;
-  white-space: normal;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-/* CTA button centered under title */
-.mh-hotspot__bubble-cta {
-  border: none;
-  border-radius: 999px;
-  padding: 6px 18px;
-  font-size: 0.78rem;
-  cursor: pointer;
-  background: #f7b24a;
-  color: #1a1010;
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition:
-    transform 120ms ease-out,
-    box-shadow 120ms ease-out,
-    filter 120ms ease-out;
-}
-
-.mh-hotspot__bubble-cta:hover,
-.mh-hotspot__bubble-cta:focus-visible {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
-  filter: brightness(1.06);
-}
-
 /* MODAL ------------------------------------------------------- */
 
 .mh-modal-backdrop {
@@ -242,15 +194,13 @@
   background: #111015;
   color: #f8f5ff;
   border-radius: 14px;
-  padding: 16px 18px 14px;
-  width: min(420px, 92vw);
+  padding: 16px 22px 14px;
+  width: min(440px, 92vw);
   max-height: 70vh;
   overflow-y: auto;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
-
-/* Header */
 
 .mh-modal__header {
   margin-bottom: 4px;
@@ -261,19 +211,20 @@
 }
 
 .mh-modal__title {
-  margin: 0 0 2px;
-  font-size: 1.2rem;
+  margin: 0 0 4px;
+  font-size: 1.08rem;
   font-weight: 600;
   letter-spacing: 0.08em;
 }
 
 .mh-modal__subtitle {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #f7b24a;
   margin-top: 10px;
+  text-align: center;
 }
 
 /* Icon block */
@@ -281,7 +232,7 @@
 .mh-modal__icon {
   display: flex;
   justify-content: center;
-  margin: 10px 0 10px;
+  margin: 10px 0 12px;
 }
 
 .mh-modal__icon img {
@@ -289,32 +240,30 @@
   height: auto;
   max-height: 180px;
   object-fit: contain;
-}
-
-/* "You found" line */
-
-.mh-modal__found {
-  font-size: 0.86rem;
-  font-weight: 500;
-  color: #fde68a;
-  margin: 0 0 0.35rem;
+  animation: mh-modal-image-fade 1600ms ease-out;
 }
 
 /* Body text */
 
 .mh-modal__body {
-  margin: 4px 0 8px;
-  font-size: 0.88rem;
-  line-height: 1.55;
+  margin: 6px 0 10px;
+  font-size: 0.84rem;
+  line-height: 1.6;
   color: #f0ecff;
-  text-align: left;
+  width: 100%;
+  text-align: justify;
+}
+
+.mh-modal__body p {
+  margin: 0;
+  font-size: 15px;
 }
 
 .mh-modal__body p + p {
-  margin-top: 0.5rem;
+  margin-top: 0.55rem;
 }
 
-/* Footer actions */
+/* Actions */
 
 .mh-modal__actions {
   margin-top: 8px;
@@ -325,7 +274,7 @@
 .mh-button {
   border-radius: 999px;
   padding: 6px 14px;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   border: 1px solid transparent;
   cursor: pointer;
 }
@@ -362,9 +311,6 @@
   border: 1px solid rgba(248, 250, 252, 0.08);
   color: #e5e7eb;
   font-size: 0.76rem;
-
-  /* Let the checklist scroll inside the scene instead
-     of pushing the whole scene down */
   flex: 1 1 0;
   min-height: 0;
   overflow-y: auto;
@@ -440,31 +386,24 @@
   color: #020617;
 }
 
-@keyframes mh-layer-bubble {
+/* KEYFRAMES --------------------------------------------------- */
+
+@keyframes mh-modal-image-fade {
   0% {
     opacity: 0;
-    transform: scale(1);
-    filter: saturate(0.2) brightness(0.7) blur(2px);
+    transform: translateY(8px) scale(0.97);
+    filter: brightness(0.85);
   }
-  35% {
+  60% {
     opacity: 1;
-    transform: scale(1);
-    filter: saturate(1.4) brightness(1.35) blur(0);
-  }
-  65% {
-    opacity: 1;
-    transform: scale(1.01);
-    filter: saturate(1.15) brightness(1.1) blur(0);
+    transform: translateY(0) scale(1.01);
+    filter: brightness(1.05);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
-    filter: saturate(1) brightness(1) blur(0);
+    transform: translateY(0) scale(1);
+    filter: brightness(1);
   }
-}
-
-.mh-scene__image--layer-burst {
-  animation: mh-layer-bubble 900ms ease-in-out;
 }
 
 /* RESPONSIVE -------------------------------------------------- */
@@ -477,7 +416,6 @@
 
 @media (max-width: 768px) {
   .mh-scene {
-    /* Slightly adjust offset on smaller screens if needed */
     margin-top: 4rem;
     max-height: calc(100vh - 100px);
   }
@@ -525,19 +463,11 @@
 }
 
 @media (max-width: 480px) {
-  .mh-checklist__list {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  /* Smaller text overall in the checklist on tiny screens */
   .mh-checklist {
     font-size: 0.68rem;
     padding: 0.55rem 0.75rem 0.65rem;
   }
 
-  /* Two columns instead of one */
   .mh-checklist__list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 0.55rem;
@@ -548,7 +478,6 @@
     gap: 0.3rem;
   }
 
-  /* Slightly smaller label text so long names fit */
   .mh-checklist__label {
     font-size: 0.7rem;
   }
