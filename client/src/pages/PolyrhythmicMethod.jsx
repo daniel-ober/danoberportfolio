@@ -804,12 +804,25 @@ const BLEND_RECIPES = {
 };
 
 /* =========================================================
+   HELPERS
+   ========================================================= */
+
+function getStackLabel(count) {
+  if (count <= 1) return "Focused discipline";
+  if (count <= 3) return "Multi-discipline blend";
+  return "Polyrhythmic stack";
+}
+
+/* =========================================================
    COMPONENT
    ========================================================= */
 
 export default function PolyrhythmicMethod() {
   // AI modal state
   const [aiModalOpen, setAiModalOpen] = useState(false);
+
+  // Blend tool mode: "multi" vs "poly"
+  const [blendMode, setBlendMode] = useState("multi");
 
   // Blend tool state
   const [selectedKeys, setSelectedKeys] = useState([]);
@@ -868,31 +881,92 @@ export default function PolyrhythmicMethod() {
 
   return (
     <main className="pm-page">
-      {/* HERO / INTRO */}
+      {/* HERO / INTRO + MODES */}
       <section className="pm-hero">
         <div className="pm-hero__eyebrow">My Approach</div>
-        <h1 className="pm-hero__title">
-          The <span>Polyrhythmic Method</span>
-        </h1>
-        <p className="pm-hero__tagline">
-          A practical way to blend engineering, design, problem-solving, craft,
-          story, and AI — without losing clarity.
-        </p>
-        <p className="pm-hero__body">
-          As a drummer, I learned how to hold multiple rhythms at once without
-          letting the song fall apart. As an engineer and builder, I work the
-          same way. Each discipline is a rhythm. Some projects need only one.
-          Others come alive when you layer two or three together with intent.
-        </p>
-        <p className="pm-hero__body">
-          The Polyrhythmic Method is my way of naming that approach. It&apos;s
-          the lens I use to decide{" "}
-          <strong>
-            what to focus on, when to blend disciplines, and how much
-          </strong>{" "}
-          of each to bring into a project so the result feels clear, human, and
-          shippable.
-        </p>
+
+        <div className="pm-hero__layout">
+          {/* Left: intro / description */}
+          <div className="pm-hero__copy">
+            <h1 className="pm-hero__title">
+              The <span>Polyrhythmic Discipline Method</span>
+            </h1>
+            <p className="pm-hero__tagline">
+              A practical way to blend engineering, design, problem-solving,
+              craft, story, and AI — without losing clarity.
+            </p>
+            <p className="pm-hero__body">
+              As a drummer, I learned how to hold multiple rhythms at once
+              without letting the song fall apart. As an engineer and builder, I
+              work the same way. Each discipline is a rhythm. Some projects need
+              only one. Others come alive when you layer two or three together
+              with intent.
+            </p>
+            <p className="pm-hero__body">
+              The Polyrhythmic Discipline Method is my way of naming that
+              approach. It&apos;s the lens I use to decide{" "}
+              <strong>
+                what to focus on, when to stay single-discipline, when to work
+                multi-discipline, and when to go fully polyrhythmic
+              </strong>{" "}
+              so the result feels clear, human, and shippable.
+            </p>
+          </div>
+
+{/* Right: single / multi / poly */}
+<div className="pm-hero__modes">
+  <header className="pm-section__header pm-section__header--compact">
+    <h2 className="pm-section__title">
+      Single-, Multi- &amp; Poly-Disciplined Work
+    </h2>
+    <p className="pm-section__subtitle">
+      How I decide whether a problem needs one discipline in tight focus, a
+      multi-disciplined toolbox, or a fully poly-disciplined, polyrhythmic approach.
+    </p>
+  </header>
+
+  <div className="pm-grid pm-grid--modes">
+    {/* SINGLE */}
+    <article className="pm-mode">
+      <h3 className="pm-mode__label">Single-Disciplined</h3>
+      <p className="pm-mode__tag">One discipline, played clean</p>
+      <p className="pm-mode__body">
+        Used when clarity and speed matter most. I stay inside one lane — 
+        engineering, product, or craft — and push that rhythm as cleanly as possible.
+        Examples: hardening an auth flow, refactoring a component, debugging a production
+        issue, or fine-tuning the physical shell of a drum.
+      </p>
+    </article>
+
+    {/* MULTI */}
+    <article className="pm-mode">
+      <h3 className="pm-mode__label">Multi-Disciplined</h3>
+      <p className="pm-mode__tag">Several disciplines, used individually</p>
+      <p className="pm-mode__body">
+        Here the value is range. I can move between engineering, UX, systems, and story
+        as separate modes — knowing when to switch hats and which discipline should
+        lead in a given moment. Think: a week where I&apos;m deep in React early on,
+        then shifting into product strategy or copy later without losing context.
+      </p>
+    </article>
+
+    {/* POLY */}
+    <article className="pm-mode pm-mode--highlight">
+      <h3 className="pm-mode__label">Poly-Disciplined</h3>
+      <p className="pm-mode__tag">
+        Multiple disciplines, woven together in real time
+      </p>
+      <p className="pm-mode__body">
+        This is the polyrhythmic stack. It&apos;s not just having more than one
+        discipline — it&apos;s knowing <em>how and when to blend them</em> so the work
+        behaves like a small, cross-functional team inside one brain. Examples:
+        designing and building the SoundLegend portal, where engineering, product,
+        systems, story, and physical craft all show up in a single, coherent experience.
+      </p>
+    </article>
+  </div>
+</div>
+        </div>
       </section>
 
       {/* CORE DISCIPLINES */}
@@ -993,87 +1067,37 @@ export default function PolyrhythmicMethod() {
             </p>
           </article>
 
-          {/* AI & Systems */}
-          <article className="pm-card pm-card--ai">
-            <div className="pm-card__icon">
-              <img
-                src={`${ICON_BASE}/systems.png`}
-                alt="AI & Systems"
-                className="pm-card__icon-img"
-              />
-            </div>
-            <h3 className="pm-card__title">AI &amp; Systems</h3>
-            <p className="pm-card__body">
-              I treat AI like a sharp assistant: great at exploring options,
-              stress-testing ideas, and drafting. I keep a human hand on the
-              structure, decisions, and final voice — especially where judgment,
-              nuance, or ethics are involved.
-            </p>
-            <button
-              type="button"
-              className="pm-ai-card__cta"
-              onClick={() => setAiModalOpen(true)}
-            >
-              How I use AI (and where I don&apos;t)
-            </button>
-          </article>
-        </div>
-      </section>
+{/* AI & Systems */}
+<article className="pm-card pm-card--ai">
+  <div className="pm-card__icon">
+    <img
+      src={`${ICON_BASE}/systems.png`}
+      alt="AI & Systems"
+      className="pm-card__icon-img"
+    />
+  </div>
 
-      {/* BLENDED MODES OVERVIEW */}
-      <section className="pm-section">
-        <header className="pm-section__header">
-          <h2 className="pm-section__title">Focused vs. Blended Work</h2>
-          <p className="pm-section__subtitle">
-            Some problems need one dedicated dicipline. Others need multiple
-            working together. The method is mostly about knowing <em>which</em>{" "}
-            you need and when.
-          </p>
-        </header>
+  <h3 className="pm-card__title">
+    <span>AI &amp; Systems</span>
 
-        <div className="pm-grid pm-grid--modes">
-          <article className="pm-mode">
-            <h3 className="pm-mode__label">Single Rhythm</h3>
-            <p className="pm-mode__tag">One discipline in focus</p>
-            <p className="pm-mode__body">
-              Used when clarity matters most. Examples: hardening an auth flow,
-              refactoring a component, debugging production issues, or
-              fine-tuning the physical shell of a drum.
-            </p>
-          </article>
+    <button
+      type="button"
+      className="pm-ai-info"
+      onClick={() => setAiModalOpen(true)}
+      aria-label="How I use AI (and where I don't)"
+      data-tooltip="How I use AI (and where I don't)"
+    >
+      i
+    </button>
+  </h3>
 
-          <article className="pm-mode">
-            <h3 className="pm-mode__label">Dual Blend</h3>
-            <p className="pm-mode__tag">Two disciplines locked together</p>
-            <p className="pm-mode__body">
-              The most common mode. Engineering + UX for a new feature. Story +
-              Product for onboarding and email flows. Craft + Engineering for
-              NFC tagging on physical drums.
-            </p>
-          </article>
-
-          <article className="pm-mode">
-            <h3 className="pm-mode__label">Tri-Blend</h3>
-            <p className="pm-mode__tag">Three disciplines interlocking</p>
-            <p className="pm-mode__body">
-              Saved for complex work that still needs to feel simple. Think:
-              building the SoundLegend portal, designing artist dashboards, or
-              creating tools that serve both customers and internal teams.
-            </p>
-          </article>
-
-          <article className="pm-mode pm-mode--highlight">
-            <h3 className="pm-mode__label">Full Polyrhythm</h3>
-            <p className="pm-mode__tag">
-              All disciplines, one coherent experience
-            </p>
-            <p className="pm-mode__body">
-              This is the “signature dish.” Used for full-stack initiatives
-              where brand, story, product, systems, and physical craft all
-              matter — like launching a drum line with its own portal, NFC
-              verification, media, and customer journey.
-            </p>
-          </article>
+  <p className="pm-card__body">
+    I treat AI like a sharp assistant: great at exploring options,
+    stress-testing ideas, and drafting. I keep a human hand on the
+    structure, decisions, and final voice — especially where judgment,
+    nuance, or ethics are involved.
+  </p>
+</article>
         </div>
       </section>
 
@@ -1082,9 +1106,40 @@ export default function PolyrhythmicMethod() {
         <header className="pm-section__header">
           <h2 className="pm-section__title">Polyrhythmic Blend Tool</h2>
           <p className="pm-section__subtitle">
-            Toggle the core rhythms to see how I’d typically show up in that mix
-            — and the kinds of outputs you can expect at different blend levels,
-            including when AI joins the groove.
+            I built this to make the multi-discipline vs. polyrhythmic idea
+            concrete. Start with a single discipline to see focused work, then
+            layer more to see how my approach shifts as we move into
+            multi-discipline blends and the full polyrhythmic stack.
+          </p>
+
+          {/* Mode toggle */}
+          <div className="pm-blend__mode-toggle">
+            <button
+              type="button"
+              className={
+                "pm-blend__mode-btn" +
+                (blendMode === "multi" ? " pm-blend__mode-btn--active" : "")
+              }
+              onClick={() => setBlendMode("multi")}
+            >
+              Multi-Discipline View
+            </button>
+            <button
+              type="button"
+              className={
+                "pm-blend__mode-btn" +
+                (blendMode === "poly" ? " pm-blend__mode-btn--active" : "")
+              }
+              onClick={() => setBlendMode("poly")}
+            >
+              Polyrhythmic View
+            </button>
+          </div>
+
+          <p className="pm-blend__mode-description">
+            {blendMode === "multi"
+              ? "In Multi-Discipline view, think about which rhythms we actually need in the room for this problem — one, two, or three disciplines working together."
+              : "In Polyrhythmic view, we look at how far up the stack we are: focused discipline, multi-discipline blend, or full polyrhythmic stack pulling from the whole toolkit."}
           </p>
         </header>
 
@@ -1143,6 +1198,12 @@ export default function PolyrhythmicMethod() {
 
           {/* Right: output */}
           <aside className="pm-blend__output" style={blendStyles}>
+            {blendMode === "poly" && (
+              <p className="pm-blend__stack-label">
+                {getStackLabel(activeKeys.length)}
+              </p>
+            )}
+
             <h3 className="pm-blend__output-title">{activeRecipe.title}</h3>
 
             {activeKeys.length > 0 && (

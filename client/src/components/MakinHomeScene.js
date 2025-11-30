@@ -3,126 +3,117 @@ import React, { useState, useCallback, useEffect } from "react";
 import "./MakinHomeScene.css";
 
 /* =========================================================
-   5 CORE DISCIPLINES (for reference + modal tags)
-   ========================================================= */
-// 1. Web & Software Engineering
-// 2. Product & UX Design
-// 3. Technical Problem Solving
-// 4. Craft & Making (Ober Artisan Drums)
-// 5. Story, Music & Creative Life
-
-/* =========================================================
    HOTSPOT DEFINITIONS (WEB vs MOBILE)
    ========================================================= */
 
 const WEB_HOTSPOTS = [
   {
     id: "feather",
-    label: "Feather jacket · Photo & Video",
+    label: "Feather Jacket",
     layer: "dreamfeather",
-    left: 10,
+    left: 13,
     top: 3,
     width: 14,
     height: 36,
   },
   {
     id: "monitor",
-    label: "Command Center · Web & Software",
+    label: "Command Center",
     layer: "web",
-    left: 23,
-    top: 15,
+    left: 25,
+    top: 19,
     width: 15,
-    height: 40,
+    height: 31.5,
   },
   {
     id: "acoustic-guitar",
-    label: "Acoustic guitar · Music & Audio",
+    label: "Acoustic Guitar",
     layer: "acoustic-guitar",
-    left: 5,
-    top: 30,
-    width: 12,
-    height: 57,
+    left: 12,
+    top: 37,
+    width: 10,
+    height: 48,
   },
   {
     id: "snare",
-    label: "SoundLegend · Craft & Making",
+    label: "Ober Artisan Snare",
     layer: "drum",
-    left: 18.5,
-    top: 55,
-    width: 15,
-    height: 32,
-  },
-  {
-    id: "camera",
-    label: "Camera on the floor · Photo & Video",
-    layer: "camera",
-    left: 32,
-    top: 80,
-    width: 10,
-    height: 15,
-  },
-  {
-    id: "dog",
-    label: "Studio dog · Story & Life",
-    layer: "lucy",
-    left: 42,
-    top: 22,
-    width: 20,
-    height: 70,
-  },
-  {
-    id: "orange-cat",
-    label: "Studio kitten · Story & Life",
-    layer: "sunny",
-    left: 58,
-    top: 70,
-    width: 11,
+    left: 21,
+    top: 57,
+    width: 14,
     height: 30,
   },
   {
+    id: "camera",
+    label: "Camera",
+    layer: "camera",
+    left: 33.5,
+    top: 79,
+    width: 8.75,
+    height: 14,
+  },
+  {
+    id: "dog",
+    label: "Lucy",
+    layer: "lucy",
+    left: 43,
+    top: 22,
+    width: 14,
+    height: 68,
+  },
+  {
+    id: "orange-cat",
+    label: "Sunny",
+    layer: "sunny",
+    left: 58,
+    top: 75,
+    width: 10,
+    height: 23,
+  },
+  {
     id: "electric-guitar",
-    label: "Electric guitar · Music & Audio",
+    label: "Electric Guitar",
     layer: "electric-guitar",
-    left: 59,
-    top: 20,
+    left: 56.5,
+    top: 22,
     width: 10,
     height: 57,
   },
   {
     id: "rubiks",
-    label: "Rubik's cube in display · Problem Solving",
+    label: "Rubik's Cube",
     layer: "rubiks",
-    left: 72,
-    top: 52,
-    width: 12.5,
+    left: 70,
+    top: 53,
+    width: 12,
     height: 22,
   },
   {
     id: "printer",
-    label: "3D printer · Craft & Making",
+    label: "3D Printer",
     layer: "3d",
-    left: 68,
+    left: 67,
     top: 23,
-    width: 19,
+    width: 17.75,
     height: 24,
   },
   {
     id: "top-cat",
-    label: "Black & white cat on the printer · Story",
+    label: "Freddie",
     layer: "freddie",
-    left: 68,
+    left: 70,
     top: 6,
-    width: 17,
+    width: 11,
     height: 18,
   },
   {
     id: "dan-chelsea",
-    label: "Dan & Chelsea · Foundation",
+    label: "Dan & Chelsea",
     layer: "danandchelsea",
-    left: 61,
-    top: 5,
-    width: 10,
-    height: 17.5,
+    left: 60.25,
+    top: 4,
+    width: 9,
+    height: 18.5,
   },
 ];
 
@@ -133,102 +124,102 @@ const WEB_HOTSPOTS = [
 const MOBILE_HOTSPOTS = [
   {
     id: "feather",
-    label: "Feather jacket · Photo & Video",
+    label: "Feather Jacket",
     layer: "dreamfeather",
-    left: 1,
-    top: 15,
-    width: 33,
-    height: 22,
+    left: 8,
+    top: 3,
+    width: 30,
+    height: 30,
   },
   {
     id: "monitor",
-    label: "Command Center · Web & Software",
+    label: "Command Center",
     layer: "web",
-    left: 0,
-    top: 36,
-    width: 36,
-    height: 20,
+    left: 5,
+    top: 30,
+    width: 32,
+    height: 28,
   },
   {
     id: "snare",
-    label: "SoundLegend · Craft & Making",
+    label: "Ober Artisan Snare",
     layer: "drum",
-    left: 1,
-    top: 55,
-    width: 34,
-    height: 18,
+    left: 8,
+    top: 59,
+    width: 28,
+    height: 23,
   },
   {
     id: "camera",
-    label: "Camera on the floor · Photo & Video",
+    label: "Camera",
     layer: "camera",
-    left: 8,
-    top: 72,
-    width: 29,
-    height: 10,
+    left: 13,
+    top: 82,
+    width: 25,
+    height: 12,
   },
   {
     id: "dog",
-    label: "Studio dog · Story & Life",
+    label: "Lucy",
     layer: "lucy",
-    left: 33,
-    top: 35,
-    width: 33,
-    height: 40.5,
+    left: 35,
+    top: 28,
+    width: 30,
+    height: 60,
   },
   {
     id: "orange-cat",
-    label: "Studio kitten · Story & Life",
+    label: "Sunny",
     layer: "sunny",
     left: 59,
-    top: 67,
-    width: 25,
-    height: 17,
+    top: 75,
+    width: 20,
+    height: 23,
   },
   {
     id: "electric-guitar",
-    label: "Electric guitar · Music & Audio",
+    label: "Electric Guitar",
     layer: "electric-guitar",
-    left: 75,
-    top: 47,
-    width: 22,
-    height: 31,
+    left: 72,
+    top: 45,
+    width: 20,
+    height: 45,
   },
   {
     id: "rubiks",
-    label: "Rubik's cube in display · Problem Solving",
+    label: "Rubik's Cube",
     layer: "rubiks",
-    left: 40,
-    top: 75,
-    width: 20,
-    height: 9.5,
+    left: 41,
+    top: 85,
+    width: 17,
+    height: 14.5,
   },
   {
     id: "printer",
-    label: "3D printer · Craft & Making",
+    label: "3D Printer",
     layer: "3d",
-    left: 64,
-    top: 36,
-    width: 35,
-    height: 16,
+    left: 62,
+    top: 30,
+    width: 32,
+    height: 20,
   },
   {
     id: "top-cat",
-    label: "Black & white cat on the printer · Story",
+    label: "Freddie",
     layer: "freddie",
-    left: 70,
-    top: 16,
-    width: 28,
-    height: 21,
+    left: 69,
+    top: 2,
+    width: 23,
+    height: 29,
   },
   {
     id: "dan-chelsea",
-    label: "Dan & Chelsea · Foundation",
+    label: "Dan & Chelsea",
     layer: "danandchelsea",
-    left: 41,
-    top: 17,
-    width: 30,
-    height: 17,
+    left: 42,
+    top: 3,
+    width: 26,
+    height: 24,
   },
 ];
 
@@ -237,7 +228,6 @@ const MOBILE_HOTSPOTS = [
    ========================================================= */
 
 const BASE_ROOT = "/media/photo-layers";
-const EMOJI_ROOT = "/media/emojis";
 
 function getSubfolder(variant) {
   return variant === "mobile" ? "mobile" : "web";
@@ -253,6 +243,11 @@ function getLayerSrc(layer, variant) {
   return `${BASE_ROOT}/${sub}/${layer}.png`;
 }
 
+function getFullColorSrc(variant) {
+  const sub = getSubfolder(variant);
+  return `${BASE_ROOT}/${sub}/full-color.png`;
+}
+
 function getHotspots(variant) {
   return variant === "mobile" ? MOBILE_HOTSPOTS : WEB_HOTSPOTS;
 }
@@ -265,7 +260,7 @@ const HOTSPOT_DETAILS = {
   feather: {
     title: "Feather Jacket",
     subtitle: "Creative Direction",
-    emoji: "dreamfeather", // /media/emojis/dreamfeather.png
+    emoji: "dreamfeather",
     disciplines: [
       "Story, Music & Creative Life",
       "Product & UX Design",
@@ -280,7 +275,6 @@ const HOTSPOT_DETAILS = {
       information architecture for the emotions you want people to feel.`,
     ],
   },
-
   monitor: {
     title: "Command Center",
     subtitle: "Web & Software Engineering",
@@ -299,11 +293,10 @@ const HOTSPOT_DETAILS = {
       that handles orders, projects, NFC verification, and artist experiences.`,
     ],
   },
-
   "acoustic-guitar": {
     title: "Acoustic Guitar",
     subtitle: "Musicality & Empathy",
-    emoji: "acoustic",
+    emoji: "acoustic-guitar",
     disciplines: ["Story, Music & Creative Life", "Product & UX Design"],
     body: [
       `Music has always been how I listen first and speak second. Playing and writing music forces me 
@@ -314,9 +307,8 @@ const HOTSPOT_DETAILS = {
       strong, memorable chorus.`,
     ],
   },
-
   snare: {
-    title: "SoundLegend",
+    title: "Ober Artisan Snare",
     subtitle: "Craft & Making",
     emoji: "drum",
     disciplines: [
@@ -332,7 +324,6 @@ const HOTSPOT_DETAILS = {
       a customer at the center.`,
     ],
   },
-
   camera: {
     title: "Camera",
     subtitle: "Visual Systems & Documentation",
@@ -345,9 +336,8 @@ const HOTSPOT_DETAILS = {
       that help support, leadership, and future teammates understand not just what we built, but why.`,
     ],
   },
-
   dog: {
-    title: "Lucy",
+    title: "Lucy Girl",
     subtitle: "Story & Life",
     emoji: "lucy",
     disciplines: ["Story, Music & Creative Life"],
@@ -359,9 +349,8 @@ const HOTSPOT_DETAILS = {
       conversation lands, and how we make sure the humans using our tools feel seen and not blamed.`,
     ],
   },
-
   "orange-cat": {
-    title: "Sunny",
+    title: "Sunny Cat",
     subtitle: "Play & Curiosity",
     emoji: "sunny",
     disciplines: ["Story, Music & Creative Life", "Technical Problem Solving"],
@@ -373,7 +362,6 @@ const HOTSPOT_DETAILS = {
       tiny experiments, and “let’s just test it with one user” ideas.`,
     ],
   },
-
   "electric-guitar": {
     title: "Electric Guitar",
     subtitle: "Performance & Collaboration",
@@ -387,9 +375,8 @@ const HOTSPOT_DETAILS = {
       customers calm while we quietly fix the real problem behind the scenes.`,
     ],
   },
-
   rubiks: {
-    title: "Rubik’s Cube",
+    title: "Rubik’s Cube (In A Cube)",
     subtitle: "Technical Problem Solving",
     emoji: "rubiks",
     disciplines: ["Technical Problem Solving", "Web & Software Engineering"],
@@ -400,7 +387,6 @@ const HOTSPOT_DETAILS = {
       support the product roadmap, and building tools so future work gets easier instead of harder.`,
     ],
   },
-
   printer: {
     title: "3D Printer",
     subtitle: "Prototyping & Systems Thinking",
@@ -417,7 +403,6 @@ const HOTSPOT_DETAILS = {
       I like building the scaffolding that lets teams move faster and safer.`,
     ],
   },
-
   "top-cat": {
     title: "Freddie",
     subtitle: "Observation & Detail",
@@ -431,11 +416,10 @@ const HOTSPOT_DETAILS = {
       engineering work.`,
     ],
   },
-
   "dan-chelsea": {
-    title: "Dan & Chelsea",
+    title: "Wall Portrait",
     subtitle: "Foundation",
-    // no emoji image yet, renders without the icon
+    emoji: "foundation",
     disciplines: ["Story, Music & Creative Life"],
     body: [
       `This frame is about the life outside the work. Building a career in tech and a boutique drum 
@@ -448,11 +432,20 @@ const HOTSPOT_DETAILS = {
   },
 };
 
+/* 🔹 Collect all emoji keys so we can preload them */
+const EMOJI_KEYS = Array.from(
+  new Set(
+    Object.values(HOTSPOT_DETAILS)
+      .map((d) => d.emoji)
+      .filter(Boolean)
+  )
+);
+
 /* =========================================================
    INFO MODAL COMPONENT
    ========================================================= */
 
-function InfoModal({ open, onClose, title, subtitle, disciplines, body, emoji }) {
+function InfoModal({ open, onClose, title, subtitle, body, emoji }) {
   useEffect(() => {
     if (!open) return;
     const previous = document.body.style.overflow;
@@ -490,21 +483,18 @@ function InfoModal({ open, onClose, title, subtitle, disciplines, body, emoji })
 
         {emoji && (
           <div className="mh-modal__icon">
-            <img
-              src={`/media/emojis/${emoji}.png`}
-              alt=""
-              aria-hidden="true"
-            />
+            <img src={`/media/emojis/${emoji}.png`} alt="" aria-hidden="true" />
           </div>
         )}
 
-        {body && (
-          <div className="mh-modal__body">
-            {body.map((paragraph, idx) => (
-              <p key={idx}>{paragraph}</p>
-            ))}
-          </div>
-        )}
+        <div className="mh-modal__body">
+          {title && (
+            <p className="mh-modal__found">
+              You found the <strong>{title}</strong>.
+            </p>
+          )}
+          {body && body.map((paragraph, idx) => <p key={idx}>{paragraph}</p>)}
+        </div>
 
         <div className="mh-modal__actions">
           <button
@@ -525,68 +515,46 @@ function InfoModal({ open, onClose, title, subtitle, disciplines, body, emoji })
    ========================================================= */
 
 export default function MakinHomeScene({ variant = "desktop" }) {
-  const [hoverId, setHoverId] = useState(null);
-  const [selectedId, setSelectedId] = useState(null);
   const [modalId, setModalId] = useState(null);
-  const [bubblePlacement, setBubblePlacement] = useState("below");
+  const [checkedIds, setCheckedIds] = useState([]);
+  const [justCheckedId, setJustCheckedId] = useState(null);
 
   const hotspots = getHotspots(variant);
   const baseSrc = getBaseSrc(variant);
-
-  const activeId = selectedId || hoverId;
-  const activeHotspot = hotspots.find((h) => h.id === activeId) || null;
-  const activeLayerSrc = activeHotspot
-    ? getLayerSrc(activeHotspot.layer, variant)
-    : null;
+  const fullColorSrc = getFullColorSrc(variant);
 
   const modalDetails = modalId ? HOTSPOT_DETAILS[modalId] : null;
 
-  const handleMouseEnter = useCallback((id) => {
-    setHoverId(id);
-  }, []);
+  const allChecked =
+    hotspots.length > 0 && checkedIds.length === hotspots.length;
 
-  const handleMouseLeave = useCallback(() => {
-    setHoverId(null);
-  }, []);
-
-  const handleSelectHotspot = useCallback(
-    (id, evt) => {
-      setSelectedId((prev) => {
-        const nextId = prev === id ? null : id;
-
-        if (nextId) {
-          const spot = hotspots.find((h) => h.id === nextId);
-
-          if (spot) {
-            if (spot.top <= 18) {
-              setBubblePlacement("below");
-            } else if (spot.top >= 72) {
-              setBubblePlacement("above");
-            } else if (evt && evt.currentTarget) {
-              const rect = evt.currentTarget.getBoundingClientRect();
-              const centerY = rect.top + rect.height / 2;
-              const screenMid = window.innerHeight / 2;
-              setBubblePlacement(centerY > screenMid ? "above" : "below");
-            }
-          }
-        }
-
-        return nextId;
-      });
-    },
-    [hotspots]
-  );
-
-  const handleOpenModal = useCallback((id) => {
+  const handleHotspotClick = useCallback((id) => {
     setModalId(id);
   }, []);
 
+  // when modal closes, mark that hotspot as "checked" for the checklist
+  // and trigger the bubbly reveal effect for that item
   const handleCloseModal = useCallback(() => {
+    if (!modalId) return;
+
+    setCheckedIds((prev) => {
+      if (prev.includes(modalId)) return prev;
+      return [...prev, modalId];
+    });
+
+    setJustCheckedId(modalId);
     setModalId(null);
-  }, []);
+  }, [modalId]);
 
   return (
     <div className={`mh-scene mh-scene--${variant}`}>
+      {/* Hidden emoji preloader to avoid choppy modal icon load */}
+      <div className="mh-emoji-preload" aria-hidden="true">
+        {EMOJI_KEYS.map((key) => (
+          <img key={key} src={`/media/emojis/${key}.png`} alt="" />
+        ))}
+      </div>
+
       <div className="mh-scene__stage">
         {/* Base grayscale image */}
         <img
@@ -596,64 +564,99 @@ export default function MakinHomeScene({ variant = "desktop" }) {
           draggable={false}
         />
 
-        {/* Single color layer */}
-        {activeLayerSrc && (
-          <img
-            src={activeLayerSrc}
-            alt=""
-            aria-hidden="true"
-            className="mh-scene__image mh-scene__image--layer mh-scene__image--layer-visible"
-            draggable={false}
-          />
-        )}
-
-        {/* Hotspots */}
+        {/* Per-item color overlays stay visible once checked */}
         {hotspots.map((spot) => {
-          const detail = HOTSPOT_DETAILS[spot.id];
-          const isSelected = selectedId === spot.id;
+          if (!checkedIds.includes(spot.id)) return null;
+          const src = getLayerSrc(spot.layer, variant);
+          const isBurst = spot.id === justCheckedId;
 
           return (
-            <button
+            <img
               key={spot.id}
-              type="button"
-              className="mh-hotspot"
-              style={{
-                left: `${spot.left}%`,
-                top: `${spot.top}%`,
-                width: `${spot.width}%`,
-                height: `${spot.height}%`,
+              src={src}
+              alt=""
+              aria-hidden="true"
+              className={
+                "mh-scene__image mh-scene__image--layer mh-scene__image--layer-visible" +
+                (isBurst ? " mh-scene__image--layer-burst" : "")
+              }
+              draggable={false}
+              onAnimationEnd={() => {
+                if (isBurst) setJustCheckedId(null);
               }}
-              onMouseEnter={() => handleMouseEnter(spot.id)}
-              onMouseLeave={handleMouseLeave}
-              onFocus={() => handleMouseEnter(spot.id)}
-              onBlur={handleMouseLeave}
-              onClick={(e) => handleSelectHotspot(spot.id, e)}
-            >
-              {isSelected && (
-                <div
-                  className={
-                    "mh-hotspot__bubble mh-hotspot__bubble--visible " +
-                    `mh-hotspot__bubble--${bubblePlacement}`
-                  }
-                >
-                  <div className="mh-hotspot__bubble-title">
-                    {detail?.title || spot.label}
-                  </div>
-                  <button
-                    type="button"
-                    className="mh-hotspot__bubble-cta"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleOpenModal(spot.id);
-                    }}
-                  >
-                    Learn more
-                  </button>
-                </div>
-              )}
-            </button>
+            />
           );
         })}
+
+        {/* Full-color "reward" image once everything is checked */}
+        <img
+          src={fullColorSrc}
+          alt=""
+          aria-hidden="true"
+          className={
+            "mh-scene__image mh-scene__image--full-color" +
+            (allChecked ? " mh-scene__image--full-color-visible" : "")
+          }
+          draggable={false}
+        />
+
+        {/* Hotspots (clickable areas only → open modal directly) */}
+        {hotspots.map((spot) => (
+          <button
+            key={spot.id}
+            type="button"
+            className="mh-hotspot"
+            style={{
+              left: `${spot.left}%`,
+              top: `${spot.top}%`,
+              width: `${spot.width}%`,
+              height: `${spot.height}%`,
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleHotspotClick(spot.id);
+            }}
+          >
+            <span className="mh-hotspot__sr-only">
+              {HOTSPOT_DETAILS[spot.id]?.title || spot.label}
+            </span>
+          </button>
+        ))}
+      </div>
+
+      {/* Checklist (shared for web + mobile views) */}
+      <div className="mh-checklist">
+        <div className="mh-checklist__header">
+          <span className="mh-checklist__eyebrow">Hidden Story Checklist</span>
+          <span className="mh-checklist__progress">
+            {checkedIds.length}/{hotspots.length} unlocked
+          </span>
+        </div>
+        <p className="mh-checklist__hint">
+          Find each item in the scene, tap it to open the story.
+        </p>
+        <ul className="mh-checklist__list">
+          {hotspots.map((spot) => {
+            const details = HOTSPOT_DETAILS[spot.id];
+            const done = checkedIds.includes(spot.id);
+            return (
+              <li
+                key={spot.id}
+                className={
+                  "mh-checklist__item" +
+                  (done ? " mh-checklist__item--done" : "")
+                }
+              >
+                <span className="mh-checklist__checkbox">
+                  {done ? "✔" : ""}
+                </span>
+                <span className="mh-checklist__label">
+                  {details?.title || spot.label}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
       </div>
 
       {/* Info Modal */}
@@ -662,7 +665,6 @@ export default function MakinHomeScene({ variant = "desktop" }) {
         onClose={handleCloseModal}
         title={modalDetails?.title}
         subtitle={modalDetails?.subtitle}
-        disciplines={modalDetails?.disciplines || []}
         body={modalDetails?.body || []}
         emoji={modalDetails?.emoji}
       />
