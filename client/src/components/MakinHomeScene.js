@@ -11,25 +11,25 @@ const WEB_HOTSPOTS = [
     id: "feather",
     label: "Feather Jacket",
     layer: "dreamfeather",
-    left: 13,
+    left: 19,
     top: 3,
-    width: 14,
+    width: 10,
     height: 36,
   },
   {
     id: "monitor",
     label: "Command Center",
     layer: "web",
-    left: 25,
+    left: 27,
     top: 19,
-    width: 15,
+    width: 13,
     height: 31.5,
   },
   {
     id: "acoustic-guitar",
     label: "Acoustic Guitar",
     layer: "acoustic-guitar",
-    left: 12,
+    left: 15,
     top: 37,
     width: 10,
     height: 48,
@@ -38,36 +38,54 @@ const WEB_HOTSPOTS = [
     id: "snare",
     label: "Ober Artisan Snare",
     layer: "drum",
-    left: 21,
+    left: 24,
     top: 57,
-    width: 14,
+    width: 12,
     height: 30,
+  },
+  {
+    id: "headphones",
+    label: "Headphones",
+    layer: "headphones",
+    left: 66.5,
+    top: 75,
+    width: 8,
+    height: 13,
+  },
+  {
+    id: "midi-keyboard",
+    label: "MIDI Keyboard",
+    layer: "midi-keyboard",
+    left: 33,
+    top: 52,
+    width: 12,
+    height: 9,
   },
   {
     id: "camera",
     label: "Camera",
     layer: "camera",
-    left: 33.5,
+    left: 35,
     top: 79,
-    width: 8.75,
+    width: 8,
     height: 14,
   },
   {
     id: "dog",
     label: "Lucy",
     layer: "lucy",
-    left: 43,
+    left: 44.5,
     top: 22,
-    width: 14,
+    width: 11,
     height: 68,
   },
   {
     id: "orange-cat",
     label: "Sunny",
     layer: "sunny",
-    left: 58,
+    left: 57,
     top: 75,
-    width: 10,
+    width: 7.5,
     height: 23,
   },
   {
@@ -76,32 +94,32 @@ const WEB_HOTSPOTS = [
     layer: "electric-guitar",
     left: 56.5,
     top: 22,
-    width: 10,
+    width: 8,
     height: 57,
   },
   {
     id: "rubiks",
     label: "Rubik's Cube",
     layer: "rubiks",
-    left: 70,
+    left: 68,
     top: 53,
-    width: 12,
-    height: 22,
+    width: 11,
+    height: 21,
   },
   {
     id: "printer",
     label: "3D Printer",
     layer: "3d",
-    left: 67,
+    left: 65,
     top: 23,
-    width: 17.75,
+    width: 17,
     height: 24,
   },
   {
     id: "top-cat",
     label: "Freddie",
     layer: "freddie",
-    left: 70,
+    left: 68,
     top: 6,
     width: 11,
     height: 18,
@@ -110,10 +128,10 @@ const WEB_HOTSPOTS = [
     id: "dan-chelsea",
     label: "Dan & Chelsea",
     layer: "danandchelsea",
-    left: 60.25,
+    left: 59.25,
     top: 4,
     width: 9,
-    height: 18.5,
+    height: 18.75,
   },
 ];
 
@@ -138,7 +156,16 @@ const MOBILE_HOTSPOTS = [
     left: 5,
     top: 30,
     width: 32,
-    height: 28,
+    height: 17,
+  },
+  {
+    id: "acoustic-guitar",
+    label: "Acoustic Guitar",
+    layer: "acoustic-guitar",
+    left: 62,
+    top: 48,
+    width: 16,
+    height: 30,
   },
   {
     id: "snare",
@@ -148,6 +175,24 @@ const MOBILE_HOTSPOTS = [
     top: 59,
     width: 28,
     height: 23,
+  },
+  {
+    id: "headphones",
+    label: "Headphones",
+    layer: "headphones",
+    left: 78,
+    top: 89,
+    width: 17,
+    height: 11,
+  },
+  {
+    id: "midi-keyboard",
+    label: "MIDI Keyboard",
+    layer: "midi-keyboard",
+    left: 15,
+    top: 48,
+    width: 25,
+    height: 8,
   },
   {
     id: "camera",
@@ -180,10 +225,10 @@ const MOBILE_HOTSPOTS = [
     id: "electric-guitar",
     label: "Electric Guitar",
     layer: "electric-guitar",
-    left: 72,
-    top: 45,
+    left: 73,
+    top: 50,
     width: 20,
-    height: 45,
+    height: 38,
   },
   {
     id: "rubiks",
@@ -268,11 +313,10 @@ const HOTSPOT_DETAILS = {
     ],
     body: [
       `The feather jacket started as a prop and quietly turned into a design language. 
-      I use it in photos, video frames, and illustration as a visual cue for “performance mode” — 
-      the same way a product team uses consistent iconography or motion language.`,
-      `For teams, this is how I like to work: build a small, distinctive element and let it 
-      carry through systems — from visuals to copy to experience. It’s branding, but also 
-      information architecture for the emotions you want people to feel.`,
+      It’s my playful “performance mode” signal — the same way a product team uses consistent iconography 
+      or motion language to tell you what kind of moment you’re in.`,
+      `It sits at the intersection of Story, Music & Creative Life and Product & UX Design: one small motif, 
+      reused intentionally across photos, UI, and copy so the whole system feels like one coherent instrument.`,
     ],
   },
   monitor: {
@@ -286,11 +330,10 @@ const HOTSPOT_DETAILS = {
     ],
     body: [
       `The command center is where Ober Artisan Drums, the SoundLegend portal, and this portfolio live. 
-      I design and ship full stacks: React front ends, Firebase backends, custom tooling for 
-      artists, customers, and admins.`,
-      `In practice that looks like: auth flows, portals, progress trackers, file uploads, secure 
-      customer views, and custom business logic. Underneath the art there’s a very real system 
-      that handles orders, projects, NFC verification, and artist experiences.`,
+      It’s React frontends, Firebase backends, auth flows, portals, and internal tools all talking to each other.`,
+      `Underneath the art there’s a very real system: clear data models, simple APIs, and a bias toward 
+      shipping small, testable changes. This is Web & Software Engineering meeting Technical Problem Solving, 
+      wrapped in Product & UX Design so it actually feels good to use.`,
     ],
   },
   "acoustic-guitar": {
@@ -299,12 +342,10 @@ const HOTSPOT_DETAILS = {
     emoji: "acoustic-guitar",
     disciplines: ["Story, Music & Creative Life", "Product & UX Design"],
     body: [
-      `Music has always been how I listen first and speak second. Playing and writing music forces me 
-      to think in phrases, tension and release, and dynamics — exactly how I like to design flows 
-      and interfaces.`,
-      `When I’m collaborating with teams, that same musical mindset shows up as empathy for timing: 
-      when to lead, when to accompany, when to leave space, and how to bring everything back to a 
-      strong, memorable chorus.`,
+      `The acoustic guitar is where a lot of ideas start: sketching melodies, chasing chord shapes, and 
+      listening for tension and release. It’s how I practice timing, dynamics, and space.`,
+      `In product work, that maps straight into flows: when to ask for info, when to hold back, and how to 
+      build to a satisfying “chorus” moment where the user knows exactly what just happened and why.`,
     ],
   },
   snare: {
@@ -317,11 +358,47 @@ const HOTSPOT_DETAILS = {
       "Story, Music & Creative Life",
     ],
     body: [
-      `Ober Artisan Drums is my long-running passion project — a boutique snare company where I design, 
-      build, document, and ship one-of-a-kind drums from raw lumber to finished instrument.`,
-      `Every shell has a build portal, a lifecycle, audio analysis, and a story. It’s equal parts 
-      woodworking, acoustics, UX design, and support. I treat each drum like a product launch with 
-      a customer at the center.`,
+      `Ober Artisan Drums is my long-running craft lab — custom snares that move from raw lumber to tuned 
+      instrument with a full lifecycle, portal, and story.`,
+      `Each build is product thinking you can hold: requirements, constraints, prototyping, QA, and support, all 
+      documented in a way that also honors Story, Music & Creative Life. It keeps my Craft & Making and 
+      Technical Problem Solving grounded in reality.`,
+    ],
+  },
+  headphones: {
+    title: "Studio Headphones",
+    subtitle: "Active Listening & Mix Decisions",
+    emoji: "headphones",
+    disciplines: [
+      "Story, Music & Creative Life",
+      "Technical Problem Solving",
+      "AI & Systems",
+    ],
+    body: [
+      `The headphones are where everything gets honest. This is where Logic Pro sessions turn into real 
+      mix decisions: EQ moves, compression, panning, and subtle automation that either serves the story 
+      or gets in its way.`,
+      `Active listening here is the same muscle I use in Technical Problem Solving and AI & Systems: 
+      noticing what the system is actually doing, not what I hoped it was doing — then making the smallest 
+      changes that unlock the most clarity for whoever’s “listening” on the other side.`,
+    ],
+  },
+  "midi-keyboard": {
+    title: "MIDI Keyboard",
+    subtitle: "Blending Physical & Digital",
+    emoji: "midi-keyboard",
+    disciplines: [
+      "Story, Music & Creative Life",
+      "Web & Software Engineering",
+      "AI & Systems",
+    ],
+    body: [
+      `The MIDI keyboard is how I sketch scores, design soundscapes, and block out film cues — all inside 
+      Logic Pro. It’s a physical interface driving a digital system, which is basically how I think about 
+      most tools.`,
+      `The same pattern shows up in Web & Software Engineering and AI & Systems: humans pressing a few 
+      intuitive “keys,” and a lot of structured logic under the hood turning that into something powerful 
+      and musical instead of overwhelming.`,
     ],
   },
   camera: {
@@ -330,10 +407,10 @@ const HOTSPOT_DETAILS = {
     emoji: "camera",
     disciplines: ["Product & UX Design", "Story, Music & Creative Life"],
     body: [
-      `The camera represents how I document work. I don’t just ship a feature or a drum and walk away — 
-      I record the process, highlight the decisions, and give people a way to remember what went into it.`,
-      `For teams this means clear demos, thoughtful screenshots, and narrative release notes — the kind 
-      that help support, leadership, and future teammates understand not just what we built, but why.`,
+      `The camera is my documentation engine. I don’t just finish a drum or ship a feature and move on — 
+      I capture the process, highlight decisions, and frame moments people will want to revisit later.`,
+      `In product terms, this becomes clear release notes, narrative case studies, and visual walkthroughs 
+      that help support, leadership, and future teammates understand not just what we built, but why it exists.`,
     ],
   },
   dog: {
@@ -342,24 +419,22 @@ const HOTSPOT_DETAILS = {
     emoji: "lucy",
     disciplines: ["Story, Music & Creative Life"],
     body: [
-      `Lucy is the studio dog and the emotional center of the room. She’s there to remind me that 
-      all of this — the code, the drums, the craft — is still about people, connection, and 
-      the relationships around the work.`,
-      `In teams I tend to be the person who cares about tone: how an error message feels, how a hard 
-      conversation lands, and how we make sure the humans using our tools feel seen and not blamed.`,
+      `Lucy is the emotional center of the studio. She has zero opinions about React or rimshots — and that’s 
+      the point. She keeps the space grounded in actual life, not just output.`,
+      `On teams, I carry that same energy into how we talk to users and to each other: readable copy, kind 
+      default tones, and feedback that remembers there’s a person on the other side of the screen.`,
     ],
   },
   "orange-cat": {
     title: "Sunny Cat",
-    subtitle: "Curiosity",
+    subtitle: "Play & Curiosity",
     emoji: "sunny",
     disciplines: ["Story, Music & Creative Life", "Technical Problem Solving"],
     body: [
-      `Sunny is the little spark of mischief in the scene — the reminder that curiosity matters. 
-      Most of my favorite solutions started as “What if we just tried…?” moments that didn’t feel 
-      big enough to be a project yet.`,
-      `I like environments where it’s safe to follow that curiosity into prototypes, 
-      tiny experiments, and “let’s just test it with one user” ideas.`,
+      `Sunny is the little “what if” energy in the room — poking into corners, testing edges, and reminding 
+      me that experiments don’t have to be big to be meaningful.`,
+      `Most of my favorite product and engineering wins started this way: a small, curious prototype that 
+      later turned into a core part of the system once we saw how real users reacted.`,
     ],
   },
   "electric-guitar": {
@@ -368,23 +443,23 @@ const HOTSPOT_DETAILS = {
     emoji: "electric-guitar",
     disciplines: ["Story, Music & Creative Life", "Product & UX Design"],
     body: [
-      `The electric guitar is about performance under pressure. Live shows taught me how to stay present, 
-      adapt, and deliver even when something goes sideways — a cable dies, a monitor cuts out, or the set 
-      list changes mid-song.`,
-      `On teams, that translates into handling deploy nights, debugging live issues, and keeping 
-      customers calm while we quietly fix the real problem behind the scenes.`,
+      `The electric guitar lives in the higher-pressure moments: live sets, studio takes, and creative 
+      decisions that happen in real time.`,
+      `That same performance mindset shows up in deploy nights and debugging sessions. You keep your head, 
+      listen to the band (or team), adapt on the fly, and still land the song — or the feature — in a way 
+      the audience can trust.`,
     ],
   },
   rubiks: {
-    title: "Rubik’s Cube (In A Cube)",
+    title: "Rubik’s Cube",
     subtitle: "Technical Problem Solving",
     emoji: "rubiks",
     disciplines: ["Technical Problem Solving", "Web & Software Engineering"],
     body: [
-      `The cube is my little altar to problem solving. I love breaking down messy, 
-      real-world constraints into something we can actually reason about and solve.`,
-      `In code this shows up as: refactors that simplify tangled logic, designing data models that 
-      support the product roadmap, and building tools so future work gets easier instead of harder.`,
+      `The cube is my tiny shrine to constraints. Every side is a different color of requirement, and 
+      the fun is in finding a sequence of moves that untangles the whole thing without ripping it apart.`,
+      `In code, that looks like refactors that simplify logic, data models that support the roadmap, and 
+      systems that are easier to extend next quarter than they were last quarter.`,
     ],
   },
   printer: {
@@ -394,13 +469,13 @@ const HOTSPOT_DETAILS = {
     disciplines: [
       "Web & Software Engineering",
       "Technical Problem Solving",
-      "Craft & Making (Ober Artisan Drums)",
+      "Craft & Making",
     ],
     body: [
-      `The printer stands for rapid prototyping. In the drum shop that’s jigs, fixtures, and small 
-      3D-printed parts that make complex processes repeatable.`,
-      `In software it’s internal tools, admin dashboards, and one-off utilities that unlock bigger ideas. 
-      I like building the scaffolding that lets teams move faster and safer.`,
+      `The printer is how ideas turn into jigs, fixtures, and small parts that make complex work repeatable. 
+      It’s rapid prototyping in literal plastic.`,
+      `In software and AI & Systems, that’s internal tools, admin dashboards, and small utilities that 
+      quietly save hours a week. I like building the scaffolding that lets teams move faster and safer.`,
     ],
   },
   "top-cat": {
@@ -409,11 +484,10 @@ const HOTSPOT_DETAILS = {
     emoji: "freddie",
     disciplines: ["Product & UX Design", "Story, Music & Creative Life"],
     body: [
-      `Freddie is the quiet observer on top of the printer. In the studio he’s the one who sees everything 
-      but never says much — which is pretty close to how I like to approach discovery and research.`,
-      `Before I propose changes, I like to watch: how people actually use a tool, where they hesitate, 
-      and where their body language changes. Then I reflect that back as clear, actionable design or 
-      engineering work.`,
+      `Freddie is the quiet observer perched above everything. He sees all the tiny movements and 
+      rarely makes a sound.`,
+      `That’s how I like to approach research and UX: watch first, notice where people hesitate or tense up, 
+      and only then propose small, targeted changes that make the whole experience feel smoother.`,
     ],
   },
   "dan-chelsea": {
@@ -422,12 +496,11 @@ const HOTSPOT_DETAILS = {
     emoji: "foundation",
     disciplines: ["Story, Music & Creative Life"],
     body: [
-      `This frame is about the life outside the work. Building a career in tech and a boutique drum 
-      business at the same time has only been possible because of real support and honest feedback 
-      from the people closest to me.`,
-      `In a team setting, I carry that same energy into how I collaborate: straightforward, caring, and 
-      willing to have real conversations instead of polite silence. I care a lot about trust and 
-      long-term relationships.`,
+      `This frame is about the life around the work. Building a tech career and a boutique drum company 
+      at the same time only works because of steady support, honest feedback, and people who know me 
+      outside of any job title.`,
+      `On teams, that shows up as long-term thinking: relationships over transactions, real conversations 
+      over polite silence, and decisions that protect the humans behind the tools we’re shipping.`,
     ],
   },
 };
@@ -527,7 +600,6 @@ export default function MakinHomeScene({ variant = "desktop" }) {
     setModalId(id);
   }, []);
 
-  // when modal closes, mark that hotspot as "checked" for the checklist
   const handleCloseModal = useCallback(() => {
     if (!modalId) return;
 
@@ -589,7 +661,7 @@ export default function MakinHomeScene({ variant = "desktop" }) {
           draggable={false}
         />
 
-        {/* Hotspots (clickable areas only → open modal directly) */}
+        {/* Hotspots (clickable areas → open modal) */}
         {hotspots.map((spot) => (
           <button
             key={spot.id}
@@ -621,9 +693,9 @@ export default function MakinHomeScene({ variant = "desktop" }) {
             {checkedIds.length}/{hotspots.length} unlocked
           </span>
         </div>
-        <p className="mh-checklist__hint">
+        {/* <p className="mh-checklist__hint">
           Find each item in the scene, tap it to open the story.
-        </p>
+        </p> */}
         <ul className="mh-checklist__list">
           {hotspots.map((spot) => {
             const details = HOTSPOT_DETAILS[spot.id];

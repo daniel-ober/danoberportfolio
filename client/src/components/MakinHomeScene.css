@@ -7,13 +7,17 @@
   flex-direction: column;         /* stack image + checklist */
   align-items: center;
   background: #050505;           /* blends with home background */
-  padding: 1.25rem 0 0.75rem;
-  margin-top: 4.5rem;
-  max-height: calc(100vh - 120px);
-  overflow: hidden;
+  padding: 1.25rem 0 1.75rem;    /* extra bottom padding above footer */
+
+  /* 🔹 Offset so fixed navbar doesn’t cover the scene */
+  margin-top: 4.5rem; /* tweak if your nav is taller/shorter */
+
+  /* 🔹 Allow the scene to grow and push footer down */
+  max-height: none;
+  overflow: visible;
 }
 
-/* Hidden emoji preloader */
+/* 🔹 Hidden emoji preloader (for smooth modal icons) */
 .mh-emoji-preload {
   position: absolute;
   inset: auto auto 0 0;
@@ -24,24 +28,25 @@
   overflow: hidden;
 }
 
-/* Stage ------------------------------------------------------- */
-
+/* Stage: shared defaults */
 .mh-scene__stage {
   position: relative;
   width: 100%;
   max-width: 1120px;
   overflow: hidden;
-  flex: 0 0 auto;
+  flex: 0 0 auto; /* don't stretch, keep natural/aspect height */
 }
 
+/* Desktop puzzle size bump */
 .mh-scene--desktop .mh-scene__stage {
+  max-width: 1400px;          /* was 1120 */
   aspect-ratio: 16 / 9;
-  max-height: 58vh;
-  margin: 0 auto;
+  max-height: 68vh;           /* was 58vh */
 }
 
+/* Mobile: keep full image in view */
 .mh-scene--mobile {
-  padding: 0.75rem 0 0.5rem;
+  padding: 0.75rem 0 1.5rem;
 }
 
 .mh-scene--mobile .mh-scene__stage {
@@ -63,10 +68,14 @@
   pointer-events: none;
 }
 
-/* Per-item color overlays: fade in only */
+.mh-scene__image--base {
+  /* grayscale art already baked in */
+}
+
+/* Individual color layers (per-found item) */
 .mh-scene__image--layer {
   opacity: 0;
-  transition: opacity 1100ms ease-out;
+  transition: opacity 260ms ease-in-out;
 }
 
 .mh-scene__image--layer-visible {
@@ -105,6 +114,7 @@
   inset: 0;
 }
 
+/* Label pill (currently not used, but kept for future) */
 .mh-hotspot__label {
   position: absolute;
   left: 50%;
@@ -143,7 +153,7 @@
   border: 0;
 }
 
-/* BUBBLE (if you use it later) ------------------------------- */
+/* SELECTED BUBBLE (GLOBAL POSITION) --------------------------- */
 
 .mh-hotspot__bubble {
   position: absolute;
@@ -178,6 +188,38 @@
   pointer-events: auto;
 }
 
+.mh-hotspot__bubble-title {
+  font-weight: 600;
+  text-align: center;
+  white-space: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* CTA button centered under title */
+.mh-hotspot__bubble-cta {
+  border: none;
+  border-radius: 999px;
+  padding: 6px 18px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  background: #f7b24a;
+  color: #1a1010;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition:
+    transform 120ms ease-out,
+    box-shadow 120ms ease-out,
+    filter 120ms ease-out;
+}
+
+.mh-hotspot__bubble-cta:hover,
+.mh-hotspot__bubble-cta:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
+  filter: brightness(1.06);
+}
+
 /* MODAL ------------------------------------------------------- */
 
 .mh-modal-backdrop {
@@ -194,8 +236,8 @@
   background: #111015;
   color: #f8f5ff;
   border-radius: 14px;
-  padding: 16px 22px 14px;
-  width: min(440px, 92vw);
+  padding: 16px 22px 14px;        /* a bit wider so lines feel longer */
+  width: min(440px, 92vw);        /* slightly wider modal */
   max-height: 70vh;
   overflow-y: auto;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
@@ -212,7 +254,7 @@
 
 .mh-modal__title {
   margin: 0 0 4px;
-  font-size: 1.08rem;
+  font-size: 1.08rem;             /* tad smaller */
   font-weight: 600;
   letter-spacing: 0.08em;
 }
@@ -243,6 +285,15 @@
   animation: mh-modal-image-fade 1600ms ease-out;
 }
 
+/* "You found" line */
+
+.mh-modal__found {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #fde68a;
+  margin: 0 0 0.35rem;
+}
+
 /* Body text */
 
 .mh-modal__body {
@@ -251,6 +302,7 @@
   line-height: 1.6;
   color: #f0ecff;
   width: 100%;
+  max-width: none;
   text-align: justify;
 }
 
@@ -263,7 +315,7 @@
   margin-top: 0.55rem;
 }
 
-/* Actions */
+/* Footer actions */
 
 .mh-modal__actions {
   margin-top: 8px;
@@ -303,31 +355,30 @@
 
 .mh-checklist {
   width: 100%;
-  max-width: 960px;
+  max-width: 900px; /* slightly smaller */
   margin: 0.85rem auto 0;
-  padding: 0.65rem 0.9rem 0.75rem;
+  padding: 0.55rem 0.75rem 0.65rem; /* tighter padding */
   border-radius: 0.9rem;
   background: rgba(10, 10, 18, 0.9);
   border: 1px solid rgba(248, 250, 252, 0.08);
   color: #e5e7eb;
-  font-size: 0.76rem;
-  flex: 1 1 0;
-  min-height: 0;
-  overflow-y: auto;
+  font-size: 0.72rem; /* slightly smaller text */
+  flex: 0 0 auto;
+  overflow: visible;
 }
 
 .mh-checklist__header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 0.75rem;
-  margin-bottom: 0.45rem;
+  gap: 0.6rem; /* tighter */
+  margin-bottom: 0.35rem; /* tighter */
 }
 
 .mh-checklist__eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-size: 0.68rem;
+  font-size: 0.64rem; /* smaller */
   color: #9ca3af;
 }
 
@@ -336,11 +387,12 @@
   font-weight: 500;
   color: #fbbf24;
   white-space: nowrap;
+  font-size: 0.72rem; /* matches text size */
 }
 
 .mh-checklist__hint {
-  margin: 0 0 0.4rem;
-  font-size: 0.7rem;
+  margin: 0 0 0.35rem;
+  font-size: 0.66rem; /* reduced */
   color: #9ca3af;
 }
 
@@ -350,18 +402,19 @@
   margin: 0;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: 0.75rem;
-  row-gap: 0.25rem;
+  column-gap: 0.6rem; /* narrower */
+  row-gap: 0.2rem; /* tighter vertically */
 }
 
 .mh-checklist__item {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.28rem; /* tighter gap between checkbox + text */
   opacity: 0.75;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 0.72rem; /* matches master size */
 }
 
 .mh-checklist__item--done {
@@ -369,14 +422,14 @@
 }
 
 .mh-checklist__checkbox {
-  width: 0.95rem;
-  height: 0.95rem;
-  border-radius: 0.2rem;
+  width: 0.85rem;     /* smaller checkbox */
+  height: 0.85rem;
+  border-radius: 0.18rem;
   border: 1px solid rgba(248, 250, 252, 0.35);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.62rem;
+  font-size: 0.58rem; /* smaller checkmark */
   line-height: 1;
 }
 
@@ -406,6 +459,34 @@
   }
 }
 
+/* (layer-bubble is no longer used for overlays, but kept if you want it later) */
+@keyframes mh-layer-bubble {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+    filter: saturate(0.2) brightness(0.7) blur(2px);
+  }
+  35% {
+    opacity: 1;
+    transform: scale(1);
+    filter: saturate(1.4) brightness(1.35) blur(0);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.01);
+    filter: saturate(1.15) brightness(1.1) blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: saturate(1) brightness(1) blur(0);
+  }
+}
+
+.mh-scene__image--layer-burst {
+  animation: mh-layer-bubble 900ms ease-in-out;
+}
+
 /* RESPONSIVE -------------------------------------------------- */
 
 @media (max-width: 1024px) {
@@ -417,7 +498,7 @@
 @media (max-width: 768px) {
   .mh-scene {
     margin-top: 4rem;
-    max-height: calc(100vh - 100px);
+    padding-bottom: 2rem;
   }
 
   .mh-scene--mobile .mh-scene__stage {

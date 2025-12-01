@@ -1,5 +1,5 @@
 // src/components/Layout.jsx
-import React, { useEffect } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
@@ -8,19 +8,6 @@ import "./Layout.css";
 export default function Layout({ children }) {
   const location = useLocation();
   const isHome = location.pathname === "/";
-
-  // Disable body scroll on home, enable elsewhere
-  useEffect(() => {
-    if (isHome) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isHome]);
 
   return (
     <>

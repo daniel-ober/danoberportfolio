@@ -3,31 +3,29 @@
 .layout-content {
   min-height: 100vh;
   display: flex;
-  flex-direction: column; /* stack main + (any future) helpers vertically */
+  flex-direction: column; /* stack main + footer vertically */
 }
 
 .layout-main {
   flex: 1;
 }
 
-/* Home page: main should be exactly the slot between nav & footer */
+/* Home page: allow scrolling, don't hard-lock height */
 .layout-content--home {
-  /* Home uses explicit height on .layout-main--home */
-  min-height: 0;
+  min-height: 100vh; /* still fills screen at minimum */
 }
 
 .layout-main--home {
-  /* Approximate total height of NavBar + Footer.
-     Tweak if you adjust their padding/heights. */
-  height: calc(100vh - 120px);
+  /* let content define height; footer moves below content */
+  min-height: calc(100vh - 120px); /* nav + footer allowance, but not a hard cap */
   padding: 0;
-  overflow: hidden; /* no scrollbars inside main on home */
+  overflow: visible; /* IMPORTANT: allow scroll */
 }
 
-/* ensure the home wrapper can stretch and not overflow */
+/* allow the home wrapper to grow naturally */
 .layout-main--home .home-page {
-  height: 100%;
-  overflow: hidden;
+  min-height: 100%;
+  overflow: visible;
 }
 
 /* EXISTING PORTRAIT STYLES (kept for About / others) ---------- */
