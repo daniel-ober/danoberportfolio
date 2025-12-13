@@ -1,0 +1,7 @@
+/* client/src/components/DisciplineIconRow.css */
+
+.disc-icon-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}

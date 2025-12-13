@@ -1,0 +1,374 @@
+/* Outer wrapper – NO scroll here, just layout/ratio */
+.timeline-scroll {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  aspect-ratio: 3 / 2;
+}
+
+/* ERA MINIMAP / RAIL ---------------------------------------- */
+
+.timeline-era-rail {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid rgba(30, 64, 175, 0.4);
+  box-shadow:
+    0 18px 40px rgba(15, 23, 42, 0.9),
+    0 0 0 1px rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  overflow-x: auto;
+}
+
+/* make the rail scrollable on small viewports */
+.timeline-era-rail::-webkit-scrollbar {
+  height: 0;
+}
+
+/* individual era “tab” */
+.timeline-era-pill {
+  --pill-strength: 0;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.85rem 0.4rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  font: inherit;
+  color: rgba(148, 163, 184, 0.85);
+  transition:
+    color 160ms ease-out,
+    transform 160ms ease-out;
+}
+
+/* subtle underline that grows with active strength */
+.timeline-era-pill::before {
+  content: "";
+  position: absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  bottom: 0.25rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #fbbf24, #fb923c);
+  transform: scaleX(calc(0.3 + var(--pill-strength) * 0.7));
+  transform-origin: center;
+  opacity: calc(var(--pill-strength) * 0.8);
+  transition:
+    transform 180ms ease-out,
+    opacity 180ms ease-out;
+  pointer-events: none;
+}
+
+/* index (E1, E2, …) */
+.timeline-era-pill-index {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.85);
+}
+
+/* title (“Foundations”, “The Calling”, etc.) */
+.timeline-era-pill-title {
+  font-size: 0.8rem;
+  white-space: nowrap;
+  color: #cbd5f5;
+}
+
+/* hover / focus */
+.timeline-era-pill:hover {
+  transform: translateY(-1px);
+  color: #e5e7eb;
+}
+
+/* active state – use data-attribute from JSX */
+.timeline-era-pill[data-active="true"] .timeline-era-pill-index {
+  color: #e5e7eb;
+}
+
+.timeline-era-pill[data-active="true"] .timeline-era-pill-title {
+  color: #f9fafb;
+  font-weight: 500;
+}
+
+/* SCROLL CONTAINER ------------------------------------------ */
+
+.timeline-viewport {
+  position: relative;
+  height: 100%;
+  border-radius: 16px;
+  overflow-x: auto;   /* horizontal scroll */
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  background: radial-gradient(circle at top, #020617 0%, #020617 40%, #000 100%);
+  opacity: 0;
+  animation: timeline-fade-in 320ms ease-out forwards;
+}
+
+@keyframes timeline-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Optional: visually hide native scrollbar but keep it functional */
+.timeline-viewport::-webkit-scrollbar {
+  height: 6px;
+}
+.timeline-viewport::-webkit-scrollbar-track {
+  background: transparent;
+}
+.timeline-viewport::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.5);
+  border-radius: 999px;
+}
+
+/* Row of scenes (slides) */
+.timeline-scenes-row {
+  display: flex;
+  height: 100%;
+}
+
+/* One scene = one full frame */
+.timeline-scene {
+  position: relative;
+  flex: 0 0 100%; /* each scene takes one viewport width */
+  height: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: #020617;
+  box-shadow:
+    0 22px 60px rgba(15, 23, 42, 0.9),
+    0 0 0 1px rgba(15, 23, 42, 0.9);
+}
+
+/* Base layer image styling (all layers stacked) */
+.timeline-layer-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Z-order (furthest back → foreground) */
+.timeline-layer-img--outside { z-index: 1; }
+.timeline-layer-img--outside_object { z-index: 2; }
+.timeline-layer-img--wall { z-index: 3; }
+.timeline-layer-img--wall_object { z-index: 4; }
+.timeline-layer-img--desk { z-index: 5; }
+.timeline-layer-img--desk_object { z-index: 6; }
+.timeline-layer-img--misc_object_a { z-index: 7; }
+.timeline-layer-img--misc_object_b { z-index: 8; }
+
+/* ============================================================
+   STORY OVERLAY (CINEMATIC TEXT)
+   ============================================================ */
+
+.timeline-story {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 900px;
+  text-align: center;
+  z-index: 50;
+  padding: 1.5rem;
+  pointer-events: none;
+  transition:
+    opacity 0.6s ease,
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-story-label {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-bottom: 10px;
+  color: #e5e7eb;
+}
+
+.timeline-story-title {
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.18;
+  margin-bottom: 6px;
+  color: #f9fafb;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+.timeline-story-meta {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(148, 163, 184, 0.85);
+  margin-bottom: 14px;
+}
+
+.timeline-story-body {
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 720px;
+  margin: 0 auto 10px;
+  color: rgba(249, 250, 251, 0.9);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition:
+    opacity 260ms ease-out,
+    transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Discipline chips under the story */
+.timeline-disciplines {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.timeline-discipline-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.22rem 0.7rem;
+  border-radius: 999px;
+  font-size: 11px;
+  background: rgba(15, 23, 42, 0.7);
+  color: rgba(148, 163, 184, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(51, 65, 85, 0.9);
+}
+
+/* circular icon badge */
+.timeline-discipline-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.9);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.9);
+}
+
+.timeline-discipline-icon-img {
+  display: block;
+}
+
+/* active vs muted state */
+.timeline-discipline-chip.is-active {
+  background: rgba(15, 23, 42, 0.96);
+  color: #e5e7eb;
+}
+
+.timeline-discipline-chip.is-muted {
+  opacity: 0.35;
+}
+
+/* Dark overlay between art and story text */
+.timeline-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 40%,
+      rgba(15, 23, 42, 0.96) 0%,
+      rgba(15, 23, 42, 0.9) 45%,
+      rgba(15, 23, 42, 0.82) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* ============================================================
+   MOBILE TUNING
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .timeline-scroll {
+    max-width: 100%;
+    aspect-ratio: 3 / 4;
+  }
+
+  .timeline-era-rail {
+    justify-content: flex-start;
+    padding-inline: 0.55rem;
+  }
+
+  .timeline-era-pill {
+    padding: 0.3rem 0.7rem 0.35rem;
+  }
+
+  .timeline-era-pill-title {
+    font-size: 0.76rem;
+  }
+
+  .timeline-viewport {
+    border-radius: 12px;
+  }
+
+  .timeline-scene {
+    border-radius: 12px;
+  }
+
+  .timeline-story {
+    max-width: 90vw;
+    padding: 1rem;
+  }
+
+  .timeline-story-title {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+
+  .timeline-story-body {
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .timeline-story-label {
+    letter-spacing: 3px;
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION SUPPORT
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-viewport {
+    scroll-behavior: auto;
+    animation: none;
+    opacity: 1;
+  }
+
+  .timeline-layer-img,
+  .timeline-story,
+  .timeline-story-body {
+    transition: none !important;
+    transform: none !important;
+  }
+}

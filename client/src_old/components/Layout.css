@@ -1,0 +1,74 @@
+/* MAIN LAYOUT FRAME ------------------------------------------ */
+
+.layout-content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* stack main + footer vertically */
+}
+
+.layout-main {
+  flex: 1;
+}
+
+/* Home page: allow scrolling, don't hard-lock height */
+.layout-content--home {
+  min-height: 100vh; /* still fills screen at minimum */
+}
+
+.layout-main--home {
+  /* let content define height; footer moves below content */
+  min-height: calc(100vh - 120px); /* nav + footer allowance, but not a hard cap */
+  padding: 0;
+  overflow: visible; /* IMPORTANT: allow scroll */
+}
+
+/* allow the home wrapper to grow naturally */
+.layout-main--home .home-page {
+  min-height: 100%;
+  overflow: visible;
+}
+
+/* EXISTING PORTRAIT STYLES (kept for About / others) ---------- */
+
+.layout-portrait {
+  pointer-events: none;
+  z-index: 0;
+}
+
+.layout-portrait img {
+  position: fixed;
+  right: 2rem;
+  top: 60px;
+  height: calc(100vh - 115px);
+  width: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  opacity: 0.96;
+  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.35));
+}
+
+/* Portrait layout for about vs home if needed */
+.portrait-about img,
+.portrait-home img {
+  transition: none !important;
+}
+
+@media (max-width: 1024px) {
+  .layout-portrait {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+  }
+
+  .layout-portrait img {
+    position: static;
+    width: auto;
+    max-width: 92vw;
+    max-height: 75vh;
+  }
+}

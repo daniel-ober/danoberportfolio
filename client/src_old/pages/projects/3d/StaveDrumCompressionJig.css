@@ -1,0 +1,51 @@
+/* src/pages/projects/3d/StaveDrumCompressionJig.css */
+
+.jig-hero .pdetail__hero-media-inner {
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: radial-gradient(circle at top left, #252525 0%, #141414 55%, #050505 100%);
+  padding: 1.4rem 1.6rem;
+}
+
+.jig-hero__thumb-placeholder {
+  border-radius: 14px;
+  border: 1px dashed rgba(255, 255, 255, 0.16);
+  padding: 1rem 1.2rem;
+  font-size: 0.9rem;
+  color: #e5e5e5;
+  background: linear-gradient(135deg, rgba(228, 149, 0, 0.08), rgba(0, 0, 0, 0.75));
+}
+
+.jig-hero__thumb-placeholder span {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.jig-hero__thumb-placeholder p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #cccccc;
+}
+
+/* src/pages/projects/3d/StaveDrumCompressionJig.css */
+
+.jig-hero__image-wrapper {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #111;
+}
+
+.jig-hero__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.jig-hero__thumb-placeholder {
+  display: none; /* no longer needed since we use a real photo */
+}
+

@@ -1,0 +1,571 @@
+/* src/pages/Introduction.css */
+
+/* Page wrapper */
+.intro3-page {
+  width: 100%;
+}
+
+.intro3-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.intro3-shellInner {
+  padding: 26px 26px 28px;
+}
+
+/* HERO */
+.intro3-hero {
+  position: relative;
+}
+
+.intro3-heroGrid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 26px;
+  align-items: start;
+}
+
+.intro3-heroCopy {
+  min-width: 0;
+}
+
+.intro3-lede {
+  margin: 14px 0 10px;
+  max-width: 62ch;
+}
+
+.intro3-sub {
+  margin: 0;
+  max-width: 62ch;
+  color: rgba(148, 163, 184, 0.92);
+}
+
+.intro3-ctaRow {
+  margin-top: 18px;
+}
+
+/* RIGHT SIDE */
+.intro3-heroSide {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+
+/* Single consolidated right panel (reduces “card count”) */
+.intro3-sidePanel {
+  border-radius: 22px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(2, 6, 23, 0.55);
+  padding: 14px;
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.intro3-profileTop {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.intro3-portraitSurface {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+
+  background: radial-gradient(
+    circle at 50% 35%,
+    rgba(82, 82, 82, 0.95) 0%,
+    rgba(40, 40, 40, 0.95) 55%,
+    rgba(26, 26, 26, 0.98) 100%
+  );
+
+  border: 1px solid rgba(148, 163, 184, 0.14);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 18px 40px rgba(0, 0, 0, 0.55);
+}
+
+.intro3-portraitSurface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.06), transparent 55%),
+    radial-gradient(circle at 50% 85%, rgba(0, 0, 0, 0.42), transparent 62%);
+  opacity: 0.9;
+}
+
+.intro3-portrait {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(1) contrast(1.04) brightness(0.98);
+  transform: translateZ(0);
+}
+
+.intro3-profileMeta {
+  padding: 2px 2px 0;
+}
+
+.intro3-profileName {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.78);
+}
+
+.intro3-profileTag {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: rgba(226, 232, 240, 0.78);
+}
+
+.intro3-sideDivider {
+  height: 1px;
+  background: rgba(148, 163, 184, 0.12);
+  margin: 14px 0;
+}
+
+.intro3-sideTitle {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.92);
+}
+
+.intro3-sideText {
+  margin-top: 8px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: rgba(148, 163, 184, 0.92);
+}
+
+/* Available badge (inline version) */
+.intro3-availableBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 6px 10px;
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: rgba(187, 247, 208, 0.95);
+  background: rgba(2, 6, 23, 0.55);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.intro3-availableBadge--inline {
+  width: fit-content;
+}
+
+.intro3-availableDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.95);
+  box-shadow: 0 0 14px rgba(34, 197, 94, 0.35);
+}
+
+/* Metrics become a clean list (not mini-cards) */
+.intro3-metricsList {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.intro3-metricRow {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.intro3-metricK {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: rgba(226, 232, 240, 0.92);
+}
+
+.intro3-metricV {
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(148, 163, 184, 0.92);
+}
+
+.intro3-sideFooter {
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: rgba(148, 163, 184, 0.9);
+  padding-top: 12px;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.intro3-availableActions {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* CORE DISCIPLINES */
+.intro3-disciplines {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.intro3-discHead {
+  margin-bottom: 12px;
+}
+
+.intro3-discKicker {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.9);
+}
+
+.intro3-discTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.intro3-discTitle {
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  color: rgba(226, 232, 240, 0.95);
+}
+
+.intro3-discBlurb {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: rgba(148, 163, 184, 0.9);
+  max-width: 72ch;
+}
+
+/* Chip row */
+.intro3-chipRow {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.intro3-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(12, 12, 16, 0.55);
+  padding: 10px 12px;
+  cursor: pointer;
+  transition:
+    transform 140ms ease-out,
+    background 140ms ease-out,
+    border-color 140ms ease-out,
+    box-shadow 140ms ease-out;
+}
+
+.intro3-chip:hover {
+  transform: translateY(-1px);
+  background: rgba(12, 12, 16, 0.72);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
+}
+
+.intro3-chipBadge {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 2px solid rgba(148, 163, 184, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 15, 0.85);
+  flex: 0 0 auto;
+}
+
+.intro3-chipText {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.intro3-chipLabel {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.92);
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.intro3-chip--active {
+  background: rgba(15, 23, 42, 0.72);
+}
+
+/* Lens Recap panel */
+.intro3-discPreview {
+  margin-top: 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(2, 6, 23, 0.62);
+  padding: 12px 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.intro3-discPreviewTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.intro3-discPreviewTitle {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.92);
+}
+
+.intro3-discPreviewActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.intro3-discPreviewLink {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  color: rgba(226, 232, 240, 0.86);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  opacity: 0.9;
+}
+.intro3-discPreviewLink:hover {
+  opacity: 1;
+}
+
+.intro3-discPreviewOpen {
+  border: none;
+  background: transparent;
+  color: rgba(226, 232, 240, 0.86);
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.9;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+.intro3-discPreviewOpen:hover {
+  opacity: 1;
+}
+
+.intro3-discPreviewSubtitle {
+  margin-top: 6px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.82);
+}
+
+.intro3-discPreviewText {
+  margin-top: 8px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: rgba(148, 163, 184, 0.92);
+}
+
+.intro3-discPreviewLabel {
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.9);
+  margin-bottom: 8px;
+}
+
+/* Lens lists */
+.intro3-lensGrid {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.intro3-lensCol {
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  background: rgba(2, 6, 23, 0.35);
+  padding: 10px 12px 12px;
+}
+
+.intro3-lensList {
+  margin: 0;
+  padding-left: 16px;
+  color: rgba(148, 163, 184, 0.95);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+.intro3-lensList li {
+  margin: 6px 0;
+}
+
+/* “i” icon */
+.intro3-infoIcon {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  font-size: 12px;
+  line-height: 1;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  color: rgba(226, 232, 240, 0.82);
+  background: rgba(15, 23, 42, 0.62);
+}
+
+/* MODAL */
+.intro3-modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(2, 6, 23, 0.68);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.intro3-modal {
+  width: min(860px, 96vw);
+  max-height: 86vh;
+  overflow: auto;
+  border-radius: 20px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(2, 6, 23, 0.96);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.7);
+}
+
+.intro3-modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 12px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.intro3-modalTitle {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.92);
+}
+
+.intro3-modalClose {
+  border: none;
+  background: transparent;
+  color: rgba(226, 232, 240, 0.85);
+  font-size: 22px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+.intro3-modalClose:hover {
+  background: rgba(148, 163, 184, 0.10);
+}
+
+.intro3-modalBody {
+  padding: 16px;
+  color: rgba(226, 232, 240, 0.9);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.intro3-modalBody ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: rgba(148, 163, 184, 0.95);
+}
+
+.intro3-modalBody li {
+  margin: 6px 0;
+}
+
+.intro3-modalSection {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.92);
+}
+
+.intro3-modalRule {
+  height: 1px;
+  background: rgba(148, 163, 184, 0.12);
+  margin: 14px 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 980px) {
+  .intro3-heroGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro3-metricRow {
+    grid-template-columns: 90px 1fr;
+  }
+}
+
+@media (max-width: 740px) {
+  .intro3-lensGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro3-discPreviewActions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .intro3-shellInner {
+    padding: 18px 16px 18px;
+  }
+
+  .intro3-chip {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .intro3-chipLabel {
+    white-space: normal;
+  }
+}

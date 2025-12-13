@@ -1,0 +1,334 @@
+/* src/App.css */
+
+/* ---------- Global base ---------- */
+
+:root {
+  --bg-body: #05060a;
+  --bg-elevated: #060b16;
+  --bg-elevated-soft: #0a101f;
+  --stroke-subtle: rgba(148, 163, 184, 0.12);
+  --stroke-strong: rgba(148, 163, 184, 0.28);
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --accent: #f97316;
+  --accent-soft: rgba(249, 115, 22, 0.18);
+  --accent-strong: #fb923c;
+  --radius-xl: 22px;
+  --radius-2xl: 28px;
+  --shadow-soft: 0 22px 60px rgba(0, 0, 0, 0.55);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Inter", sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+/* ---------- App shell & background video ---------- */
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--text-main);
+}
+
+/* Fixed background video fills the whole viewport */
+.app-shell__bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none; /* don't block clicks/scrolls */
+
+  /* Less “masked” but still cinematic */
+  filter: grayscale(0.05) contrast(1.05) brightness(0.75);
+  opacity: 1;
+}
+
+/* Tint / vignette over the video */
+.app-shell__bg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  /* Slightly reduced intensity so motion reads better */
+  background:
+    radial-gradient(circle at top center, rgba(15, 23, 42, 0.30), transparent 55%),
+    radial-gradient(circle at bottom center, rgba(3, 7, 18, 0.78), #020617 70%),
+    linear-gradient(
+      to bottom,
+      rgba(3, 4, 10, 0.86),
+      rgba(3, 4, 10, 0.78) 28%,
+      rgba(3, 4, 10, 0.90)
+    );
+
+  mix-blend-mode: soft-light;
+}
+
+/* Subtle “film grain” */
+.app-shell__bg-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.14; /* reduced from 0.2 */
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 8% 18%, rgba(255, 255, 255, 0.12) 0, transparent 55%),
+    radial-gradient(circle at 82% 6%, rgba(148, 163, 184, 0.10) 0, transparent 55%),
+    radial-gradient(circle at 6% 82%, rgba(15, 23, 42, 0.18) 0, transparent 55%),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.03) 0,
+      transparent 40%,
+      rgba(15, 23, 42, 0.08) 65%,
+      transparent 100%
+    );
+}
+
+/* Foreground layout */
+.app-shell__content {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NOTE: vertical padding only; pages own horizontal padding */
+.app-shell__main {
+  flex: 1;
+  padding: 48px 0 64px;
+}
+
+/* Center pages on larger screens */
+.app-main-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ---------- “Panel” – more analog, less sci-fi ---------- */
+
+.panel-shell {
+  position: relative;
+  border-radius: 26px;
+  padding: 1px;
+  background: linear-gradient(145deg, #020617, #020617 35%, #020819);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(15, 23, 42, 0.96);
+}
+
+.panel-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  border: 1px solid rgba(15, 23, 42, 0.9);
+  box-shadow:
+    inset 0 1px 0 rgba(148, 163, 184, 0.08),
+    inset 0 -1px 0 rgba(15, 23, 42, 0.95);
+  opacity: 0.9;
+}
+
+.panel-shell::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: -26px;
+  height: 46px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.7), transparent 70%);
+  opacity: 0.9;
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+.panel-shell__inner {
+  position: relative;
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 16% 0%, #0b172a, #020716 52%),
+    radial-gradient(circle at 100% 110%, #020617, #020617 70%);
+  border: 1px solid rgba(30, 64, 175, 0.6);
+  box-shadow:
+    inset 0 0 0 1px rgba(15, 23, 42, 0.9),
+    0 18px 42px rgba(0, 0, 0, 0.85);
+  overflow: hidden;
+}
+
+.panel-shell__inner::before {
+  content: "";
+  position: absolute;
+  inset: 14px 14px 18px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at top left, rgba(15, 23, 42, 0.65), transparent 65%),
+    radial-gradient(circle at bottom right, rgba(3, 7, 18, 0.85), transparent 70%);
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+}
+
+.panel-shell__inner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  background-image:
+    radial-gradient(circle at 4% 12%, rgba(255, 255, 255, 0.08) 0, transparent 55%),
+    radial-gradient(circle at 90% 6%, rgba(148, 163, 184, 0.12) 0, transparent 55%),
+    radial-gradient(circle at 0% 100%, rgba(15, 23, 42, 0.28) 0, transparent 60%);
+}
+
+.panel-shell:not(:has(.panel-shell__inner)) {
+  padding: 22px 24px 26px;
+}
+
+.panel-shell:not(:has(.panel-shell__inner)) > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Utility spacing ---------- */
+
+.section-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ---------- Text utilities ---------- */
+
+.kicker {
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: rgba(148, 163, 184, 0.9);
+}
+
+.h1-main {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-weight: 700;
+  font-size: clamp(32px, 5vw, 40px);
+  line-height: 1.1;
+  margin: 0 0 16px;
+  text-shadow:
+    0 1px 0 rgba(15, 23, 42, 0.9),
+    0 18px 30px rgba(0, 0, 0, 0.7);
+}
+
+.h1-accent {
+  display: block;
+  margin-top: 12px;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--accent-strong);
+}
+
+.text-body {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-main);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  position: relative;
+  border-radius: 999px;
+  padding: 10px 18px;
+  border: 1px solid var(--accent);
+  background: radial-gradient(circle at 0 0, var(--accent-soft), #111827);
+  color: #fefce8;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.35);
+  transition:
+    transform 150ms ease-out,
+    box-shadow 150ms ease-out,
+    background 150ms ease-out;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 40px rgba(249, 115, 22, 0.45);
+  background: radial-gradient(circle at 0 0, var(--accent-soft), #020617);
+}
+
+.btn-ghost {
+  border-radius: 999px;
+  padding: 9px 16px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(15, 23, 42, 0.88);
+  color: var(--text-main);
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition:
+    border-color 150ms ease-out,
+    background 150ms ease-out,
+    transform 150ms ease-out;
+}
+
+.btn-ghost:hover {
+  border-color: rgba(148, 163, 184, 0.8);
+  background: rgba(15, 23, 42, 0.96);
+  transform: translateY(-1px);
+}
+
+/* ---------- Responsive adjustments ---------- */
+
+@media (min-width: 960px) {
+  .app-shell__main {
+    padding: 72px 0 80px;
+  }
+}

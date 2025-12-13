@@ -1,0 +1,45 @@
+/* src/components/DisciplineIcons.css */
+
+/* Simple, tactile-feeling discipline chips / cards */
+
+.disc-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.disc-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(30, 64, 175, 0.7);
+  background: radial-gradient(circle at 0% 0%, #020617, #020617 60%, #020617);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.75);
+}
+
+.disc-card__icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.disc-card__label {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e5e7eb;
+}
+
+.disc-card__tagline {
+  display: block;
+  font-size: 11px;
+  color: rgba(148, 163, 184, 0.95);
+  margin-top: 2px;
+}
