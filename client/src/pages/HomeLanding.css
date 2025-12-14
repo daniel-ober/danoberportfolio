@@ -1,0 +1,125 @@
+/* src/pages/HomeLanding.css */
+
+.homeLanding {
+  position: relative;
+  width: 100%;
+  min-height: 200vh; /* gives us real scroll while we build */
+  background: #0b0b0b;
+  overflow-x: hidden;
+}
+
+/* Full-bleed scene */
+.homeLanding__scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: translateZ(0);
+}
+
+/* Soft vignette so text reads */
+.homeLanding__vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.35) 55%,
+      rgba(0, 0, 0, 0.70) 100%
+    );
+}
+
+/* Light paper grain feel */
+.homeLanding__grain {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+  background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 3px 3px;
+  filter: blur(0.2px);
+}
+
+/* Foreground content */
+.homeLanding__content {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 96px 24px 64px;
+  text-align: center;
+  transition: opacity 120ms linear;
+}
+
+.homeLanding__kicker {
+  letter-spacing: 0.24em;
+  font-size: 12px;
+  opacity: 0.85;
+  margin-bottom: 18px;
+}
+
+.homeLanding__headline {
+  margin: 0;
+  max-width: 980px;
+  font-size: clamp(34px, 4.4vw, 72px);
+  line-height: 1.06;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+.homeLanding__sub {
+  margin-top: 18px;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  opacity: 0.78;
+}
+
+.homeLanding__hint {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  opacity: 0.65;
+}
+
+/* Placeholder next section (will become Story/Era 1) */
+.homeLanding__next {
+  position: relative;
+  z-index: 4;
+  margin-top: 100vh;
+  padding: 120px 24px 180px;
+}
+
+.homeLanding__nextInner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 22px;
+  border-radius: 16px;
+  background: rgba(10, 10, 10, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(10px);
+}
+
+.homeLanding__nextInner h2 {
+  margin: 0 0 10px;
+  font-size: 24px;
+}
+
+.homeLanding__nextInner p {
+  margin: 0;
+  opacity: 0.8;
+  line-height: 1.5;
+}
