@@ -1,0 +1,250 @@
+/* src/pages/Home.css */
+
+.page {
+  min-height: calc(100vh - 64px);
+  padding: 28px 18px 64px;
+}
+
+.page__inner {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.h1 {
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+
+.h2 {
+  font-size: 18px;
+  line-height: 1.2;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+
+.p {
+  font-size: 15px;
+  line-height: 1.55;
+  opacity: 0.9;
+  margin: 0 0 12px;
+}
+
+.link,
+.inlineLink {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  padding-bottom: 2px;
+  opacity: 0.92;
+}
+
+.link:hover,
+.inlineLink:hover {
+  opacity: 1;
+  border-bottom-color: rgba(255, 255, 255, 0.45);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  user-select: none;
+  transition: transform 120ms ease, opacity 120ms ease, background 120ms ease;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.btn--primary:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.btn--ghost {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.btn--ghost:hover {
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.home__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.home__hero {
+  padding: 22px 18px;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.home__kicker {
+  margin: 0 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.home__title {
+  font-size: clamp(26px, 3vw, 40px);
+  line-height: 1.1;
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+}
+
+.home__subtitle {
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 80ch;
+}
+
+.home__ctaRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+/* ===== UPDATED META: discipline icon pills ===== */
+
+.home__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.home__discPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  opacity: 0.95;
+  transition: transform 140ms ease, background 140ms ease, border-color 140ms ease,
+    opacity 140ms ease;
+}
+
+.home__discPill:hover {
+  transform: translateY(-1px);
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Secondary disciplines: present but quieter */
+.home__discPill--secondary {
+  opacity: 0.65;
+}
+
+.home__discPill--secondary:hover {
+  opacity: 0.9;
+}
+
+.home__discIcon {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: var(--accent, rgba(255, 255, 255, 0.86));
+  background: rgba(0, 0, 0, 0.18);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.30);
+}
+
+.home__discLabel {
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  opacity: 0.92;
+  white-space: nowrap;
+}
+
+/* ===== rest unchanged ===== */
+
+.home__cred {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.home__credItem {
+  padding: 14px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.home__credTitle {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.72;
+  margin-bottom: 6px;
+}
+
+.home__credBody {
+  font-size: 14px;
+  line-height: 1.55;
+  opacity: 0.9;
+}
+
+.home__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.home__card {
+  padding: 16px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.home__card--muted {
+  opacity: 0.92;
+}
+
+.home__footer {
+  padding: 4px 2px 0;
+}
+
+.home__footerText {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.78;
+}
+
+@media (max-width: 900px) {
+  .home__cred {
+    grid-template-columns: 1fr;
+  }
+
+  .home__grid {
+    grid-template-columns: 1fr;
+  }
+}

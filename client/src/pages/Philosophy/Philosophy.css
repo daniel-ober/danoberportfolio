@@ -1,0 +1,636 @@
+/* client/src/pages/Philosophy/Philosophy.css */
+
+/* ------------------------------------------------------------
+   Base / layout
+------------------------------------------------------------ */
+
+.phil__inner {
+  padding-top: 56px;
+}
+
+/* HERO */
+.phil__hero {
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 18px;
+  background:
+    radial-gradient(1200px 700px at 20% -10%, rgba(140, 90, 255, 0.16), transparent 55%),
+    radial-gradient(900px 600px at 90% 20%, rgba(80, 120, 255, 0.10), transparent 60%),
+    rgba(0, 0, 0, 0.36);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.50);
+  backdrop-filter: blur(12px);
+}
+
+.phil__kicker {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.60);
+  margin: 0 0 8px;
+}
+
+.phil__title {
+  margin: 0 0 10px;
+  font-size: clamp(34px, 4.2vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.phil__subtitle {
+  margin: 0;
+  max-width: 78ch;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.phil__ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.phil__heroPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.phil__pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.26);
+  backdrop-filter: blur(10px);
+}
+
+/* 3 PRINCIPLES GRID */
+.phil__grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+}
+
+.phil__card {
+  grid-column: span 4;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background:
+    radial-gradient(900px 480px at 20% 0%, rgba(140, 90, 255, 0.10), transparent 55%),
+    rgba(0, 0, 0, 0.28);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(12px);
+}
+
+/* SECTIONS */
+.phil__section {
+  margin: 22px 0;
+}
+
+.phil__sectionHead {
+  margin-bottom: 12px;
+}
+
+.phil__sectionKicker {
+  margin: 0 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.phil__sectionTitle {
+  margin: 0 0 10px;
+  font-size: 22px;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.phil__sectionSub {
+  margin: 0;
+  max-width: 82ch;
+  color: rgba(255, 255, 255, 0.70);
+  line-height: 1.6;
+}
+
+/* TWO COL PANELS */
+.phil__twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.phil__panel {
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background:
+    radial-gradient(1000px 520px at 10% 0%, rgba(80, 120, 255, 0.10), transparent 55%),
+    rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.42);
+}
+
+.phil__panelTitle {
+  margin: 0 0 10px;
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.phil__panelBody {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.phil__miniGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.phil__miniCard {
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.phil__miniLabel {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 6px;
+}
+
+.phil__miniValue {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+/* ------------------------------------------------------------
+   BLEND TOOL – premium unified look
+------------------------------------------------------------ */
+
+.phil__tool {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 12px;
+  margin-top: 12px;
+  align-items: start;
+}
+
+.phil__toolLeft,
+.phil__toolRight {
+  position: relative;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    radial-gradient(900px 600px at 20% 0%, rgba(140, 90, 255, 0.08), transparent 60%),
+    rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+}
+
+/* subtle inner frame */
+.phil__toolLeft::before,
+.phil__toolRight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  pointer-events: none;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 0 0 1px rgba(140, 90, 255, 0.10);
+  opacity: 0.85;
+}
+
+/* Header */
+.phil__toolHeader {
+  margin-bottom: 12px;
+}
+
+.phil__toolTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.phil__toolTitle {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.phil__toolBadge {
+  font-size: 11px;
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.80);
+  white-space: nowrap;
+}
+
+.phil__toolSub {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.55;
+  font-size: 14px;
+}
+
+/* ------------------------------------------------------------
+   LEFT: Unified picker grid + cards
+------------------------------------------------------------ */
+
+.phil__pickGrid {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* Make sure these buttons don't render like default white blocks */
+.phil__pickCard {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(0,0,0,0.10)),
+    rgba(0,0,0,0.18);
+  color: rgba(255, 255, 255, 0.90);
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 16px;
+  padding: 12px 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.30);
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Accent glow strip */
+.phil__pickCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(700px 240px at 15% 0%, color-mix(in srgb, var(--accent, #8c5aff) 30%, transparent), transparent 60%);
+  opacity: 0.35;
+}
+
+.phil__pickCard:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.20);
+  box-shadow: 0 16px 44px rgba(0,0,0,0.40);
+}
+
+.phil__pickCard:focus-visible {
+  outline: 2px solid rgba(140, 90, 255, 0.70);
+  outline-offset: 2px;
+}
+
+/* ON state: cleaner, more premium */
+.phil__pickCard.is-on {
+  border-color: color-mix(in srgb, var(--accent, #8c5aff) 55%, rgba(255,255,255,0.12));
+  background:
+    radial-gradient(900px 260px at 18% 0%, color-mix(in srgb, var(--accent, #8c5aff) 22%, transparent), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0.10)),
+    rgba(0,0,0,0.18);
+  box-shadow:
+    0 18px 55px rgba(0,0,0,0.45),
+    0 0 0 1px color-mix(in srgb, var(--accent, #8c5aff) 25%, transparent) inset;
+}
+
+.phil__pickTop {
+  display: grid;
+  grid-template-columns: 34px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.phil__pickIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.22);
+  display: grid;
+  place-items: center;
+  color: color-mix(in srgb, var(--accent, #8c5aff) 80%, white);
+}
+
+.phil__pickTitle {
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* keep only ONE secondary label */
+.phil__pickKey {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.78);
+  white-space: nowrap;
+}
+
+.phil__pickDesc {
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.70);
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* prevents “essay cards” */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.phil__pickMeta {
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.phil__pickState {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.18);
+  color: rgba(255,255,255,0.72);
+}
+
+.phil__pickCard.is-on .phil__pickState {
+  border-color: color-mix(in srgb, var(--accent, #8c5aff) 35%, rgba(255,255,255,0.12));
+  background: color-mix(in srgb, var(--accent, #8c5aff) 14%, rgba(0,0,0,0.18));
+  color: rgba(235, 225, 255, 0.92);
+}
+
+/* CTAs */
+.phil__toolCtas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.phil__btn {
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(140, 90, 255, 0.38);
+  background: rgba(140, 90, 255, 0.12);
+  color: rgba(220, 200, 255, 0.92);
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.phil__btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(140, 90, 255, 0.56);
+  background: rgba(140, 90, 255, 0.18);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+}
+
+.phil__btn:focus-visible {
+  outline: 2px solid rgba(140, 90, 255, 0.70);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------
+   RIGHT: Output panel polish
+------------------------------------------------------------ */
+
+.phil__exampleHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.phil__exampleKicker {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 6px;
+}
+
+.phil__exampleTitle {
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 16px;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+/* Selected disciplines icons — HORIZONTAL row */
+.phil__activeIcons {
+  list-style: none;
+  padding: 0;
+  margin: 2px 0 0;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.phil__activeIcon {
+  display: flex;
+  align-items: center;
+}
+
+.phil__activeIconBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+
+  opacity: 0.9;
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+
+.phil__activeIconBadge:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.phil__beats {
+  display: grid;
+  gap: 10px;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.phil__beat {
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.12)),
+    rgba(0, 0, 0, 0.16);
+}
+
+.phil__beatLabel {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.60);
+  margin-bottom: 6px;
+}
+
+.phil__beatText {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.55;
+  font-size: 14px;
+}
+
+.phil__toolNote {
+  margin-top: 12px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(
+      900px 220px at 20% 0%,
+      rgba(80, 120, 255, 0.16),
+      transparent 60%
+    ),
+    rgba(0, 0, 0, 0.16);
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.55;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.phil__proofList {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: rgba(255, 255, 255, 0.76);
+  line-height: 1.65;
+  font-size: 14px;
+}
+
+.phil__proofList li {
+  margin: 6px 0;
+}
+
+/* FOOTER CTA */
+.phil__footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background:
+    radial-gradient(
+      1100px 520px at 10% 0%,
+      rgba(140, 90, 255, 0.10),
+      transparent 60%
+    ),
+    rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(12px);
+  margin: 26px 0 8px;
+}
+
+.phil__footerKicker {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 6px;
+}
+
+.phil__footerTitle {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 6px;
+}
+
+.phil__footerDesc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.68);
+  max-width: 64ch;
+  line-height: 1.5;
+}
+
+/* ------------------------------------------------------------
+   Responsive
+------------------------------------------------------------ */
+
+@media (max-width: 980px) {
+  .phil__card {
+    grid-column: span 12;
+  }
+
+  .phil__twoCol {
+    grid-template-columns: 1fr;
+  }
+
+  .phil__miniGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .phil__tool {
+    grid-template-columns: 1fr;
+  }
+
+  .phil__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .phil__activeIcons {
+    gap: 8px;
+    justify-content: flex-end;
+  }
+}

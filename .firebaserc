@@ -1,5 +1,12 @@
 {
   "projects": {
     "default": "danoberportfolio"
-  }
+  },
+  "targets": {},
+  "etags": {
+    "danoberportfolio": {
+      "extensionInstances": {}
+    }
+  },
+  "dataconnectEmulatorConfig": {}
 }
